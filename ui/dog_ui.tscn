@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://64q5gdatilyk"]
+
+[ext_resource type="Texture2D" uid="uid://b230gv6ukit37" path="res://art/temp_sprites/Sprite sheet for Basic Pack.png" id="1_wm7tm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm7tm"]
+atlas = ExtResource("1_wm7tm")
+region = Rect2(243, 36, 10, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w75a8"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-880bf6e565e0114b2624fcdfc56181bc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj5il"]
+atlas = SubResource("CompressedTexture2D_w75a8")
+region = Rect2(243, 52, 10, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wm7tm"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-880bf6e565e0114b2624fcdfc56181bc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w75a8"]
+atlas = SubResource("CompressedTexture2D_wm7tm")
+region = Rect2(244, 18, 7, 12)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nj5il"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-880bf6e565e0114b2624fcdfc56181bc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luusd"]
+atlas = SubResource("CompressedTexture2D_nj5il")
+region = Rect2(245, 2, 7, 12)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_luusd"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-880bf6e565e0114b2624fcdfc56181bc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uk22"]
+atlas = SubResource("CompressedTexture2D_luusd")
+region = Rect2(401, 129, 14, 13)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0uk22"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-880bf6e565e0114b2624fcdfc56181bc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_636sy"]
+atlas = SubResource("CompressedTexture2D_0uk22")
+region = Rect2(418, 130, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0wf5"]
+atlas = ExtResource("1_wm7tm")
+region = Rect2(551, 39, 18, 19)
+
+[node name="DogUI" type="CanvasLayer" unique_id=866075244]
+
+[node name="Panel" type="Panel" parent="." unique_id=292041402]
+custom_minimum_size = Vector2(0, 84.13)
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.508
+anchor_bottom = 1.0
+offset_top = -84.0
+offset_right = -0.21600342
+offset_bottom = 0.13000488
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="UpButton" type="TextureButton" parent="Panel" unique_id=1398830221]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 13.0
+offset_right = 78.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_wm7tm")
+stretch_mode = 5
+
+[node name="DownButton" type="TextureButton" parent="Panel" unique_id=729761976]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 13.0
+offset_right = 158.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_nj5il")
+stretch_mode = 5
+
+[node name="LeftButton" type="TextureButton" parent="Panel" unique_id=1451535180]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 13.0
+offset_right = 244.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_w75a8")
+stretch_mode = 5
+
+[node name="RightButton" type="TextureButton" parent="Panel" unique_id=371278514]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 13.0
+offset_right = 326.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_luusd")
+stretch_mode = 5
+
+[node name="PushButton" type="TextureButton" parent="Panel" unique_id=1239159125]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 13.0
+offset_right = 410.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_0uk22")
+stretch_mode = 5
+
+[node name="PullButton" type="TextureButton" parent="Panel" unique_id=1777781609]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 13.0
+offset_right = 489.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_636sy")
+stretch_mode = 5
+
+[node name="DigButton" type="TextureButton" parent="Panel" unique_id=1091299510]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 13.0
+offset_right = 565.0
+offset_bottom = 66.0
+texture_normal = SubResource("AtlasTexture_e0wf5")
+stretch_mode = 5
