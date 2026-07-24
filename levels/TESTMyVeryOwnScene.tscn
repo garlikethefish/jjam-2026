@@ -2,16 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dgc77hfheolrw" path="res://levels/dog.gd" id="1_17l7i"]
 [ext_resource type="Texture2D" uid="uid://pxpfk5e5w8ju" path="res://levels/dog.png" id="1_bno3v"]
+[ext_resource type="PackedScene" uid="uid://fo56f5ka8dqy" path="res://objects/tilemaps.tscn" id="3_cqtac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(24, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(177, 20)
-
 [node name="TestMyVeryOwnScene" type="Node2D" unique_id=1223715661]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1207084966]
+position = Vector2(371.22, 260)
 script = ExtResource("1_17l7i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1863643635]
@@ -24,14 +23,4 @@ texture = ExtResource("1_bno3v")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=525419951]
 zoom = Vector2(3.58, 3.58)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=574597039]
-position = Vector2(2, 26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=62808638]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="Dog" type="Sprite2D" parent="StaticBody2D" unique_id=346408037]
-position = Vector2(-47, -3)
-scale = Vector2(6.8750005, 1)
-texture = ExtResource("1_bno3v")
+[node name="Tilemaps" parent="." unique_id=1644692488 instance=ExtResource("3_cqtac")]
