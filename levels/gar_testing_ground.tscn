@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cgy0imkaqtp4k"]
+
+[ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="1_n8nh1"]
+[ext_resource type="PackedScene" uid="uid://fo56f5ka8dqy" path="res://objects/tilemaps.tscn" id="1_pxu34"]
+
+[node name="GarTestingGround" type="Node2D" unique_id=1688828784]
+
+[node name="Tilemaps" parent="." unique_id=1644692488 instance=ExtResource("1_pxu34")]
+
+[node name="Player" parent="." unique_id=1465888395 instance=ExtResource("1_n8nh1")]
+position = Vector2(48, 276)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2025783855]
+position = Vector2(263, 64)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_right = 630
+position_smoothing_enabled = true
