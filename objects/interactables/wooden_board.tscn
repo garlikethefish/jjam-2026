@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4ux4gyo5qphg"]
+
+[ext_resource type="Texture2D" uid="uid://csbxado7j3iw5" path="res://art/interactables/wooden_boards.png" id="1_kyk22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
+size = Vector2(32, 10)
+
+[node name="WoodenBoard" type="StaticBody2D" unique_id=1857522212]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=804527988]
+texture = ExtResource("1_kyk22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900599818]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e0wf5")
