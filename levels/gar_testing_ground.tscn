@@ -1,16 +1,24 @@
 [gd_scene format=3 uid="uid://cgy0imkaqtp4k"]
 
+[ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="1_cosrn"]
 [ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="1_n8nh1"]
 [ext_resource type="PackedScene" uid="uid://fo56f5ka8dqy" path="res://objects/tilemaps.tscn" id="1_pxu34"]
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="2_ydrim"]
+[ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="3_y3fui"]
 
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
+
+[node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("1_cosrn")]
 
 [node name="Tilemaps" parent="." unique_id=1644692488 instance=ExtResource("1_pxu34")]
 
 [node name="ParallaxOverworldManager" parent="." unique_id=388889426 instance=ExtResource("2_ydrim")]
 z_index = -1
-position = Vector2(62, 173)
+position = Vector2(62, 169)
+
+[node name="ParallaxUndergroundManager" parent="." unique_id=840454979 instance=ExtResource("3_y3fui")]
+position = Vector2(218, 396)
+scale = Vector2(0.18, 0.18)
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("1_n8nh1")]
 position = Vector2(48, 276)

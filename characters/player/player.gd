@@ -28,10 +28,12 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("sprint"):
 			velocity.x = direction * sprint_speed
 		else:
-			sprite.play("run")
+			if is_on_floor():
+				sprite.play("run")
 			velocity.x = direction * regular_speed
 	else:
-		sprite.play("idle")
+		if is_on_floor():
+			sprite.play("idle")
 		velocity.x = move_toward(velocity.x, 0, regular_speed)
 
 	move_and_slide()
