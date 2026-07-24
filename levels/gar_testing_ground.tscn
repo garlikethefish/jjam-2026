@@ -2,10 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="1_n8nh1"]
 [ext_resource type="PackedScene" uid="uid://fo56f5ka8dqy" path="res://objects/tilemaps.tscn" id="1_pxu34"]
+[ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="2_ydrim"]
 
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
 [node name="Tilemaps" parent="." unique_id=1644692488 instance=ExtResource("1_pxu34")]
+
+[node name="ParallaxOverworldManager" parent="." unique_id=388889426 instance=ExtResource("2_ydrim")]
+z_index = -1
+position = Vector2(62, 173)
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("1_n8nh1")]
 position = Vector2(48, 276)
