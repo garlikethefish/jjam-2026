@@ -22,6 +22,15 @@ scale = Vector2(0.18, 0.18)
 
 [node name="LeafPile" parent="." unique_id=868309721 instance=ExtResource("5_b7a35")]
 position = Vector2(104, 293)
+tilemap_to_trigger_index = 1
+
+[node name="LeafPile2" parent="." unique_id=248069664 instance=ExtResource("5_b7a35")]
+position = Vector2(422, 292)
+tilemap_to_trigger_index = 2
+
+[node name="LeafPile3" parent="." unique_id=1871198730 instance=ExtResource("5_b7a35")]
+position = Vector2(291, 292)
+hidden_interactable_type = "button"
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("1_n8nh1")]
 position = Vector2(48, 276)
