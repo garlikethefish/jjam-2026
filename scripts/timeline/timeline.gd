@@ -16,8 +16,6 @@ func add_action(point: TimelineAction):
 	timeline = timeline.slice(0, cur_action_index + 1)
 	timeline.push_back(point)
 	current_action = point
-	
-	print("added action ", timeline.size())
 
 
 func go_back_an_action():

@@ -14,6 +14,7 @@ var cur_jump_duration = .3
 @onready var right_cast_2d: RayCast2D = $RightCast
 @onready var left_cast_2d: RayCast2D = $LeftCast2
 @onready var sprite := $Sprite2D
+@onready var item_sprite := $ItemSprite2D
 
 enum FacingDirections {
 	Right = 1,
@@ -22,6 +23,7 @@ enum FacingDirections {
 
 var is_executing_command := OneValueBoolBuffer.new(false)
 
+var item_sprite_origin_local_pos := Vector2.ZERO
 	#get: return is_going_right or is_going_left or is_jumping
 var is_going_right = false
 var is_going_left = false
@@ -32,6 +34,10 @@ var facing_direction := FacingDirections.Right
 
 var save_gap_delay = .01
 var cur_save_gap_delay = save_gap_delay
+
+func _ready() -> void:
+	item_sprite_origin_local_pos = item_sprite.position
+
 
 func _physics_process(delta: float) -> void:
 	is_executing_command.set_value(is_going_left or is_going_right or is_jumping)
@@ -47,10 +53,15 @@ func _physics_process(delta: float) -> void:
 	if is_executing_command.is_true() and current_timeline_action != null:
 		current_timeline_action.phisics_add_point(TimelineActionPoint.new(self), delta)
 		
+	
 	if facing_direction == FacingDirections.Right:
+		# is looking right
 		sprite.flip_h = false
+		item_sprite.position = item_sprite_origin_local_pos
 	else:
+		# is looking left
 		sprite.flip_h = true
+		item_sprite.position = -item_sprite_origin_local_pos
 
 	
 	# Add the gravity.
@@ -81,6 +92,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity * air_drag
 	
+	# is jumping
 	if is_jumping:
 		if cur_jump_duration == max_jump_duration:
 			velocity.y = JUMP_VELOCITY
@@ -126,5 +138,13 @@ func interact():
 	pass
 
 
+func discard_item():
+	carried_item = null
+	item_sprite.texture = null
+
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("entered body: ", body.name)
+	if body is PhysicsItem and carried_item == null:
+		carried_item = (body as PhysicsItem).collect()
+		item_sprite.texture = carried_item.texture
+		print("collected")
