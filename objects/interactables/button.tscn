@@ -7,10 +7,11 @@
 atlas = ExtResource("1_dui33")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxh61"]
-size = Vector2(8, 12)
+size = Vector2(7, 6)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dui33"]
-radius = 5.76
+radius = 4.0
+height = 18.0
 
 [node name="Button" type="StaticBody2D" unique_id=1001828632]
 script = ExtResource("2_vxh61")
@@ -22,13 +23,13 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=782161259]
-position = Vector2(0, 10)
+position = Vector2(-0.5, 6)
 shape = SubResource("RectangleShape2D_vxh61")
 
 [node name="DetectorArea2D" type="Area2D" parent="." unique_id=329571573]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorArea2D" unique_id=1535724686]
-position = Vector2(0, -6)
+position = Vector2(0, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dui33")
 

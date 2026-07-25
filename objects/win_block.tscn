@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://x3n5exl1poym"]
+
+[ext_resource type="Script" uid="uid://brxaoip6xkfif" path="res://objects/win_block.gd" id="1_vhkx7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
+size = Vector2(32, 64)
+
+[node name="WinBlock" type="Area2D" unique_id=781955561]
+script = ExtResource("1_vhkx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128937]
+shape = SubResource("RectangleShape2D_e0wf5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

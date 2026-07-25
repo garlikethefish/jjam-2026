@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher_up.tscn" id="6_jwm2h"]
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button.tscn" id="6_xb8s4"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/door_activatable.tscn" id="8_p42pb"]
+[ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="9_etkh1"]
 
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
@@ -41,7 +42,7 @@ tilemap_to_trigger_index = 0
 
 [node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactable_to_trigger") instance=ExtResource("6_xb8s4")]
 z_index = -1
-position = Vector2(257.0001, 291)
+position = Vector2(257.0001, 297)
 interactable_to_trigger = NodePath("../PusherUp")
 
 [node name="LeafPile4" parent="." unique_id=1572140704 instance=ExtResource("5_b7a35")]
@@ -64,6 +65,9 @@ position = Vector2(343, 439)
 rotation = 1.5707964
 one_shot_press = true
 interactable_to_trigger = NodePath("../DoorActivatable")
+
+[node name="WinBlock" parent="." unique_id=1043751013 instance=ExtResource("9_etkh1")]
+position = Vector2(630, 432)
 
 [node name="Dog" parent="." unique_id=99944791 instance=ExtResource("6_b7a35")]
 z_index = -1
