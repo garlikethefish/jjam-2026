@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pxpfk5e5w8ju"
-path="res://.godot/imported/dog.png-2c14b1e60d9dd1f10ab237482e0ad6b0.ctex"
+path="res://.godot/imported/dog.png-38527939cb90f3668003ce862f922b3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/dog.png"
-dest_files=["res://.godot/imported/dog.png-2c14b1e60d9dd1f10ab237482e0ad6b0.ctex"]
+source_file="res://art/temp_sprites/dog.png"
+dest_files=["res://.godot/imported/dog.png-38527939cb90f3668003ce862f922b3d.ctex"]
 
 [params]
 

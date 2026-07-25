@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="7_0apsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(24, 11)
+size = Vector2(7.999999, 11)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oah1b"]
 texture = ExtResource("3_imr8j")
@@ -771,7 +771,7 @@ air_drag = 0.99
 position = Vector2(0.7799988, 4.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Sprite2D" type="Sprite2D" parent="Dog" unique_id=1140055758]
+[node name="Dog" type="Sprite2D" parent="Dog" unique_id=1140055758]
 texture = ExtResource("1_bno3v")
 
 [node name="RightCast" type="RayCast2D" parent="Dog" unique_id=1175004069]
