@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c0kjqc6rbxfm6" path="res://art/temp_sprites/tileset.png" id="4_phw4q"]
 [ext_resource type="Texture2D" uid="uid://cdfrj30omdq76" path="res://art/temp_sprites/intract_sprite-Sheet.png" id="5_oah1b"]
 [ext_resource type="Script" uid="uid://cmdxn5ll1l7xc" path="res://levels/interact_tween.gd" id="6_0apsu"]
+[ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="7_0apsu"]
 [ext_resource type="Script" uid="uid://5rwki5t5slvc" path="res://levels/koks.gd" id="7_ll0ob"]
 [ext_resource type="Texture2D" uid="uid://csbxado7j3iw5" path="res://art/interactables/wooden_boards.png" id="8_alk51"]
 [ext_resource type="AudioStream" uid="uid://bhu5eodyak17c" path="res://audio/sfx/fall2.mp3" id="9_alk51"]
-[ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="7_0apsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oah1b"]
 texture = ExtResource("3_imr8j")
@@ -864,16 +864,15 @@ scale = Vector2(3.19, 3.19)
 position = Vector2(-4.0752153, -1.8808873)
 shape = SubResource("RectangleShape2D_uhb7j")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="koks/Area2D" unique_id=1894096048]
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="koks" unique_id=450189359]
 stream = ExtResource("9_alk51")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="koks/AudioStreamPlayer2D" unique_id=249398234]
 
-[connection signal="body_entered" from="koks/Area2D" to="koks" method="_on_area_2d_body_entered"]
 [node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("7_0apsu")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=525419951]
 position = Vector2(371.22, 260)
 zoom = Vector2(1.55, 1.55)
+
+[connection signal="body_entered" from="koks/Area2D" to="koks" method="_on_area_2d_body_entered"]
