@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://chv8rif368584"]
+
+[ext_resource type="Script" uid="uid://cwvoq3pe044dj" path="res://objects/items/physics_item/physics_item.gd" id="1_7ye47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4g3r"]
+
+[node name="PhysicsItem" type="RigidBody2D" unique_id=1813311681]
+collision_layer = 3
+script = ExtResource("1_7ye47")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62923370]
+shape = SubResource("RectangleShape2D_n4g3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1867193909]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=16280887]

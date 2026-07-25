@@ -9,6 +9,8 @@ class_name Dog
 @export var max_jump_duration = .3
 var cur_jump_duration = .3
 
+@export var carried_item: Item
+
 @onready var right_cast_2d: RayCast2D = $RightCast
 @onready var left_cast_2d: RayCast2D = $LeftCast2
 @onready var sprite := $Sprite2D
@@ -28,7 +30,7 @@ var is_just_started_executing_command := false
 var current_timeline_action: TimelineAction
 var facing_direction := FacingDirections.Right
 
-var save_gap_delay = .05
+var save_gap_delay = .01
 var cur_save_gap_delay = save_gap_delay
 
 func _physics_process(delta: float) -> void:
@@ -73,7 +75,6 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 	
 	
-			
 	# drag
 	if is_on_floor():
 		velocity = velocity * ground_drag
@@ -83,11 +84,13 @@ func _physics_process(delta: float) -> void:
 	if is_jumping:
 		if cur_jump_duration == max_jump_duration:
 			velocity.y = JUMP_VELOCITY
-			
-		velocity.x = 100 * facing_direction 
+		
 		cur_jump_duration = clamp(cur_jump_duration - delta, 0, max_jump_duration)
 		
-		if cur_jump_duration == 0:
+		if cur_jump_duration != 0:
+			velocity.x = 100 * facing_direction 
+			
+		if cur_jump_duration == 0 and is_on_floor():
 			is_jumping = false
 		
 
@@ -121,3 +124,7 @@ func jump():
 
 func interact():
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("entered body: ", body.name)

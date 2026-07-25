@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dx1xp7kq7yhcf" path="res://ui/left_button_command.gd" id="4_0uk22"]
 [ext_resource type="Script" uid="uid://01hkrten5hqi" path="res://ui/right_button_command.gd" id="4_luusd"]
 [ext_resource type="Texture2D" uid="uid://pxpfk5e5w8ju" path="res://art/temp_sprites/dog.png" id="6_2hdji"]
+[ext_resource type="Shader" uid="uid://b8df4hsido8r4" path="res://shaders/new_shader.gdshader" id="6_gbemf"]
 [ext_resource type="Script" uid="uid://b8o2inomojtcc" path="res://ui/button_go_back_in_time.gd" id="7_gbemf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm7tm"]
@@ -50,6 +51,19 @@ region = Rect2(418, 130, 13, 12)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0wf5"]
 atlas = ExtResource("1_wm7tm")
 region = Rect2(551, 39, 18, 19)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbemf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hdji"]
+shader = ExtResource("6_gbemf")
+shader_parameter/height = 0.30999999307088
+shader_parameter/width = 0.30999999307088
+shader_parameter/radius = 0.45999998971808
+shader_parameter/speed = 0.88999998010672
+shader_parameter/edge_source = 0.0
+shader_parameter/edge_color = Color(0.58431375, 0, 0, 1)
+shader_parameter/inner_color = Color(0, 0, 0, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_gbemf")
 
 [node name="DogUI" type="CanvasLayer" unique_id=866075244]
 
@@ -106,6 +120,7 @@ stretch_mode = 5
 script = ExtResource("4_luusd")
 
 [node name="PushButton" type="TextureButton" parent="Panel" unique_id=1239159125]
+modulate = Color(1, 1, 1, 0.36862746)
 layout_mode = 0
 offset_left = 349.0
 offset_top = 13.0
@@ -115,6 +130,7 @@ texture_normal = SubResource("AtlasTexture_0uk22")
 stretch_mode = 5
 
 [node name="PullButton" type="TextureButton" parent="Panel" unique_id=1777781609]
+modulate = Color(1, 1, 1, 0.36078432)
 layout_mode = 0
 offset_left = 428.0
 offset_top = 13.0
@@ -133,16 +149,17 @@ texture_normal = SubResource("AtlasTexture_e0wf5")
 stretch_mode = 5
 
 [node name="GoBackInTime" type="TextureButton" parent="Panel" unique_id=1409984007]
+material = SubResource("ShaderMaterial_2hdji")
 layout_mode = 0
-offset_left = 602.0
-offset_top = -6.0
-offset_right = 685.0
-offset_bottom = 77.0
+offset_left = 603.0
+offset_right = 686.0
+offset_bottom = 83.0
 texture_normal = ExtResource("6_2hdji")
 stretch_mode = 5
 script = ExtResource("7_gbemf")
 
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/DownButton" to="Panel/DownButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/RightButton" to="Panel/RightButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/GoBackInTime" to="Panel/GoBackInTime" method="_on_pressed"]
