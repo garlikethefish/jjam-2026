@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0rvqjmyl4t6x"
-path="res://.godot/imported/leafpile.png-03c7a5624806944c0a18bbd0a4846e32.ctex"
+uid="uid://i0uja1vdxihq"
+path="res://.godot/imported/tilesetreal.png-bd56668895194c8e70995781749adb27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/interactables/leafpile.png"
-dest_files=["res://.godot/imported/leafpile.png-03c7a5624806944c0a18bbd0a4846e32.ctex"]
+source_file="res://art/tilemap/tilesetreal.png"
+dest_files=["res://.godot/imported/tilesetreal.png-bd56668895194c8e70995781749adb27.ctex"]
 
 [params]
 
