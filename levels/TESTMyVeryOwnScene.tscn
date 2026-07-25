@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://csbxado7j3iw5" path="res://art/interactables/wooden_boards.png" id="8_alk51"]
 [ext_resource type="AudioStream" uid="uid://bhu5eodyak17c" path="res://audio/sfx/fall2.mp3" id="9_alk51"]
 [ext_resource type="PackedScene" uid="uid://chv8rif368584" path="res://objects/items/physics_item/PhysicsItem.tscn" id="10_c03pt"]
+[ext_resource type="AudioStream" uid="uid://bl5mu5y50fij0" path="res://audio/music/bang.mp3" id="13_okbai"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="14_na83l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oah1b"]
 texture = ExtResource("3_imr8j")
@@ -876,8 +878,6 @@ shape = SubResource("RectangleShape2D_uhb7j")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="koks" unique_id=450189359]
 stream = ExtResource("9_alk51")
 
-[node name="AudioListener2D" type="AudioListener2D" parent="koks/AudioStreamPlayer2D" unique_id=249398234]
-
 [node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("7_0apsu")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=525419951]
@@ -891,5 +891,13 @@ item = SubResource("Resource_c03pt")
 [node name="PhysicsItem" parent="." unique_id=1813311681 instance=ExtResource("10_c03pt")]
 position = Vector2(280, 252)
 item = SubResource("Resource_c03pt")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=249398234]
+position = Vector2(25, -2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2011063276]
+stream = ExtResource("13_okbai")
+autoplay = true
+script = ExtResource("14_na83l")
 
 [connection signal="body_entered" from="koks/Area2D" to="koks" method="_on_area_2d_body_entered"]
