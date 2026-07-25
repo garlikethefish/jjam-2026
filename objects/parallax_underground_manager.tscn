@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfcd78cxvycrq" path="res://art/temp_sprites/parallax_underground/ParallaxCave1.png" id="4_8r4qa"]
 
 [node name="ParallaxUndergroundManager" type="Node2D" unique_id=388889426]
-z_index = -11
+z_index = -10
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1547134777]
 scroll_scale = Vector2(0.9, 0.9)

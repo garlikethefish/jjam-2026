@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://du3fwqngs8fbo" path="res://art/temp_sprites/parallax_overworld/5.png" id="5_djmpn"]
 
 [node name="ParallaxOverworldManager" type="Node2D" unique_id=388889426]
+z_index = -9
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1547134777]
 scroll_scale = Vector2(0.4, 0.4)
