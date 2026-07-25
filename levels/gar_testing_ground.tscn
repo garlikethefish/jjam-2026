@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="2_ydrim"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="3_y3fui"]
 [ext_resource type="PackedScene" uid="uid://bbxqf8ff1rep2" path="res://objects/interactables/leaf_pile.tscn" id="5_b7a35"]
+[ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="6_b7a35"]
+[ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher_up.tscn" id="6_jwm2h"]
+[ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button.tscn" id="6_xb8s4"]
+[ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/door_activatable.tscn" id="8_p42pb"]
 
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
@@ -22,17 +26,51 @@ scale = Vector2(0.18, 0.18)
 
 [node name="LeafPile" parent="." unique_id=868309721 instance=ExtResource("5_b7a35")]
 position = Vector2(104, 293)
+hidden_interactable_type = ""
 tilemap_to_trigger_index = 1
 
 [node name="LeafPile2" parent="." unique_id=248069664 instance=ExtResource("5_b7a35")]
 position = Vector2(422, 292)
+hidden_interactable_type = ""
 tilemap_to_trigger_index = 2
 
-[node name="LeafPile3" parent="." unique_id=1871198730 instance=ExtResource("5_b7a35")]
-position = Vector2(291, 292)
-hidden_interactable_type = "button"
+[node name="LeafPile3" parent="." unique_id=1362012210 instance=ExtResource("5_b7a35")]
+position = Vector2(255, 292)
+hidden_interactable_type = "empty"
+tilemap_to_trigger_index = 0
+
+[node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactable_to_trigger") instance=ExtResource("6_xb8s4")]
+z_index = -1
+position = Vector2(257.0001, 291)
+interactable_to_trigger = NodePath("../PusherUp")
+
+[node name="LeafPile4" parent="." unique_id=1572140704 instance=ExtResource("5_b7a35")]
+position = Vector2(343, 292)
+hidden_interactable_type = "empty"
+tilemap_to_trigger_index = 0
+
+[node name="PusherUp" parent="." unique_id=923376849 instance=ExtResource("6_jwm2h")]
+position = Vector2(208, 480)
+amount_of_height_to_add = 64
+speed = 30
+
+[node name="DoorActivatable" parent="." unique_id=2042251888 instance=ExtResource("8_p42pb")]
+position = Vector2(496, 432)
+amount_of_height_to_add = 30
+
+[node name="Button2" parent="." unique_id=274849450 node_paths=PackedStringArray("interactable_to_trigger") instance=ExtResource("6_xb8s4")]
+z_index = -1
+position = Vector2(343, 439)
+rotation = 1.5707964
+one_shot_press = true
+interactable_to_trigger = NodePath("../DoorActivatable")
+
+[node name="Dog" parent="." unique_id=99944791 instance=ExtResource("6_b7a35")]
+z_index = -1
+position = Vector2(137, 418)
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("1_n8nh1")]
+z_index = -1
 position = Vector2(48, 276)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2025783855]

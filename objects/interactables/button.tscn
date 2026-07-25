@@ -5,7 +5,6 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0wf5"]
 atlas = ExtResource("1_dui33")
-region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxh61"]
 size = Vector2(8, 12)
@@ -14,21 +13,24 @@ size = Vector2(8, 12)
 radius = 5.76
 
 [node name="Button" type="StaticBody2D" unique_id=1001828632]
+script = ExtResource("2_vxh61")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=266791413]
 unique_name_in_owner = true
 texture = SubResource("AtlasTexture_e0wf5")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=782161259]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_vxh61")
 
 [node name="DetectorArea2D" type="Area2D" parent="." unique_id=329571573]
-script = ExtResource("2_vxh61")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorArea2D" unique_id=1535724686]
 position = Vector2(0, -6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dui33")
 
-[connection signal="body_entered" from="DetectorArea2D" to="DetectorArea2D" method="_on_body_entered"]
+[connection signal="body_entered" from="DetectorArea2D" to="." method="_on_detector_area_2d_body_entered"]
+[connection signal="body_exited" from="DetectorArea2D" to="." method="_on_detector_area_2d_body_exited"]

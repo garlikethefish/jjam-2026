@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d12qbjxdr13sl"]
+
+[ext_resource type="Texture2D" uid="uid://btlq47qo7yl2s" path="res://art/interactables/door_activatable.png" id="1_2tx11"]
+[ext_resource type="Script" uid="uid://cte2tvaog2t7u" path="res://objects/interactables/pusher_up.gd" id="1_u5ml5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
+size = Vector2(32, 32)
+
+[node name="DoorActivatable" type="StaticBody2D" unique_id=2042251888]
+z_index = -1
+script = ExtResource("1_u5ml5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082987172]
+texture = ExtResource("1_2tx11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662256853]
+shape = SubResource("RectangleShape2D_e0wf5")

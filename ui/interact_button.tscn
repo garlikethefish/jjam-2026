@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccpfv2v7oimcn"]
 
-[ext_resource type="Texture2D" uid="uid://cdfrj30omdq76" path="res://levels/intract_sprite-Sheet.png" id="1_x3tdt"]
+[ext_resource type="Texture2D" uid="uid://cdfrj30omdq76" path="res://art/temp_sprites/intract_sprite-Sheet.png" id="1_x3tdt"]
 [ext_resource type="Script" uid="uid://cmdxn5ll1l7xc" path="res://levels/interact_tween.gd" id="2_ugy58"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ll0ob"]
