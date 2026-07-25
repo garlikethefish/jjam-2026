@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="2_ydrim"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="3_y3fui"]
 [ext_resource type="PackedScene" uid="uid://bbxqf8ff1rep2" path="res://objects/interactables/leaf_pile.tscn" id="5_b7a35"]
-[ext_resource type="PackedScene" uid="uid://b4ux4gyo5qphg" path="res://objects/interactables/wooden_board.tscn" id="6_jwm2h"]
 
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
@@ -23,11 +22,6 @@ scale = Vector2(0.18, 0.18)
 
 [node name="LeafPile" parent="." unique_id=868309721 instance=ExtResource("5_b7a35")]
 position = Vector2(104, 293)
-
-[node name="WoodenBoard" parent="LeafPile" unique_id=1857522212 instance=ExtResource("6_jwm2h")]
-z_index = -1
-position = Vector2(0, 3.4999998)
-scale = Vector2(0.35, 0.35)
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("1_n8nh1")]
 position = Vector2(48, 276)

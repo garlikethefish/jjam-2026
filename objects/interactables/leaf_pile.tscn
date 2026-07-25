@@ -1,15 +1,31 @@
 [gd_scene format=3 uid="uid://bbxqf8ff1rep2"]
 
-[ext_resource type="Texture2D" uid="uid://bvfv413ls0pn7" path="res://art/interactables/leaf_pile.png" id="1_or0ri"]
+[ext_resource type="Texture2D" uid="uid://b0rvqjmyl4t6x" path="res://art/interactables/leafpile.png" id="1_or0ri"]
+[ext_resource type="Script" uid="uid://bdekve2qfhrvy" path="res://objects/interactables/leaf_pile.gd" id="1_qjtcc"]
+[ext_resource type="PackedScene" uid="uid://b4ux4gyo5qphg" path="res://objects/interactables/wooden_board.tscn" id="2_61nel"]
+[ext_resource type="PackedScene" uid="uid://ccpfv2v7oimcn" path="res://ui/interact_button.tscn" id="4_1npa4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5agn1"]
 radius = 6.0
 height = 32.0
 
-[node name="LeafPile" type="Area2D" unique_id=868309721]
-scale = Vector2(2, 2)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1npa4"]
+load_path = "res://.godot/imported/leaf.png-6fef86d5fcb3513736838ddbb7191c52.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ppi2y"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0wf5"]
+radius = 40.0
+
+[node name="LeafPile" type="Area2D" unique_id=868309721 node_paths=PackedStringArray("wooden_board", "interact_key")]
+script = ExtResource("1_qjtcc")
+wooden_board = NodePath("WoodenBoard")
+interact_key = NodePath("InteractionArea/InteractButton")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1525767086]
+position = Vector2(0, 9)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_5agn1")
 
@@ -17,3 +33,20 @@ shape = SubResource("CapsuleShape2D_5agn1")
 texture = ExtResource("1_or0ri")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=271700048]
+texture = SubResource("CompressedTexture2D_1npa4")
+process_material = SubResource("ParticleProcessMaterial_ppi2y")
+
+[node name="WoodenBoard" parent="." unique_id=1857522212 instance=ExtResource("2_61nel")]
+z_index = -1
+position = Vector2(0, 11)
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2100693921]
+
+[node name="InteractButton" parent="InteractionArea" unique_id=1239832112 instance=ExtResource("4_1npa4")]
+position = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2116896835]
+shape = SubResource("CircleShape2D_e0wf5")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

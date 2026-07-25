@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://64q5gdatilyk"]
 
 [ext_resource type="Texture2D" uid="uid://b230gv6ukit37" path="res://art/temp_sprites/Sprite sheet for Basic Pack.png" id="1_wm7tm"]
+[ext_resource type="Script" uid="uid://da7cmcqdx1mqb" path="res://ui/dog_button_up.gd" id="2_w75a8"]
+[ext_resource type="Script" uid="uid://bhagri8uekkds" path="res://ui/down_button_dog_command.gd" id="3_nj5il"]
+[ext_resource type="Script" uid="uid://dx1xp7kq7yhcf" path="res://ui/left_button_command.gd" id="4_0uk22"]
+[ext_resource type="Script" uid="uid://01hkrten5hqi" path="res://ui/right_button_command.gd" id="4_luusd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm7tm"]
 atlas = ExtResource("1_wm7tm")
@@ -67,6 +71,7 @@ offset_right = 78.0
 offset_bottom = 66.0
 texture_normal = SubResource("AtlasTexture_wm7tm")
 stretch_mode = 5
+script = ExtResource("2_w75a8")
 
 [node name="DownButton" type="TextureButton" parent="Panel" unique_id=729761976]
 layout_mode = 0
@@ -76,6 +81,7 @@ offset_right = 158.0
 offset_bottom = 66.0
 texture_normal = SubResource("AtlasTexture_nj5il")
 stretch_mode = 5
+script = ExtResource("3_nj5il")
 
 [node name="LeftButton" type="TextureButton" parent="Panel" unique_id=1451535180]
 layout_mode = 0
@@ -85,6 +91,7 @@ offset_right = 244.0
 offset_bottom = 66.0
 texture_normal = SubResource("AtlasTexture_w75a8")
 stretch_mode = 5
+script = ExtResource("4_0uk22")
 
 [node name="RightButton" type="TextureButton" parent="Panel" unique_id=371278514]
 layout_mode = 0
@@ -94,6 +101,7 @@ offset_right = 326.0
 offset_bottom = 66.0
 texture_normal = SubResource("AtlasTexture_luusd")
 stretch_mode = 5
+script = ExtResource("4_luusd")
 
 [node name="PushButton" type="TextureButton" parent="Panel" unique_id=1239159125]
 layout_mode = 0
@@ -121,3 +129,7 @@ offset_right = 565.0
 offset_bottom = 66.0
 texture_normal = SubResource("AtlasTexture_e0wf5")
 stretch_mode = 5
+
+[connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/RightButton" to="Panel/RightButton" method="_on_pressed"]

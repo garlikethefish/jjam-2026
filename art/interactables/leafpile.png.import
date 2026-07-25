@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdfrj30omdq76"
-path="res://.godot/imported/intract_sprite-Sheet.png-a87e9d2294567a742c1657bea1ac4bb2.ctex"
+uid="uid://b0rvqjmyl4t6x"
+path="res://.godot/imported/leafpile.png-03c7a5624806944c0a18bbd0a4846e32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/intract_sprite-Sheet.png"
-dest_files=["res://.godot/imported/intract_sprite-Sheet.png-a87e9d2294567a742c1657bea1ac4bb2.ctex"]
+source_file="res://art/interactables/leafpile.png"
+dest_files=["res://.godot/imported/leafpile.png-03c7a5624806944c0a18bbd0a4846e32.ctex"]
 
 [params]
 
