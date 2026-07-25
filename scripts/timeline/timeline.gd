@@ -12,6 +12,21 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	
+
+
 func add_point(point: TimelinePoint):
 	timeline.push_back(point)
+
+
+func go_back_an_action():
+	pass
+
+
+func go_back_a_point():
+	print(timeline.size())
+	if timeline.size() <= 0: return
+	
+	var last_point = timeline.back()
+	last_point.revert()
+	
+	timeline.pop_back()

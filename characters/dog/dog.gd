@@ -19,14 +19,26 @@ enum FacingDirections {
 }
 
 var is_executing_command:
-	get: return is_going_right or is_going_left 
+	get: return is_going_right or is_going_left or is_jumping
 var is_going_right = false
 var is_going_left = false
 var is_jumping = false
 var facing_direction := FacingDirections.Right
 
+var save_gap_delay = .05
+var cur_save_gap_delay = save_gap_delay
 
 func _physics_process(delta: float) -> void:
+	
+	if is_executing_command:
+		# saving itself in timeline
+		if cur_save_gap_delay == 0:
+			GameManager.level_timeline.add_point(TimelinePoint.new(self))
+			cur_save_gap_delay = save_gap_delay
+			print("added point")
+		else:
+			cur_save_gap_delay = clamp(cur_save_gap_delay - delta, 0, save_gap_delay)
+	
 	if facing_direction == FacingDirections.Right:
 		sprite.flip_h = false
 	else:
@@ -53,8 +65,6 @@ func _physics_process(delta: float) -> void:
 		if left_cast_2d.is_colliding():
 			is_going_left = false
 			velocity = Vector2.ZERO
-		
-	print(facing_direction)
 	
 	
 			

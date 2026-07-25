@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bhagri8uekkds" path="res://ui/down_button_dog_command.gd" id="3_nj5il"]
 [ext_resource type="Script" uid="uid://dx1xp7kq7yhcf" path="res://ui/left_button_command.gd" id="4_0uk22"]
 [ext_resource type="Script" uid="uid://01hkrten5hqi" path="res://ui/right_button_command.gd" id="4_luusd"]
+[ext_resource type="Texture2D" uid="uid://pxpfk5e5w8ju" path="res://art/temp_sprites/dog.png" id="6_2hdji"]
+[ext_resource type="Script" uid="uid://b8o2inomojtcc" path="res://ui/button_go_back_in_time.gd" id="7_gbemf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm7tm"]
 atlas = ExtResource("1_wm7tm")
@@ -58,7 +60,7 @@ anchor_top = 1.0
 anchor_right = 0.508
 anchor_bottom = 1.0
 offset_top = -84.0
-offset_right = -0.21600342
+offset_right = 212.784
 offset_bottom = 0.13000488
 grow_horizontal = 2
 grow_vertical = 0
@@ -130,6 +132,17 @@ offset_bottom = 66.0
 texture_normal = SubResource("AtlasTexture_e0wf5")
 stretch_mode = 5
 
+[node name="GoBackInTime" type="TextureButton" parent="Panel" unique_id=1409984007]
+layout_mode = 0
+offset_left = 602.0
+offset_top = -6.0
+offset_right = 685.0
+offset_bottom = 77.0
+texture_normal = ExtResource("6_2hdji")
+stretch_mode = 5
+script = ExtResource("7_gbemf")
+
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/RightButton" to="Panel/RightButton" method="_on_pressed"]
+[connection signal="pressed" from="Panel/GoBackInTime" to="Panel/GoBackInTime" method="_on_pressed"]

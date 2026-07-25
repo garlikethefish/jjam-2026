@@ -1,14 +1,9 @@
 extends Node
 
-class_name TimelinePoint
+class_name TimelineAction
 
-var object: Node2D
-var object_state: Node2D
 
-func _init(obj: Node2D) -> void:
-	object = obj
-	#object_state = obj.cop
-	
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
