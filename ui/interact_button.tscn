@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ccpfv2v7oimcn"]
+
+[ext_resource type="Texture2D" uid="uid://cdfrj30omdq76" path="res://levels/intract_sprite-Sheet.png" id="1_x3tdt"]
+[ext_resource type="Script" uid="uid://cmdxn5ll1l7xc" path="res://levels/interact_tween.gd" id="2_ugy58"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ll0ob"]
+load_path = "res://.godot/imported/intract_sprite-Sheet.png-a87e9d2294567a742c1657bea1ac4bb2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alk51"]
+atlas = SubResource("CompressedTexture2D_ll0ob")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c03pt"]
+atlas = SubResource("CompressedTexture2D_ll0ob")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ltp"]
+atlas = ExtResource("1_x3tdt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj5b2"]
+atlas = ExtResource("1_x3tdt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alk51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c03pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4ltp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj5b2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="InteractButton" type="AnimatedSprite2D" unique_id=1239832112]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.19734178
+script = ExtResource("2_ugy58")
