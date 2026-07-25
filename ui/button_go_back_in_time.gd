@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	GameManager.level_timeline.go_back_a_point()
+	GameManager.level_timeline.go_back_an_action()

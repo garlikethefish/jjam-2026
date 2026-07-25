@@ -18,27 +18,33 @@ enum FacingDirections {
 	Left = -1
 }
 
-var is_executing_command:
-	get: return is_going_right or is_going_left or is_jumping
+var is_executing_command := OneValueBoolBuffer.new(false)
+
+	#get: return is_going_right or is_going_left or is_jumping
 var is_going_right = false
 var is_going_left = false
 var is_jumping = false
+var is_just_started_executing_command := false
+var current_timeline_action: TimelineAction
 var facing_direction := FacingDirections.Right
 
 var save_gap_delay = .05
 var cur_save_gap_delay = save_gap_delay
 
 func _physics_process(delta: float) -> void:
+	is_executing_command.set_value(is_going_left or is_going_right or is_jumping)
 	
-	if is_executing_command:
-		# saving itself in timeline
-		if cur_save_gap_delay == 0:
-			GameManager.level_timeline.add_point(TimelinePoint.new(self))
-			cur_save_gap_delay = save_gap_delay
-			print("added point")
-		else:
-			cur_save_gap_delay = clamp(cur_save_gap_delay - delta, 0, save_gap_delay)
+	# creating timeline action
+	if is_executing_command.just_true():
+		current_timeline_action = TimelineAction.new()
+		
+	if is_executing_command.just_false():
+		GameManager.level_timeline.add_action(current_timeline_action)
+		current_timeline_action = null
 	
+	if is_executing_command.is_true() and current_timeline_action != null:
+		current_timeline_action.phisics_add_point(TimelineActionPoint.new(self), delta)
+		
 	if facing_direction == FacingDirections.Right:
 		sprite.flip_h = false
 	else:
@@ -91,22 +97,26 @@ func _physics_process(delta: float) -> void:
 func go_left():
 	is_going_left = true
 	facing_direction = FacingDirections.Left
-
+	is_just_started_executing_command = true
 
 
 func go_right():
 	is_going_right = true
 	facing_direction = FacingDirections.Right
+	is_just_started_executing_command = true
 
 
 func go_down():
+	is_just_started_executing_command = true
 	pass
 
 
 func jump():
-	if is_on_floor():
-		is_jumping = true
-		cur_jump_duration = max_jump_duration
+	if !is_on_floor(): return
+	
+	is_jumping = true
+	cur_jump_duration = max_jump_duration
+	is_just_started_executing_command = true
 
 
 func interact():

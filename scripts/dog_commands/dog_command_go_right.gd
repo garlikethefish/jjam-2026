@@ -7,5 +7,5 @@ func _init(_dog: Dog) -> void:
 
 func _execute():
 	super()
-	if dog.is_executing_command: return
+	if dog.is_executing_command.is_true(): return
 	dog.go_right()

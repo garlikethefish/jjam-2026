@@ -10,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://csbxado7j3iw5" path="res://art/interactables/wooden_boards.png" id="8_alk51"]
 [ext_resource type="AudioStream" uid="uid://bhu5eodyak17c" path="res://audio/sfx/fall2.mp3" id="9_alk51"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(24, 11)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oah1b"]
 texture = ExtResource("3_imr8j")
 2:0/0 = 0

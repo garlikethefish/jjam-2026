@@ -2,7 +2,8 @@ extends Node
 
 class_name Timeline
 
-var timeline: Array[TimelinePoint] = []
+var timeline: Array[TimelineAction] = []
+var current_action: TimelineAction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,19 +15,15 @@ func _process(delta: float) -> void:
 	pass
 
 
-func add_point(point: TimelinePoint):
+func add_action(point: TimelineAction):
 	timeline.push_back(point)
 
 
 func go_back_an_action():
-	pass
-
-
-func go_back_a_point():
-	print(timeline.size())
 	if timeline.size() <= 0: return
 	
-	var last_point = timeline.back()
-	last_point.revert()
+	current_action = timeline.back()
+	current_action.revert()
 	
-	timeline.pop_back()
+	
+	#timeline.pop_back()
