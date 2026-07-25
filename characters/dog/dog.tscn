@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bcokajyu8fkm7" path="res://art/dog/doggy-Sheet.png" id="2_xy5tl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(24, 14)
+size = Vector2(27, 14)
 
 [sub_resource type="Animation" id="Animation_idn48"]
 length = 0.001
@@ -240,16 +240,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhb7j"]
-size = Vector2(35, 25)
+size = Vector2(40, 25)
 
 [node name="Dog" type="CharacterBody2D" unique_id=99944791 groups=["dog"]]
-collision_layer = 3
+collision_layer = 4
 script = ExtResource("1_xy5tl")
 JUMP_VELOCITY = -300.0
 air_drag = 0.99
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124381564]
-position = Vector2(-2, 9)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=925616820]
@@ -261,21 +261,25 @@ sprite_frames = SubResource("SpriteFrames_e0wf5")
 animation = &"idle"
 
 [node name="RightCast" type="RayCast2D" parent="." unique_id=488856792]
-position = Vector2(0, 11)
+position = Vector2(0, 9.000001)
 rotation = -1.5890222
-target_position = Vector2(-0.30581665, 16.777222)
+target_position = Vector2(-0.30982113, 16.997177)
 
 [node name="LeftCast2" type="RayCast2D" parent="." unique_id=347198966]
-position = Vector2(-5, 11)
+position = Vector2(0, 9.02)
 rotation = -1.5890222
-target_position = Vector2(0.24093628, -13.217804)
+target_position = Vector2(0.30982202, -16.997177)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=554304938]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=77595804]
-visible = false
-position = Vector2(-0.5, 3.5)
+position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_uhb7j")
 debug_color = Color(0.6938875, 0.42034918, 0.69267863, 0.41960785)
+
+[node name="ItemSprite2D" type="Sprite2D" parent="." unique_id=1030221622]
+position = Vector2(14, 1)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

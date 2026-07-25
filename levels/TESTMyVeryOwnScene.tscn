@@ -884,6 +884,10 @@ stream = ExtResource("9_alk51")
 position = Vector2(371.22, 260)
 zoom = Vector2(1.55, 1.55)
 
+[node name="PhysicsItem2" parent="." unique_id=1646069439 instance=ExtResource("10_c03pt")]
+position = Vector2(134, 253)
+item = SubResource("Resource_c03pt")
+
 [node name="PhysicsItem" parent="." unique_id=1813311681 instance=ExtResource("10_c03pt")]
 position = Vector2(280, 252)
 item = SubResource("Resource_c03pt")
