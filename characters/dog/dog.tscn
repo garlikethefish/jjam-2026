@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bt1dcowei4q0a"]
+
+[ext_resource type="Script" uid="uid://dgc77hfheolrw" path="res://characters/dog/dog.gd" id="1_xy5tl"]
+[ext_resource type="Texture2D" uid="uid://pxpfk5e5w8ju" path="res://art/temp_sprites/dog.png" id="2_dnsml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(24, 11)
+
+[node name="Dog" type="CharacterBody2D" unique_id=99944791 groups=["dog"]]
+script = ExtResource("1_xy5tl")
+JUMP_VELOCITY = -300.0
+air_drag = 0.99
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124381564]
+position = Vector2(0.7799988, 4.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=321260374]
+texture = ExtResource("2_dnsml")
+
+[node name="RightCast" type="RayCast2D" parent="." unique_id=488856792]
+rotation = -1.5890222
+target_position = Vector2(-0.30581665, 16.777222)
+
+[node name="LeftCast2" type="RayCast2D" parent="." unique_id=347198966]
+rotation = -1.5890222
+target_position = Vector2(0.24093628, -13.217804)

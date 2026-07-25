@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="jjam2026"
-run/main_scene="uid://cgy0imkaqtp4k"
+run/main_scene="uid://d151u4dxbjdpe"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*uid://dgo1kqm2uue6v"
+GameManager="*uid://j1lj8tswx24o"
 
 [display]
 
