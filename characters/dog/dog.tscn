@@ -1,13 +1,141 @@
 [gd_scene format=3 uid="uid://bt1dcowei4q0a"]
 
 [ext_resource type="Script" uid="uid://dgc77hfheolrw" path="res://characters/dog/dog.gd" id="1_xy5tl"]
-[ext_resource type="Texture2D" uid="uid://pxpfk5e5w8ju" path="res://art/temp_sprites/dog.png" id="2_dnsml"]
+[ext_resource type="Texture2D" uid="uid://bcokajyu8fkm7" path="res://art/dog/doggy-Sheet.png" id="2_xy5tl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(24, 11)
+size = Vector2(24, 14)
+
+[sub_resource type="Animation" id="Animation_idn48"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xy5tl"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_dnsml"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.22689280275926285, -0.1308996938995747, 0.22689280275926285]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_idn48"]
+_data = {
+&"RESET": SubResource("Animation_idn48"),
+&"idle": SubResource("Animation_xy5tl"),
+&"run": SubResource("Animation_dnsml")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnsml"]
+atlas = ExtResource("2_xy5tl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idn48"]
+atlas = ExtResource("2_xy5tl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynov0"]
+atlas = ExtResource("2_xy5tl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkkqn"]
+atlas = ExtResource("2_xy5tl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0wf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnsml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idn48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynov0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkkqn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhb7j"]
-size = Vector2(30, 18)
+size = Vector2(35, 25)
 
 [node name="Dog" type="CharacterBody2D" unique_id=99944791 groups=["dog"]]
 collision_layer = 3
@@ -16,24 +144,31 @@ JUMP_VELOCITY = -300.0
 air_drag = 0.99
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124381564]
-position = Vector2(0.7799988, 4.5)
+position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=321260374]
-texture = ExtResource("2_dnsml")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=925616820]
+libraries/ = SubResource("AnimationLibrary_idn48")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1735148324]
+sprite_frames = SubResource("SpriteFrames_e0wf5")
+animation = &"idle"
 
 [node name="RightCast" type="RayCast2D" parent="." unique_id=488856792]
+position = Vector2(0, 11)
 rotation = -1.5890222
 target_position = Vector2(-0.30581665, 16.777222)
 
 [node name="LeftCast2" type="RayCast2D" parent="." unique_id=347198966]
+position = Vector2(-5, 11)
 rotation = -1.5890222
 target_position = Vector2(0.24093628, -13.217804)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=554304938]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=77595804]
-position = Vector2(1, 2)
+visible = false
+position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_uhb7j")
 debug_color = Color(0.6938875, 0.42034918, 0.69267863, 0.41960785)
 
