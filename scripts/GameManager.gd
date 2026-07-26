@@ -6,10 +6,10 @@ var level_timeline := Timeline.new()
 
 var level_scenes: Dictionary[String, String]= {
 	"Level1": "res://levels/gar_testing_ground.tscn",
-	#"Level2": preload(),
+	"Level2": "res://levels/level_2new.tsc",
 	"Level3": "res://levels/Level3.tscn",
 	"Level4": "res://levels/level_4.tscn",
-	#"Level5": preload(),
+	"Level5": "res://levels/Level5.tscn",
 	"HeroScene": "res://ui/menu_scenes/hero_page/HeroPage.tscn",
 	"LevelSelection": "res://ui/menu_scenes/level_selection/LevelSelection.tscn"
 }

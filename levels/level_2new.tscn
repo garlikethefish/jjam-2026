@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dgo7ba50cjqgj"]
+
+[ext_resource type="PackedScene" uid="uid://cgt8t3ixs2b4e" path="res://objects/tilemaps_level_2.tscn" id="1_1v83y"]
+[ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="2_e4rn0"]
+[ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="3_tacvf"]
+[ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="4_6qtqa"]
+[ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="5_jc5sa"]
+[ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="6_b5alm"]
+[ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="7_j7m3c"]
+[ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="8_8vieb"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="9_d14rb"]
+[ext_resource type="PackedScene" uid="uid://c542oi4dxmucx" path="res://objects/interactables/hole/Hole.tscn" id="10_stgdi"]
+[ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="11_0hhcb"]
+[ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/pusher/door_activatable.tscn" id="12_42ah5"]
+[ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher/pusher_up.tscn" id="13_mwduv"]
+[ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button/button.tscn" id="14_t3ufo"]
+
+[node name="Level2new" type="Node2D" unique_id=440271369]
+
+[node name="TilemapsLevel2" parent="." unique_id=1644692488 instance=ExtResource("1_1v83y")]
+
+[node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("2_e4rn0")]
+
+[node name="ParallaxOverworldManager" parent="." unique_id=388889426 instance=ExtResource("3_tacvf")]
+position = Vector2(495, -21)
+scale = Vector2(1.115, 1.115)
+
+[node name="ParallaxUndergroundManager" parent="." unique_id=1874155465 instance=ExtResource("4_6qtqa")]
+position = Vector2(387, 303)
+scale = Vector2(0.25, 0.25)
+
+[node name="ParallaxUndergroundManager2" parent="." unique_id=2102937814 instance=ExtResource("4_6qtqa")]
+position = Vector2(387, 568)
+scale = Vector2(0.25, 0.25)
+
+[node name="Dog" parent="." unique_id=99944791 instance=ExtResource("5_jc5sa")]
+z_index = -1
+position = Vector2(91, 287)
+
+[node name="Player" parent="." unique_id=1465888395 instance=ExtResource("6_b5alm")]
+z_index = -1
+position = Vector2(107, 122)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1569748020]
+position = Vector2(263, 86)
+zoom = Vector2(1.665, 1.665)
+limit_left = 63
+limit_top = 517
+limit_right = 863
+limit_bottom = -176
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("7_j7m3c")
+top_pos_limits = Array[int]([63, 234, 883, -176])
+middle_pos_limits = Array[int]([63, 517, 883, -176])
+bottom_pos_limits = Array[int]([63, 517, 883, 190])
+current_cam_level = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=47789839]
+position = Vector2(0, -108)
+stream = ExtResource("8_8vieb")
+volume_db = 8.0
+autoplay = true
+script = ExtResource("9_d14rb")
+
+[node name="Hole" parent="." unique_id=306291165 node_paths=PackedStringArray("output_hole") instance=ExtResource("10_stgdi")]
+position = Vector2(370, 305)
+rotation = -1.5707964
+output_hole = NodePath("../Hole2")
+
+[node name="Hole2" parent="." unique_id=38324163 instance=ExtResource("10_stgdi")]
+position = Vector2(464, 401)
+rotation = -4.712389
+
+[node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("11_0hhcb")]
+position = Vector2(812, 380)
+next_scene_name = "Level3"
+
+[node name="DoorActivatable2" parent="." unique_id=2042251888 instance=ExtResource("12_42ah5")]
+position = Vector2(528, 386)
+
+[node name="PusherUp" parent="." unique_id=923376849 instance=ExtResource("13_mwduv")]
+position = Vector2(433, 178)
+amount_of_height_to_add = 60
+
+[node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("14_t3ufo")]
+position = Vector2(246, 137)
+interactables_to_trigger = [NodePath("../PusherUp")]
+
+[node name="Button2" parent="." unique_id=226756747 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("14_t3ufo")]
+position = Vector2(496, 9)
+interactables_to_trigger = [NodePath("../DoorActivatable2")]

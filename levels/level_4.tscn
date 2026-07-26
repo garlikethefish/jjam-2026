@@ -32,6 +32,10 @@ scale = Vector2(1.115, 1.115)
 position = Vector2(387, 303)
 scale = Vector2(0.25, 0.25)
 
+[node name="ParallaxUndergroundManager2" parent="." unique_id=1796895632 instance=ExtResource("4_g1ha7")]
+position = Vector2(387, 565)
+scale = Vector2(0.25, 0.25)
+
 [node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("5_52a3b")]
 position = Vector2(272, 361)
 interactables_to_trigger = [NodePath("../WallLong")]
