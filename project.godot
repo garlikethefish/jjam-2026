@@ -36,6 +36,7 @@ tilemaps=""
 player=""
 dog=""
 transition_screen=""
+lift=""
 
 [input]
 

@@ -37,11 +37,11 @@ next_scene_name = "WinScreen"
 
 [node name="Dog" parent="." unique_id=99944791 instance=ExtResource("5_4pmw3")]
 z_index = -1
-position = Vector2(41, 497)
+position = Vector2(919, 309)
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("6_38k6x")]
 z_index = -1
-position = Vector2(48, 291)
+position = Vector2(919, 309)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1470997361]
 position = Vector2(263, 86)
@@ -64,10 +64,10 @@ volume_db = 8.0
 autoplay = true
 script = ExtResource("9_xp58y")
 
-[node name="Lift" type="StaticBody2D" parent="." unique_id=12251557]
-position = Vector2(632, 493)
+[node name="Lift" type="StaticBody2D" parent="." unique_id=12251557 groups=["lift"]]
+position = Vector2(632, 495)
 script = ExtResource("11_4pmw3")
-amount_of_height_to_add = 100
+amount_of_height_to_add = 180
 
 [node name="Sprite2D" type="Sprite2D" parent="Lift" unique_id=1989409416]
 texture = ExtResource("11_5cm8g")

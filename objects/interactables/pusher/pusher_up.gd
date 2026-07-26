@@ -16,6 +16,9 @@ func _physics_process(delta: float) -> void:
 		
 		if position == new_pos:
 			finished_action = true
+			if self.is_in_group("lift"):
+				var anim_player : AnimationPlayer = get_child(2)
+				anim_player.play("end")
 
 func activate():
 	match push_direction:
