@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c68napmu6sr6r"]
 
-[ext_resource type="Texture2D" uid="uid://bnn7xxgkgpk1j" path="res://art/temp_sprites/parallax_underground/ParallaxCave4.png" id="1_ja424"]
-[ext_resource type="Texture2D" uid="uid://cb8h2a18cjwdq" path="res://art/temp_sprites/parallax_underground/ParallaxCave3.png" id="2_456fx"]
-[ext_resource type="Texture2D" uid="uid://cn8qdnbvkk0ug" path="res://art/temp_sprites/parallax_underground/ParallaxCave2.png" id="3_fjmue"]
-[ext_resource type="Texture2D" uid="uid://cfcd78cxvycrq" path="res://art/temp_sprites/parallax_underground/ParallaxCave1.png" id="4_8r4qa"]
+[ext_resource type="Texture2D" uid="uid://cxonvidt2nhwy" path="res://art/parallax_underground/1_underground.png" id="1_ja424"]
+[ext_resource type="Texture2D" uid="uid://bvonu3peppx1r" path="res://art/parallax_underground/2_underground.png" id="2_456fx"]
+[ext_resource type="Texture2D" uid="uid://ciybhtbobbcgm" path="res://art/parallax_underground/3_underground.png" id="3_fjmue"]
+[ext_resource type="Texture2D" uid="uid://d01sqqnhxnswj" path="res://art/parallax_underground/4_underground.png" id="4_8r4qa"]
 
 [node name="ParallaxUndergroundManager" type="Node2D" unique_id=388889426]
 z_index = -10
@@ -11,7 +11,7 @@ z_index = -10
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1547134777]
 scroll_scale = Vector2(0.9, 0.9)
 repeat_size = Vector2(1152, 0)
-repeat_times = 5
+repeat_times = 6
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=527170419]
@@ -20,7 +20,7 @@ texture = ExtResource("1_ja424")
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1202381394]
 scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(1152, 0)
-repeat_times = 5
+repeat_times = 6
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1058714369]
@@ -29,7 +29,7 @@ texture = ExtResource("2_456fx")
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1943098742]
 scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(1152, 0)
-repeat_times = 5
+repeat_times = 6
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=2116863662]
@@ -38,7 +38,7 @@ texture = ExtResource("3_fjmue")
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1680360203]
 scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(1152, 0)
-repeat_times = 5
+repeat_times = 6
 follow_viewport = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=2036493971]
