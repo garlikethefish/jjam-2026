@@ -1,9 +1,9 @@
 extends Camera2D
 
 # array values: left, top, right, bottom of camera limits
-@export var top_pos_limits = [-1,210,714,-76]
-@export var middle_pos_limits = [-1,538,714,-76]
-@export var bottom_pos_limits = [-1,210,714,-195]
+@export var top_pos_limits: Array[int] = [-1,210,714,-76]
+@export var middle_pos_limits: Array[int] = [-1,538,714,-76]
+@export var bottom_pos_limits: Array[int] = [-1,210,714,-195]
 
 var current_pos_limits = []
 

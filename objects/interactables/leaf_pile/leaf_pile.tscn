@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbxqf8ff1rep2"]
 
-[ext_resource type="Script" uid="uid://bdekve2qfhrvy" path="res://objects/interactables/leaf_pile.gd" id="1_qjtcc"]
+[ext_resource type="Script" uid="uid://bdekve2qfhrvy" path="res://objects/interactables/leaf_pile/leaf_pile.gd" id="1_qjtcc"]
 [ext_resource type="Texture2D" uid="uid://cmb6tsq0njol" path="res://art/interactables/bush.png" id="2_1npa4"]
 [ext_resource type="PackedScene" uid="uid://b4ux4gyo5qphg" path="res://objects/interactables/wooden_board.tscn" id="2_61nel"]
 [ext_resource type="PackedScene" uid="uid://ccpfv2v7oimcn" path="res://ui/interact_button.tscn" id="4_1npa4"]
