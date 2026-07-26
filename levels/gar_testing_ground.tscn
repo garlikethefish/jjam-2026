@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/door_activatable.tscn" id="8_p42pb"]
 [ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="9_etkh1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
+size = Vector2(46, 20)
+
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
 [node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("1_cosrn")]
@@ -53,7 +56,7 @@ tilemap_to_trigger_index = 0
 
 [node name="PusherUp" parent="." unique_id=923376849 instance=ExtResource("6_jwm2h")]
 position = Vector2(237, 529)
-amount_of_height_to_add = 70
+amount_of_height_to_add = 67
 speed = 30
 
 [node name="DoorActivatable" parent="." unique_id=2042251888 instance=ExtResource("8_p42pb")]
@@ -69,6 +72,18 @@ interactable_to_trigger = NodePath("../DoorActivatable")
 
 [node name="WinBlock" parent="." unique_id=1043751013 instance=ExtResource("9_etkh1")]
 position = Vector2(806, 474)
+
+[node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1830306647]
+position = Vector2(551, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBlocker2" unique_id=1806417851]
+shape = SubResource("RectangleShape2D_e0wf5")
+
+[node name="PlayerBlocker" type="StaticBody2D" parent="." unique_id=590424334]
+position = Vector2(104, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBlocker" unique_id=2137000330]
+shape = SubResource("RectangleShape2D_e0wf5")
 
 [node name="Dog" parent="." unique_id=99944791 instance=ExtResource("6_b7a35")]
 z_index = -1
