@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b7ty8lt467xlq" path="res://art/interactables/button-Sheet.png" id="1_dui33"]
 [ext_resource type="Script" uid="uid://bsoxi52mi11xt" path="res://objects/interactables/button.gd" id="2_vxh61"]
+[ext_resource type="AudioStream" uid="uid://dolx6plcghytb" path="res://audio/sfx/button2.mp3" id="3_oxdwh"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="4_8088a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0wf5"]
 atlas = ExtResource("1_dui33")
@@ -12,6 +14,11 @@ size = Vector2(7, 6)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dui33"]
 radius = 4.0
 height = 18.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vxh61"]
+random_pitch = 1.7817973
+streams_count = 1
+stream_0/stream = ExtResource("3_oxdwh")
 
 [node name="Button" type="StaticBody2D" unique_id=1001828632]
 collision_mask = 4
@@ -34,6 +41,12 @@ collision_mask = 4
 position = Vector2(0, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dui33")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=134999806]
+stream = SubResource("AudioStreamRandomizer_vxh61")
+volume_db = 8.0
+script = ExtResource("4_8088a")
+loop_from_start = false
 
 [connection signal="body_entered" from="DetectorArea2D" to="." method="_on_detector_area_2d_body_entered"]
 [connection signal="body_exited" from="DetectorArea2D" to="." method="_on_detector_area_2d_body_exited"]

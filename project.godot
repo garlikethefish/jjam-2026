@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*uid://dgo1kqm2uue6v"
 GameManager="*uid://j1lj8tswx24o"
+TransitionScreen="*uid://dvakk3sp736d6"
 
 [display]
 
@@ -34,6 +35,7 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 tilemaps=""
 player=""
 dog=""
+transition_screen=""
 
 [input]
 

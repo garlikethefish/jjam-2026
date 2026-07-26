@@ -16,6 +16,7 @@ var cur_jump_duration = .3
 @onready var left_cast_2d: RayCast2D = $LeftCast2
 @onready var sprite := $Sprite2D
 @onready var item_sprite := $ItemSprite2D
+@onready var footstep_player: AudioStreamPlayer2D = $FootstepPlayer2D
 
 enum FacingDirections {
 	Right = 1,
@@ -46,10 +47,14 @@ func _physics_process(delta: float) -> void:
 	# creating timeline action
 	if is_executing_command.just_true():
 		current_timeline_action = TimelineAction.new()
+		footstep_player.stream_paused = false
+		anim_player.play("run")
+		
 		
 	if is_executing_command.just_false():
 		GameManager.level_timeline.add_action(current_timeline_action)
 		current_timeline_action = null
+		footstep_player.stream_paused = true
 		anim_player.play("idle")
 	
 	if is_executing_command.is_true() and current_timeline_action != null:
@@ -115,20 +120,18 @@ func go_left():
 	is_going_left = true
 	facing_direction = FacingDirections.Left
 	is_just_started_executing_command = true
-	anim_player.play("run")
 
 
 func go_right():
 	is_going_right = true
 	facing_direction = FacingDirections.Right
 	is_just_started_executing_command = true
-	anim_player.play("run")
 
 
 func go_down():
 	is_just_started_executing_command = true
 	pass
-	anim_player.play("run")
+	
 
 
 func jump():
@@ -137,7 +140,7 @@ func jump():
 	is_jumping = true
 	cur_jump_duration = max_jump_duration
 	is_just_started_executing_command = true
-	anim_player.play("run")
+	
 
 
 func interact():

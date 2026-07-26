@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button.tscn" id="6_xb8s4"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/door_activatable.tscn" id="8_p42pb"]
 [ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="9_etkh1"]
+[ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="12_v01fl"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="13_ihi63"]
 
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
@@ -83,3 +85,12 @@ zoom = Vector2(2, 2)
 limit_left = 0
 limit_right = 630
 position_smoothing_enabled = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=722673524]
+position = Vector2(25, -2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=647944661]
+stream = ExtResource("12_v01fl")
+volume_db = 8.0
+autoplay = true
+script = ExtResource("13_ihi63")
