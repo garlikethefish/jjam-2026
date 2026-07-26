@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/pusher/door_activatable.tscn" id="12_l3m5x"]
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button/button.tscn" id="14_l3m5x"]
 [ext_resource type="PackedScene" uid="uid://cke0jr7ww7mpj" path="res://objects/interactables/pusher/wall_long.tscn" id="14_t207q"]
+[ext_resource type="Texture2D" uid="uid://djhbvkdulj4lw" path="res://art/sign4-export.png" id="15_g7b2g"]
 [ext_resource type="PackedScene" uid="uid://cndhyhffh6ue8" path="res://objects/interactables/pusher/wall_short.tscn" id="15_t207q"]
 
 [node name="Level6" type="Node2D" unique_id=440271369]
@@ -67,7 +68,7 @@ script = ExtResource("8_g7b2g")
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("9_6s2qa")]
 position = Vector2(849, 263)
-next_scene_name = "Level3"
+next_scene_name = "Level7"
 
 [node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("14_l3m5x")]
 position = Vector2(209, 148)
@@ -110,6 +111,11 @@ output_hole = NodePath("../Hole")
 [node name="WallLong" parent="." unique_id=516772339 instance=ExtResource("14_t207q")]
 position = Vector2(298, 235)
 push_direction = "Up"
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=516225873]
+z_index = -2
+position = Vector2(770, 139)
+texture = ExtResource("15_g7b2g")
 
 [node name="WallShort" parent="." unique_id=1244231921 instance=ExtResource("15_t207q")]
 position = Vector2(275, 333)

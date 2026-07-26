@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c25g5ef3dw45s"]
+
+[ext_resource type="PackedScene" uid="uid://rovmf7682mta" path="res://levels/tilemap_level_7.tscn" id="1_cicrg"]
+[ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="1_q3845"]
+[ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="2_cicrg"]
+[ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="3_5cm8g"]
+[ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="4_86l0o"]
+[ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="5_4pmw3"]
+[ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="6_38k6x"]
+[ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="7_cl460"]
+[ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="8_sbxnr"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="9_xp58y"]
+[ext_resource type="Script" uid="uid://cte2tvaog2t7u" path="res://objects/interactables/pusher/pusher_up.gd" id="11_4pmw3"]
+[ext_resource type="Texture2D" uid="uid://jjymet7qxfvl" path="res://art/lift-empty.png" id="11_5cm8g"]
+[ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button/button.tscn" id="12_86l0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
+size = Vector2(63, 9)
+
+[node name="Level7" type="Node2D" unique_id=1223476035]
+
+[node name="TilemapLevel7" parent="." unique_id=201290018 instance=ExtResource("1_cicrg")]
+position = Vector2(-72, 245)
+
+[node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("1_q3845")]
+
+[node name="ParallaxOverworldManager" parent="." unique_id=388889426 instance=ExtResource("2_cicrg")]
+position = Vector2(374, 165)
+
+[node name="ParallaxUndergroundManager" parent="." unique_id=1707953830 instance=ExtResource("3_5cm8g")]
+position = Vector2(387, 411)
+scale = Vector2(0.25, 0.25)
+
+[node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("4_86l0o")]
+position = Vector2(879, 301)
+next_scene_name = "WinScreen"
+
+[node name="Dog" parent="." unique_id=99944791 instance=ExtResource("5_4pmw3")]
+z_index = -1
+position = Vector2(41, 497)
+
+[node name="Player" parent="." unique_id=1465888395 instance=ExtResource("6_38k6x")]
+z_index = -1
+position = Vector2(48, 291)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1470997361]
+position = Vector2(263, 86)
+zoom = Vector2(1.665, 1.665)
+limit_left = -1
+limit_top = 592
+limit_right = 777
+limit_bottom = -130
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("7_cl460")
+top_pos_limits = Array[int]([-1, 592, 714, -130])
+middle_pos_limits = Array[int]([-1, 700, 777, 31])
+bottom_pos_limits = Array[int]([-1, 700, 714, 200])
+current_cam_level = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1751293220]
+stream = ExtResource("8_sbxnr")
+volume_db = 8.0
+autoplay = true
+script = ExtResource("9_xp58y")
+
+[node name="Lift" type="StaticBody2D" parent="." unique_id=12251557]
+position = Vector2(632, 493)
+script = ExtResource("11_4pmw3")
+amount_of_height_to_add = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="Lift" unique_id=1989409416]
+texture = ExtResource("11_5cm8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lift" unique_id=961609549]
+position = Vector2(0.5, 27.5)
+shape = SubResource("RectangleShape2D_e0wf5")
+
+[node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("12_86l0o")]
+position = Vector2(557, 319)
+interactables_to_trigger = [NodePath("../Lift")]
