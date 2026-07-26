@@ -8,31 +8,30 @@ extends Camera2D
 var current_pos_limits = []
 
 # cam levels: 1 = top, 2 = middle, 3 = bottom
-var current_cam_level := 2 # middle
+@export var current_cam_level := 2 # middle
 
 func _ready() -> void:
-	current_pos_limits = middle_pos_limits # set base camera limits
 	set_camera_limits()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("move camera"):
-		match current_cam_level:
-			1:
-				print(1)
-				current_pos_limits = middle_pos_limits
-				current_cam_level = 2
-			2:
-				print(2)
-				current_pos_limits = bottom_pos_limits
-				current_cam_level = 3
-			3:
-				print(3)
-				current_pos_limits = top_pos_limits
-				current_cam_level = 1
 		set_camera_limits()
 
 func set_camera_limits():
+	match current_cam_level:
+		1:
+			print(1)
+			current_pos_limits = middle_pos_limits
+			current_cam_level = 2
+		2:
+			print(2)
+			current_pos_limits = bottom_pos_limits
+			current_cam_level = 3
+		3:
+			print(3)
+			current_pos_limits = top_pos_limits
+			current_cam_level = 1
 	self.limit_left = current_pos_limits[0]
 	self.limit_top = current_pos_limits[1]
 	self.limit_right = current_pos_limits[2]
