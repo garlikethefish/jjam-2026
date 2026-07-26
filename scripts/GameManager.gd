@@ -31,3 +31,4 @@ func go_to_scene(scene_name: String):
 	await TransitionScreen.close().finished
 	get_tree().change_scene_to_file(GameManager.level_scenes[scene_name])
 	await TransitionScreen.open().finished
+	executed_command_count = 0
