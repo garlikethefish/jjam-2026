@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cgai00hjsrnn2"]
+
+[ext_resource type="Script" uid="uid://cussv16785s6b" path="res://objects/items/item_base.gd" id="1_kmtjr"]
+[ext_resource type="Texture2D" uid="uid://bpfggq5c5dfgd" path="res://art/interactables/keys-Sheet.png" id="2_sev7v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74rv5"]
+atlas = ExtResource("2_sev7v")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_kmtjr")
+name = "green_key"
+texture = SubResource("AtlasTexture_74rv5")
+metadata/_custom_type_script = "uid://cussv16785s6b"

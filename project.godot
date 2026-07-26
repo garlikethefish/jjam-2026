@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="jjam2026"
-run/main_scene="uid://cgy0imkaqtp4k"
+run/main_scene="uid://cxxuioxy2oiax"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
