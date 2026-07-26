@@ -969,7 +969,7 @@ sources/0 = SubResource("TileSetAtlasSource_io8mb")
 sources/1 = SubResource("TileSetAtlasSource_tejmn")
 sources/2 = SubResource("TileSetAtlasSource_mfoue")
 
-[node name="TilemapsLevel8" type="Node2D" unique_id=1644692488 groups=["tilemaps"]]
+[node name="TilemapsLevel4" type="Node2D" unique_id=1644692488 groups=["tilemaps"]]
 
 [node name="Tilemap" type="TileMapLayer" parent="." unique_id=1216216135]
 position = Vector2(0, -495)

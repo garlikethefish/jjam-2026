@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b14iipby37noq"]
 
 [ext_resource type="Script" uid="uid://cte2tvaog2t7u" path="res://objects/interactables/pusher_up.gd" id="1_m4yqv"]
-[ext_resource type="Texture2D" uid="uid://dbx7dbtpb14w1" path="res://art/interactables/lift-export.png" id="2_m4yqv"]
+[ext_resource type="Texture2D" uid="uid://cg22dehydbdsh" path="res://art/interactables/lift-export.png" id="2_m4yqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
 size = Vector2(32, 10)
@@ -11,6 +11,7 @@ z_index = -1
 script = ExtResource("1_m4yqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984506230]
+position = Vector2(0, 96)
 texture = ExtResource("2_m4yqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=993975729]

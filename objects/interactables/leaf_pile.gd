@@ -27,25 +27,27 @@ func _physics_process(_delta: float) -> void:
 		if is_bush_destroyed and add_plank:
 			interact_key.visible = false
 			
-			# move board
-			var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
-			
-			var board_start_pos = wooden_board.position
-			tween.tween_property(wooden_board, "position", board_start_pos + Vector2(50, 0), 1.1)
-			
-			await tween.finished
-			is_board_moved = true
-			
 			# early kill if empty
 			if tilemaps.size() <= 0:
 				#queue_free()
 				return
 				
-			tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
+			var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
 			
 			# fade tilemap
 			for tilemap in tilemaps:
-				tween.tween_property(tilemap, "modulate", Color.TRANSPARENT, 1.1)
+				tween.tween_property(tilemap, "modulate", Color.TRANSPARENT, 0.7)
+				
+			# move board
+			tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
+			
+			var board_start_pos = wooden_board.position
+			tween.tween_property(wooden_board, "position", board_start_pos + Vector2(35, 0), 0.7)
+			
+			await tween.finished
+			is_board_moved = true
+			
+			
 			
 			await get_tree().create_timer(1.2).timeout
 
