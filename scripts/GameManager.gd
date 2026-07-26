@@ -12,6 +12,7 @@ var level_scenes: Dictionary[String, String] = {
 	"Level3": "res://levels/Level3.tscn",
 	"Level4": "res://levels/Level4.tscn",
 	"Level5": "res://levels/Level5.tscn",
+	"Level7": "res://levels/level_7.tscn",
 	"HeroScene": "res://ui/menu_scenes/hero_page/HeroPage.tscn",
 	"LevelSelection": "res://ui/menu_scenes/level_selection/LevelSelection.tscn"
 }
