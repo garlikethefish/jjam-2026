@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c68napmu6sr6r"]
 
-[ext_resource type="Texture2D" uid="uid://bnn7xxgkgpk1j" path="res://art/temp_sprites/parallax_underground/ParallaxCave4.png" id="1_ja424"]
-[ext_resource type="Texture2D" uid="uid://cb8h2a18cjwdq" path="res://art/temp_sprites/parallax_underground/ParallaxCave3.png" id="2_456fx"]
-[ext_resource type="Texture2D" uid="uid://cn8qdnbvkk0ug" path="res://art/temp_sprites/parallax_underground/ParallaxCave2.png" id="3_fjmue"]
-[ext_resource type="Texture2D" uid="uid://cfcd78cxvycrq" path="res://art/temp_sprites/parallax_underground/ParallaxCave1.png" id="4_8r4qa"]
+[ext_resource type="Texture2D" uid="uid://cxonvidt2nhwy" path="res://art/parallax_underground/1_underground.png" id="1_ja424"]
+[ext_resource type="Texture2D" uid="uid://bvonu3peppx1r" path="res://art/parallax_underground/2_underground.png" id="2_456fx"]
+[ext_resource type="Texture2D" uid="uid://ciybhtbobbcgm" path="res://art/parallax_underground/3_underground.png" id="3_fjmue"]
+[ext_resource type="Texture2D" uid="uid://d01sqqnhxnswj" path="res://art/parallax_underground/4_underground.png" id="4_8r4qa"]
 
 [node name="ParallaxUndergroundManager" type="Node2D" unique_id=388889426]
 z_index = -10

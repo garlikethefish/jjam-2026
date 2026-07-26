@@ -20,7 +20,7 @@
 position = Vector2(-103, -338)
 
 [node name="ParallaxOverworldManager" parent="." unique_id=388889426 instance=ExtResource("2_ydrim")]
-position = Vector2(374, 145)
+position = Vector2(374, 165)
 
 [node name="ParallaxUndergroundManager" parent="." unique_id=840454979 instance=ExtResource("3_y3fui")]
 position = Vector2(387, 411)
@@ -80,7 +80,7 @@ position = Vector2(48, 276)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2025783855]
 position = Vector2(263, 86)
-zoom = Vector2(1.5, 1.5)
-limit_left = -13
-limit_right = 745
+zoom = Vector2(1.665, 1.665)
+limit_left = -1
+limit_right = 714
 position_smoothing_enabled = true
