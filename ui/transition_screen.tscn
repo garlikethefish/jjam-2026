@@ -45,3 +45,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_qxdby")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1906987899]
+position = Vector2(25, -2)

@@ -2,9 +2,14 @@ extends TextureButton
 
 var tween: Tween
 var start_global_position: Vector2
+var saved_mat: ShaderMaterial
+@onready var whoosh_audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	saved_mat = material as ShaderMaterial
+	material = null
+	
 	start_global_position = global_position
 	
 	mouse_entered.connect(_on_mouse_entered)
@@ -18,24 +23,27 @@ func _on_pressed() -> void:
 
 
 func _on_mouse_entered() -> void:
+	material = saved_mat
+	whoosh_audio_player.play()
+	
 	if tween != null and tween.is_valid():
 		tween.kill()
 		
 	tween = create_tween().set_parallel(true)
 	
 	tween.tween_property(self, "scale", Vector2.ONE * .8, .1)
-	
 
 
 func _on_mouse_exited() -> void:
+	material = null
+	whoosh_audio_player.play()
 	if tween != null and tween.is_valid():
 		tween.kill()
 		
 	tween = create_tween().set_parallel(true)
 	
 	tween.tween_property(self, "scale", Vector2.ONE, .1)
-	
-	
+
 
 func press():
 	if tween != null and tween.is_valid():
@@ -62,10 +70,7 @@ func press():
 	await tween.finished
 	
 	await TransitionScreen.close().finished
-	
-	get_tree().change_scene_to_packed(GameManager.level_scenes[name])
+	get_tree().change_scene_to_file(GameManager.level_scenes[name])
 	#await get_tree().create_timer(.3).timeout
 	await TransitionScreen.open().finished
 	
-	
-	print("delayed call")

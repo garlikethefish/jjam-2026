@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cl2nhd0akg50c"]
+
+[ext_resource type="Script" uid="uid://cussv16785s6b" path="res://objects/items/item_base.gd" id="1_4oaqp"]
+[ext_resource type="Texture2D" uid="uid://b7ty8lt467xlq" path="res://art/interactables/button-Sheet.png" id="2_fuppw"]
+
+[resource]
+script = ExtResource("1_4oaqp")
+name = "brown key"
+texture = ExtResource("2_fuppw")
+metadata/_custom_type_script = "uid://cussv16785s6b"

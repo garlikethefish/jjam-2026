@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://gnc06spm8lw3"]
+
+[ext_resource type="Script" uid="uid://bpya78yiqhl0e" path="res://ui/buttons/audio_texure_button/new_button.gd" id="1_hnwmv"]
+[ext_resource type="Shader" uid="uid://cpjjxwgrr8o00" path="res://shaders/all_in_one_biochy_outline.gdshader" id="1_hvqib"]
+[ext_resource type="AudioStream" uid="uid://cm6e4aacjogpb" path="res://audio/sfx/whoosh.mp3" id="3_aw3ft"]
+
+[sub_resource type="Gradient" id="Gradient_hvqib"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.98039216, 0.21568628, 0.36078432, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0jcai"]
+gradient = SubResource("Gradient_hvqib")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnwmv"]
+shader = ExtResource("1_hvqib")
+shader_parameter/textureScale = Vector2(1, 1)
+shader_parameter/angle = 45.0
+shader_parameter/textureSpeed = 0.1
+shader_parameter/textureStrength = 0.5
+shader_parameter/maxLineWidth = 2.8570001357075
+shader_parameter/minLineWidth = 5.0
+shader_parameter/speed = 1.0
+shader_parameter/blockSize = 20.0
+shader_parameter/color = SubResource("GradientTexture2D_0jcai")
+shader_parameter/gradientResolution = 10
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hnwmv"]
+load_path = "res://.godot/imported/lv1.png-b7b04b2c077626b44887ec18cfe8000a.ctex"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ug2vx"]
+random_pitch = 1.1892071
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("3_aw3ft")
+
+[node name="AudioTextureButton" type="TextureButton" unique_id=296607526]
+material = SubResource("ShaderMaterial_hnwmv")
+offset_right = 96.0
+offset_bottom = 96.0
+texture_normal = SubResource("CompressedTexture2D_hnwmv")
+stretch_mode = 5
+script = ExtResource("1_hnwmv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=147250182]
+stream = SubResource("AudioStreamRandomizer_ug2vx")
+volume_db = -10.0
+pitch_scale = 2.0

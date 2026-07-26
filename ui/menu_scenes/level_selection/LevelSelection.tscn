@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cpbksi827nd12"]
+
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="2_0eouc"]
+[ext_resource type="Texture2D" uid="uid://k6f0l55b5hw4" path="res://art/interactables/lv2.png" id="3_jn2xb"]
+[ext_resource type="Texture2D" uid="uid://srqbl3ynsbtg" path="res://art/interactables/lv3.png" id="4_4gwdk"]
+[ext_resource type="Texture2D" uid="uid://da5kqi3b6rbv2" path="res://art/interactables/lv4.png" id="5_ug2vx"]
+[ext_resource type="Texture2D" uid="uid://c8yyc0o2v1eiu" path="res://art/interactables/lv5.png" id="6_e7ddk"]
+[ext_resource type="FontFile" uid="uid://2nvgw0vodyt3" path="res://fonts/PixelOperator8-Bold.ttf" id="8_xgu06"]
+[ext_resource type="AudioStream" uid="uid://b721qdslgyy6j" path="res://audio/music/Disney Is Back-730949910.mp3" id="9_7rcg3"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_i87d2"]
+
+[sub_resource type="Gradient" id="Gradient_rgwqm"]
+colors = PackedColorArray(0.45664018, 0.62874514, 0.99547654, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uhb7j"]
+gradient = SubResource("Gradient_rgwqm")
+
+[sub_resource type="Gradient" id="Gradient_hlavn"]
+interpolation_color_space = 1
+colors = PackedColorArray(0.8317198, 0.53458786, 0.38284108, 1, 0.9586583, 0.7591, 0.5795759, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_otgmd"]
+gradient = SubResource("Gradient_hlavn")
+fill = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tla8x"]
+texture = SubResource("GradientTexture2D_otgmd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhb7j"]
+font = ExtResource("8_xgu06")
+font_size = 64
+
+[node name="LevelSelection" type="Control" unique_id=402798609]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundPanel" type="TextureRect" parent="." unique_id=2097258968]
+modulate = Color(0.0037354275, 0.7822995, 0.7877676, 1)
+custom_minimum_size = Vector2(0, 84.13)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_uhb7j")
+
+[node name="LevelPanel" type="Panel" parent="." unique_id=1046593926]
+custom_minimum_size = Vector2(0, 84.13)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.508
+anchor_bottom = 1.0
+offset_left = 187.0
+offset_top = -530.0
+offset_right = 399.784
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tla8x")
+
+[node name="Label" type="Label" parent="LevelPanel" unique_id=620741063]
+layout_mode = 0
+offset_right = 799.0
+offset_bottom = 107.0
+text = "Levels"
+label_settings = SubResource("LabelSettings_uhb7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Level1" parent="LevelPanel" unique_id=296607526 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 160.0
+offset_right = 142.0
+offset_bottom = 256.0
+
+[node name="Level2" parent="LevelPanel" unique_id=1793235845 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 233.0
+offset_right = 268.0
+offset_bottom = 329.0
+texture_normal = ExtResource("3_jn2xb")
+
+[node name="Level3" parent="LevelPanel" unique_id=935931196 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 169.0
+offset_right = 458.0
+offset_bottom = 265.0
+texture_normal = ExtResource("4_4gwdk")
+
+[node name="Level4" parent="LevelPanel" unique_id=316084740 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 241.0
+offset_right = 607.0
+offset_bottom = 337.0
+texture_normal = ExtResource("5_ug2vx")
+
+[node name="Level5" parent="LevelPanel" unique_id=2084446571 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 146.0
+offset_right = 743.0
+offset_bottom = 242.0
+texture_normal = ExtResource("6_e7ddk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1651334579]
+stream = ExtResource("9_7rcg3")
+script = ExtResource("10_i87d2")

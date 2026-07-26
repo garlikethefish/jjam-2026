@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dweuxvyfq4rts"]
+
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="2_x8d3a"]
+[ext_resource type="FontFile" uid="uid://2nvgw0vodyt3" path="res://fonts/PixelOperator8-Bold.ttf" id="8_ttgjs"]
+[ext_resource type="AudioStream" uid="uid://bu0md21vsuff2" path="res://audio/music/menu_.mp3" id="9_15ijf"]
+[ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_17s17"]
+
+[sub_resource type="Gradient" id="Gradient_rgwqm"]
+colors = PackedColorArray(0.45664018, 0.62874514, 0.99547654, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a2svs"]
+gradient = SubResource("Gradient_rgwqm")
+
+[sub_resource type="Gradient" id="Gradient_hfy8d"]
+interpolation_color_space = 1
+colors = PackedColorArray(0.8317198, 0.53458786, 0.38284108, 1, 0.9586583, 0.7591, 0.5795759, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_otgmd"]
+gradient = SubResource("Gradient_hfy8d")
+fill = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43gk8"]
+texture = SubResource("GradientTexture2D_otgmd")
+
+[sub_resource type="LabelSettings" id="LabelSettings_73f67"]
+font = ExtResource("8_ttgjs")
+font_size = 64
+
+[node name="HeroPage" type="Control" unique_id=268836903]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundPanel" type="TextureRect" parent="." unique_id=1584268957]
+modulate = Color(0.0037354275, 0.7822995, 0.7877676, 1)
+custom_minimum_size = Vector2(0, 84.13)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_a2svs")
+
+[node name="LevelPanel" type="Panel" parent="." unique_id=1380331252]
+custom_minimum_size = Vector2(0, 84.13)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.508
+anchor_bottom = 1.0
+offset_left = 187.0
+offset_top = -530.0
+offset_right = 399.784
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_43gk8")
+
+[node name="Label" type="Label" parent="LevelPanel" unique_id=1533479552]
+layout_mode = 0
+offset_right = 799.0
+offset_bottom = 107.0
+text = "Our game title hereeeee"
+label_settings = SubResource("LabelSettings_73f67")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="LevelSelection" parent="LevelPanel" unique_id=296607526 instance=ExtResource("2_x8d3a")]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 208.0
+offset_right = 412.0
+offset_bottom = 304.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1790046663]
+stream = ExtResource("9_15ijf")
+script = ExtResource("10_17s17")
