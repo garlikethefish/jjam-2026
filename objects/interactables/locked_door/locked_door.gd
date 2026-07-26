@@ -1,6 +1,8 @@
 extends StaticBody2D
 
+@export var sprite_variant: int = 0
 @export var required_item: Item
+@onready var sprite_variations: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,8 +10,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	select_sprite_variation(sprite_variant)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -25,3 +27,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func open():
 	queue_free()
+	
+
+func select_sprite_variation(val: int):
+	sprite_variations.region_rect = Rect2(32.0 * val,0.0,32.0,32.0)
+	

@@ -1,58 +1,76 @@
 extends Area2D
 
-@export var wooden_board : StaticBody2D
-@export var interact_key : AnimatedSprite2D
-@export var hidden_interactable_type : String
-@export var tilemap_to_trigger_index : int
-@onready var tilemaps : Node2D
-@onready var tilemap_overlay : TileMapLayer
-@onready var sprite := $Sprite2D
+@export var tilemaps: Array[TileMapLayer] = []
+@export var interact_key: AnimatedSprite2D
+@export var add_plank := true
+
+@onready var bush_sprite := $Sprite2D
 @onready var particles := $GPUParticles2D
+@onready var wooden_board := $WoodenBoard
+
 var player_near := false
-var leaves_gone := false
-var stop_interacting := false
-var move := false
-var new_pos
-var wood_speed := 80
+var is_bush_destroyed := false
+var is_board_moved := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interact_key.visible = false
-	tilemaps = get_tree().get_first_node_in_group("tilemaps")
-	tilemap_overlay = tilemaps.get_child(tilemap_to_trigger_index) # get tilemap overlay (just gotta know index from the scene
-	# by default interactable hidden is wooden board
-	if hidden_interactable_type == "empty":
+	
+	if !add_plank:
+		wooden_board.visible = false
 		wooden_board.queue_free()
-func _physics_process(delta: float) -> void:
-	if !stop_interacting:
-		if Input.is_action_just_pressed("interact") and player_near:
-			if !leaves_gone:
-				particles.emitting = true
-				sprite.visible = false
-				leaves_gone = true
-				if hidden_interactable_type == "empty":
-					interact_key.visible = false
-					stop_interacting = true
-			else:
-				if hidden_interactable_type != "empty":
-					new_pos = Vector2(wooden_board.position.x + 30, wooden_board.position.y)
-					interact_key.visible = false
-					move = true
-		if move and hidden_interactable_type != "empty":
-			wooden_board.position = wooden_board.position.move_toward(new_pos, wood_speed * delta)
-			var tween_overlay = get_tree().create_tween()
-			tween_overlay.set_trans(Tween.TRANS_LINEAR)
-			tween_overlay.tween_property(tilemap_overlay, "modulate", Color.TRANSPARENT, 1.1)
+
+func _physics_process(_delta: float) -> void:
+	if is_board_moved: return
+	if Input.is_action_just_pressed("interact") and player_near:
+		
+		if is_bush_destroyed and add_plank:
+			interact_key.visible = false
 			
-			if wooden_board.position == new_pos:
-				stop_interacting = true
+			# move board
+			var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
+			
+			var board_start_pos = wooden_board.position
+			tween.tween_property(wooden_board, "position", board_start_pos + Vector2(50, 0), 1.1)
+			
+			await tween.finished
+			is_board_moved = true
+			
+			# early kill if empty
+			if tilemaps.size() <= 0:
+				#queue_free()
+				return
+				
+			tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
+			
+			# fade tilemap
+			for tilemap in tilemaps:
+				tween.tween_property(tilemap, "modulate", Color.TRANSPARENT, 1.1)
+			
+			await get_tree().create_timer(1.2).timeout
+
+		
+		if !is_bush_destroyed:
+			particles.emitting = true
+			
+			if !add_plank:
+				is_board_moved = true
+				interact_key.visible = false
+			
+			var tween = get_tree().create_tween().set_parallel(true)
+			tween.set_trans(Tween.TRANS_LINEAR)
+			
+			tween.tween_property(bush_sprite, "modulate", Color.TRANSPARENT, 1.1)
+			is_bush_destroyed = true
+
+
 func _on_interaction_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and !stop_interacting:
+	if body.is_in_group("player") and !is_board_moved:
 		interact_key.visible = true
 		player_near = true
-	elif body.is_in_group("player") and leaves_gone and hidden_interactable_type == "empty":
-		pass
+
+
 func _on_interaction_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and !is_board_moved:
 		interact_key.visible = false
 		player_near = false

@@ -12,8 +12,8 @@ var cur_jump_duration = .3
 
 @export var carried_item: Item
 
-@onready var right_cast_2d: RayCast2D = $RightCast
-@onready var left_cast_2d: RayCast2D = $LeftCast2
+@onready var right_cast_2d: ShapeCast2D = $RightShapeCast2D
+@onready var left_cast_2d: ShapeCast2D = $LeftShapeCast2D2
 @onready var sprite := $Sprite2D
 @onready var item_sprite := $ItemSprite2D
 @onready var footstep_player: AudioStreamPlayer2D = $FootstepPlayer2D

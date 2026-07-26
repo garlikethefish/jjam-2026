@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bhu5eodyak17c" path="res://audio/sfx/fall2.mp3" id="9_alk51"]
 [ext_resource type="PackedScene" uid="uid://chv8rif368584" path="res://objects/items/physics_item/PhysicsItem.tscn" id="10_c03pt"]
 [ext_resource type="Resource" uid="uid://cl2nhd0akg50c" path="res://objects/items/TestItem.tres" id="11_na83l"]
+[ext_resource type="Resource" uid="uid://b63dqyx6h77uj" path="res://objects/items/GoldenKey.tres" id="12_kdhwd"]
 [ext_resource type="AudioStream" uid="uid://bl5mu5y50fij0" path="res://audio/music/bang.mp3" id="13_okbai"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/door_activatable.tscn" id="14_0sr5u"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="14_na83l"]
@@ -885,7 +886,7 @@ item = ExtResource("11_na83l")
 
 [node name="PhysicsItem" parent="." unique_id=1813311681 instance=ExtResource("10_c03pt")]
 position = Vector2(280, 252)
-item = ExtResource("11_na83l")
+item = ExtResource("12_kdhwd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2011063276]
 stream = ExtResource("13_okbai")
@@ -897,6 +898,7 @@ position = Vector2(173, 280)
 
 [node name="LockedDoor" parent="." unique_id=1943244515 instance=ExtResource("15_0sr5u")]
 position = Vector2(229, 280)
-required_item = ExtResource("11_na83l")
+sprite_variant = 3
+required_item = ExtResource("12_kdhwd")
 
 [connection signal="body_entered" from="koks/Area2D" to="koks" method="_on_area_2d_body_entered"]

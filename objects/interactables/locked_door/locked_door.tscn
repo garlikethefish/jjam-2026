@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://yr4akl47psvr"]
 
 [ext_resource type="Script" uid="uid://ci1j23x60s0cy" path="res://objects/interactables/locked_door/locked_door.gd" id="1_6ewip"]
-[ext_resource type="Texture2D" uid="uid://c5p5e4s8rr71p" path="res://art/temp_sprites/door_short.png" id="2_d02xt"]
+[ext_resource type="Texture2D" uid="uid://176pn0xmilro" path="res://art/interactables/door_short-Sheet.png" id="2_6ewip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhb7j"]
+atlas = ExtResource("2_6ewip")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
 size = Vector2(32, 32)
@@ -11,9 +14,12 @@ size = Vector2(47, 45)
 
 [node name="LockedDoor" type="StaticBody2D" unique_id=1943244515]
 script = ExtResource("1_6ewip")
+sprite_variant = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1148384661]
-texture = ExtResource("2_d02xt")
+texture = SubResource("AtlasTexture_uhb7j")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297922519]
 shape = SubResource("RectangleShape2D_e0wf5")
