@@ -12,5 +12,6 @@ script = ExtResource("1_7ye47")
 shape = SubResource("RectangleShape2D_n4g3r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1867193909]
+scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=16280887]

@@ -1,8 +1,15 @@
 extends StaticBody2D
 
-@export var sprite_variant: int = 0
+@export var sprite_variant: SpriteVariations = SpriteVariations.YellowKey
 @export var required_item: Item
 @onready var sprite_variations: Sprite2D = $Sprite2D
+
+enum SpriteVariations {
+	YellowKey = 3,
+	BlueKey = 2,
+	GreenKey = 1,
+	PinkKey = 0,
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +27,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("dog entered")
 	
 	var dog = body as Dog
-	if dog.carried_item.name == required_item.name:
+	if dog.carried_item != null and dog.carried_item.name == required_item.name:
 		dog.discard_item()
 		open()
 
