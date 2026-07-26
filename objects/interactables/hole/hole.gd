@@ -4,20 +4,23 @@ class_name Hole
 
 @export var output_hole: Hole
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if output_hole == null: return
 	if body == null: return
 	
-	print(body)
+	print("tp enter: ", body.name)
 	
-	body.global_position = output_hole.global_position
+	if body is RigidBody2D:
+		PhysicsServer2D.body_set_state(
+			body.get_rid(),
+			PhysicsServer2D.BODY_STATE_TRANSFORM,
+			Transform2D(body.global_rotation, output_hole.global_position)
+		)
+		PhysicsServer2D.body_set_state(
+			body.get_rid(),
+			PhysicsServer2D.BODY_STATE_LINEAR_VELOCITY,
+			Vector2.ZERO
+		)
+	else:
+		body.global_position = output_hole.global_position
