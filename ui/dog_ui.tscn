@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bhagri8uekkds" path="res://ui/down_button_dog_command.gd" id="3_nj5il"]
 [ext_resource type="Script" uid="uid://dx1xp7kq7yhcf" path="res://ui/left_button_command.gd" id="4_0uk22"]
 [ext_resource type="Script" uid="uid://01hkrten5hqi" path="res://ui/right_button_command.gd" id="4_luusd"]
+[ext_resource type="Script" uid="uid://coyymgfswjqm0" path="res://ui/command_count_tracker.gd" id="7_2hdji"]
+[ext_resource type="FontFile" uid="uid://xebwws2xm4gf" path="res://fonts/PixelOperator8.ttf" id="7_6un3d"]
 [ext_resource type="Script" uid="uid://b8o2inomojtcc" path="res://ui/button_go_back_in_time.gd" id="7_gbemf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etkh1"]
@@ -59,6 +61,10 @@ load_path = "res://.godot/imported/cursors-Sheet.png-bc30f2d4e745f78c7223e6f87e5
 [sub_resource type="AtlasTexture" id="AtlasTexture_khrw6"]
 atlas = SubResource("CompressedTexture2D_88824")
 region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2hdji"]
+font = ExtResource("7_6un3d")
+font_size = 32
 
 [node name="DogUI" type="CanvasLayer" unique_id=866075244]
 
@@ -161,6 +167,19 @@ focus_mode = 0
 texture_normal = SubResource("AtlasTexture_khrw6")
 stretch_mode = 5
 script = ExtResource("7_gbemf")
+
+[node name="Label" type="Label" parent="." unique_id=1580141047]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -355.0
+offset_top = 27.0
+offset_right = -79.0
+offset_bottom = 59.0
+grow_horizontal = 0
+text = "Commands: "
+label_settings = SubResource("LabelSettings_2hdji")
+script = ExtResource("7_2hdji")
 
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/DownButton" to="Panel/DownButton" method="_on_pressed"]

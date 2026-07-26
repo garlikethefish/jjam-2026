@@ -62,9 +62,9 @@ limit_bottom = -176
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("8_bv8dl")
-top_pos_limits = [63, 234, 883, -176]
-middle_pos_limits = [63, 517, 883, -176]
-bottom_pos_limits = [63, 517, 883, 190]
+top_pos_limits = Array[int]([63, 234, 883, -176])
+middle_pos_limits = Array[int]([63, 517, 883, -176])
+bottom_pos_limits = Array[int]([63, 517, 883, 190])
 current_cam_level = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=47789839]
