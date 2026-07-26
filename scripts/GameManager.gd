@@ -4,7 +4,7 @@ var executed_command_count = 0
 var command_stack: Array[DogCommand] = []
 var level_timeline := Timeline.new()
 
-var level_scenes: Dictionary[String, String]= {
+var level_scenes: Dictionary[String, String] = {
 	"Level1": "res://levels/Level1.tscn",
 	#"Level2": preload(),
 	"Level3": "res://levels/Level3.tscn",
