@@ -1053,7 +1053,7 @@ interactables_to_trigger = [NodePath("../DoorActivatable")]
 
 [node name="WinBlock" parent="." unique_id=1043751013 instance=ExtResource("9_etkh1")]
 position = Vector2(743, 471)
-next_scene_name = "Level4"
+next_scene_name = "Level3"
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1830306647]
 position = Vector2(551, 312)
@@ -1088,6 +1088,7 @@ script = ExtResource("12_ihi63")
 top_pos_limits = [-1, 592, 714, -130]
 middle_pos_limits = [-1, 700, 714, 31]
 bottom_pos_limits = [-1, 700, 714, 200]
+current_cam_level = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=647944661]
 stream = ExtResource("12_v01fl")
