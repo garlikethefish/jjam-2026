@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button.tscn" id="6_xb8s4"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/door_activatable.tscn" id="8_p42pb"]
 [ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="9_etkh1"]
+[ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="12_ihi63"]
 [ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="12_v01fl"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="13_ihi63"]
 
@@ -99,8 +100,11 @@ position = Vector2(48, 276)
 position = Vector2(263, 86)
 zoom = Vector2(1.665, 1.665)
 limit_left = -1
+limit_top = 538
 limit_right = 714
+limit_bottom = -76
 position_smoothing_enabled = true
+script = ExtResource("12_ihi63")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=647944661]
 stream = ExtResource("12_v01fl")

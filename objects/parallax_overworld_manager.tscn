@@ -13,7 +13,7 @@
 z_index = -9
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1547134777]
-scroll_scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(0.6, 0)
 scroll_offset = Vector2(0, 12)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
@@ -23,7 +23,7 @@ follow_viewport = false
 texture = ExtResource("1_qlnyp")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1202381394]
-scroll_scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.5, 0)
 scroll_offset = Vector2(0, 31)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
@@ -33,7 +33,7 @@ follow_viewport = false
 texture = ExtResource("2_djmpn")
 
 [node name="Parallax2D8" type="Parallax2D" parent="." unique_id=879130022]
-scroll_scale = Vector2(0.4, 0.4)
+scroll_scale = Vector2(0.4, 0)
 scroll_offset = Vector2(0, 52)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
@@ -43,7 +43,7 @@ follow_viewport = false
 texture = ExtResource("8_4mesd")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1943098742]
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.3, 0)
 scroll_offset = Vector2(0, 9)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
@@ -53,7 +53,7 @@ follow_viewport = false
 texture = ExtResource("3_ts4l6")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1680360203]
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0.2, 0)
 scroll_offset = Vector2(0, 9)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
@@ -63,7 +63,7 @@ follow_viewport = false
 texture = ExtResource("4_3hwjo")
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1778403918]
-scroll_scale = Vector2(0.1, 0.1)
+scroll_scale = Vector2(0.1, 0)
 scroll_offset = Vector2(0, 6)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
@@ -73,7 +73,7 @@ follow_viewport = false
 texture = ExtResource("5_ygwcu")
 
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1856685514]
-scroll_scale = Vector2(0.09, 0.09)
+scroll_scale = Vector2(0.09, 0)
 repeat_size = Vector2(576, 0)
 repeat_times = 4
 follow_viewport = false
@@ -82,7 +82,7 @@ follow_viewport = false
 texture = ExtResource("6_1e3p5")
 
 [node name="Parallax2D7" type="Parallax2D" parent="." unique_id=1697135781]
-scroll_scale = Vector2(0.05, 0.05)
+scroll_scale = Vector2(0.05, 0)
 scroll_offset = Vector2(0, 49)
 repeat_size = Vector2(576, 0)
 repeat_times = 4

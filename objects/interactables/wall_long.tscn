@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cke0jr7ww7mpj"]
+
+[ext_resource type="Script" uid="uid://cte2tvaog2t7u" path="res://objects/interactables/pusher_up.gd" id="1_7wghr"]
+[ext_resource type="Texture2D" uid="uid://co02lnasvl5g0" path="res://art/interactables/wall_long.png" id="1_a0h0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wghr"]
+size = Vector2(64, 32)
+
+[node name="WallLong" type="StaticBody2D" unique_id=516772339]
+script = ExtResource("1_7wghr")
+amount_of_height_to_add = 40
+push_direction = "Left"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=681635971]
+texture = ExtResource("1_a0h0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1869606601]
+shape = SubResource("RectangleShape2D_7wghr")

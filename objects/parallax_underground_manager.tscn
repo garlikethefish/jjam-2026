@@ -9,7 +9,7 @@
 z_index = -10
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1547134777]
-scroll_scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(0.9, 0)
 repeat_size = Vector2(1152, 0)
 repeat_times = 6
 follow_viewport = false
@@ -18,7 +18,7 @@ follow_viewport = false
 texture = ExtResource("1_ja424")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1202381394]
-scroll_scale = Vector2(0.8, 0.8)
+scroll_scale = Vector2(0.8, 0)
 repeat_size = Vector2(1152, 0)
 repeat_times = 6
 follow_viewport = false
@@ -27,7 +27,7 @@ follow_viewport = false
 texture = ExtResource("2_456fx")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1943098742]
-scroll_scale = Vector2(0.7, 0.7)
+scroll_scale = Vector2(0.7, 0)
 repeat_size = Vector2(1152, 0)
 repeat_times = 6
 follow_viewport = false
@@ -36,7 +36,7 @@ follow_viewport = false
 texture = ExtResource("3_fjmue")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1680360203]
-scroll_scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(0.6, 0)
 repeat_size = Vector2(1152, 0)
 repeat_times = 6
 follow_viewport = false
