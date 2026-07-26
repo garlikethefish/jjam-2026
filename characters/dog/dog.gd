@@ -7,6 +7,8 @@ class_name Dog
 @export var air_drag = .9
 @export var ground_drag = .9
 @export var max_jump_duration = .3
+@export var disable_movement := false
+
 @onready var anim_player := $AnimationPlayer
 var cur_jump_duration = .3
 
@@ -42,6 +44,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if disable_movement: 
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			
+		return
+	
 	is_executing_command.set_value(is_going_left or is_going_right or is_jumping)
 	
 	# creating timeline action

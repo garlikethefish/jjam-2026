@@ -38,8 +38,9 @@ stream_0/stream = ExtResource("3_aw3ft")
 material = SubResource("ShaderMaterial_hnwmv")
 offset_right = 96.0
 offset_bottom = 96.0
+pivot_offset = Vector2(64, 64)
 texture_normal = SubResource("CompressedTexture2D_hnwmv")
-stretch_mode = 5
+stretch_mode = 4
 script = ExtResource("1_hnwmv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=147250182]

@@ -5,12 +5,13 @@ var command_stack: Array[DogCommand] = []
 var level_timeline := Timeline.new()
 
 var level_scenes: Dictionary[String, String] = {
+	"TutLevel1" : "res://levels/TutLevel1.tscn",
+	"TutLevel2" : "res://levels/TutLevel2.tscn",
 	"Level1": "res://levels/Level1.tscn",
 	"Level2": "res://levels/Level2.tscn",
 	"Level3": "res://levels/Level3.tscn",
 	"Level4": "res://levels/Level4.tscn",
 	"Level5": "res://levels/Level5.tscn",
-	"Level6": "res://levels/Level6.tscn",
 	"HeroScene": "res://ui/menu_scenes/hero_page/HeroPage.tscn",
 	"LevelSelection": "res://ui/menu_scenes/level_selection/LevelSelection.tscn"
 }

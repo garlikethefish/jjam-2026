@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="11_fickt"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="12_bbw8r"]
 [ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="13_11nnf"]
+[ext_resource type="AudioStream" uid="uid://b721qdslgyy6j" path="res://audio/music/Disney Is Back-730949910.mp3" id="13_fnln3"]
 [ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="14_80a6m"]
-[ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="15_0rtf4"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="16_imc2b"]
 [ext_resource type="Texture2D" uid="uid://c55ktv847xkmj" path="res://art/cursors-Sheet.png" id="17_ver0d"]
 
@@ -1026,7 +1026,7 @@ speed = 30
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("11_fickt")]
 position = Vector2(386, 461)
-next_scene_name = "Level2"
+next_scene_name = "TutLevel2"
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1062603741]
 position = Vector2(551, 312)
@@ -1064,9 +1064,10 @@ bottom_pos_limits = Array[int]([-1, 700, 714, 200])
 current_cam_level = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=398227438]
-stream = ExtResource("15_0rtf4")
-volume_db = 8.0
+stream = ExtResource("13_fnln3")
+volume_db = -2.0
 autoplay = true
+stream_paused = true
 script = ExtResource("16_imc2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=115844613]

@@ -69,8 +69,5 @@ func press():
 	)
 	await tween.finished
 	
-	await TransitionScreen.close().finished
-	get_tree().change_scene_to_file(GameManager.level_scenes[name])
-	#await get_tree().create_timer(.3).timeout
-	await TransitionScreen.open().finished
+	GameManager.go_to_scene(name)
 	
