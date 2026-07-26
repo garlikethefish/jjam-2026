@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://byg0tu8l3fq3w" path="res://art/interactables/lvl10.png" id="12_i87d2"]
 [ext_resource type="Texture2D" uid="uid://ictp3d1lvsii" path="res://art/interactables/lvl11.png" id="13_h5qwx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6o3p"]
+bg_color = Color(0, 0, 0, 0.38039216)
+corner_radius_top_left = 74
+corner_radius_top_right = 74
+corner_radius_bottom_right = 74
+corner_radius_bottom_left = 74
+
 [sub_resource type="LabelSettings" id="LabelSettings_uhb7j"]
 font = ExtResource("8_xgu06")
 font_size = 47
@@ -29,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackgroundPanel" type="TextureRect" parent="." unique_id=2097258968]
-modulate = Color(0.5696173, 0.33595988, 0.62604684, 1)
+modulate = Color(0.5594649, 0.61876696, 0.6028692, 1)
 custom_minimum_size = Vector2(0, 84.13)
 layout_mode = 1
 anchors_preset = 15
@@ -47,12 +54,13 @@ anchor_left = 0.25500003
 anchor_top = 0.14
 anchor_right = 0.748
 anchor_bottom = 0.92100006
-offset_left = 0.23995972
-offset_top = -19.720001
-offset_right = 0.30395508
-offset_bottom = -19.808044
+offset_left = -2.7600403
+offset_top = -9.720001
+offset_right = -2.696045
+offset_bottom = -9.808044
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6o3p")
 
 [node name="Label" type="Label" parent="LevelPanel" unique_id=620741063]
 layout_mode = 0
