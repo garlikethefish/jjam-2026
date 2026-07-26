@@ -1027,7 +1027,7 @@ max_jump_duration = 1.0
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("8_0suqg")]
 z_index = -1
-position = Vector2(88, 622)
+position = Vector2(89, 622)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=746244176]
 position = Vector2(263, 86)

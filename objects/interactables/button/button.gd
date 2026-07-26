@@ -22,12 +22,14 @@ func _on_detector_area_2d_body_entered(body: Node2D) -> void:
 		or interactables_to_trigger.size() <= 0
 	): return
 	
-	for interactable in interactables_to_trigger:
-		if !allow_changing_midway and !interactable.finished_action: return
+	
 		
 	
 	
 	if !activated:
+		for interactable in interactables_to_trigger:
+			if !allow_changing_midway and !interactable.finished_action: return
+		
 		for interactable in interactables_to_trigger:
 			interactable.activate()
 		activated = true
@@ -49,8 +51,10 @@ func select_sprite_variation(variant: SpriteVariations):
 	sprite_atlas.region_rect = Rect2(32.0 * variant,0.0,32.0,32.0)
 	
 
-func deactivate():
+func deactivate():	
 	if one_shot_press: return
+	for interactable in interactables_to_trigger:
+		if !allow_changing_midway and !interactable.finished_action: return
 		
 	for interactable in interactables_to_trigger:
 		interactable.deactivate()
