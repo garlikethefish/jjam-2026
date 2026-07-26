@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="12_ihi63"]
 [ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="12_v01fl"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="13_ihi63"]
+[ext_resource type="Texture2D" uid="uid://cis1nukbi6lr7" path="res://art/sign2-export.png" id="17_sxi1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxdby"]
 texture = ExtResource("1_swn5e")
@@ -1095,3 +1096,8 @@ stream = ExtResource("12_v01fl")
 volume_db = 8.0
 autoplay = true
 script = ExtResource("13_ihi63")
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=1166468468]
+z_index = -2
+position = Vector2(479, 286)
+texture = ExtResource("17_sxi1f")
