@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cte2tvaog2t7u" path="res://objects/interactables/pusher/pusher_up.gd" id="11_4pmw3"]
 [ext_resource type="Texture2D" uid="uid://jjymet7qxfvl" path="res://art/lift-empty.png" id="11_5cm8g"]
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button/button.tscn" id="12_86l0o"]
+[ext_resource type="Texture2D" uid="uid://qycyadfolcte" path="res://art/parallax_overworld/black.png" id="14_38k6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
 size = Vector2(63, 9)
@@ -37,11 +38,11 @@ next_scene_name = "WinScreen"
 
 [node name="Dog" parent="." unique_id=99944791 instance=ExtResource("5_4pmw3")]
 z_index = -1
-position = Vector2(919, 309)
+position = Vector2(146, 501)
 
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("6_38k6x")]
 z_index = -1
-position = Vector2(919, 309)
+position = Vector2(149, 309)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1470997361]
 position = Vector2(263, 86)
@@ -75,6 +76,10 @@ texture = ExtResource("11_5cm8g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lift" unique_id=961609549]
 position = Vector2(0.5, 27.5)
 shape = SubResource("RectangleShape2D_e0wf5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Lift" unique_id=283429930]
+position = Vector2(-195, -61)
+texture = ExtResource("14_38k6x")
 
 [node name="Button" parent="." unique_id=1001828632 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("12_86l0o")]
 position = Vector2(557, 319)

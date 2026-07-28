@@ -9,6 +9,9 @@ var starting_global_position: Vector2
 
 func _ready() -> void:
 	starting_global_position = global_position
+	if self.is_in_group("lift"):
+		var sprite : Sprite2D = get_child(2)
+		sprite.visible = false
 
 func _physics_process(delta: float) -> void:
 	if !finished_action:
@@ -17,8 +20,8 @@ func _physics_process(delta: float) -> void:
 		if position == new_pos:
 			finished_action = true
 			if self.is_in_group("lift"):
-				var anim_player : AnimationPlayer = get_child(2)
-				anim_player.play("end")
+				var sprite : Sprite2D = get_child(2)
+				sprite.visible = true
 
 func activate():
 	match push_direction:
