@@ -5,7 +5,8 @@ var start_global_position: Vector2
 var saved_mat: ShaderMaterial
 @export var delay_time := 0.0
 @export var clickable_once := false
-@onready var whoosh_audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var whoosh_audio_player: AudioStreamPlayer2D = $WhooshAudioPlayer2D
+@onready var click_audio_player: AudioStreamPlayer2D = $ClickAudioPlayer2D
 
 var was_clicked = false
 
@@ -62,6 +63,7 @@ func _on_mouse_exited() -> void:
 
 
 func press():
+	click_audio_player.play()
 	if tween != null and tween.is_valid():
 		tween.kill()
 		
