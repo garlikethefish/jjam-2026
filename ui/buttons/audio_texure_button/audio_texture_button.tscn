@@ -1,29 +1,14 @@
 [gd_scene format=3 uid="uid://gnc06spm8lw3"]
 
 [ext_resource type="Script" uid="uid://bpya78yiqhl0e" path="res://ui/buttons/audio_texure_button/new_button.gd" id="1_hnwmv"]
-[ext_resource type="Shader" uid="uid://cpjjxwgrr8o00" path="res://shaders/all_in_one_biochy_outline.gdshader" id="1_hvqib"]
+[ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="1_hvqib"]
 [ext_resource type="AudioStream" uid="uid://cm6e4aacjogpb" path="res://audio/sfx/whoosh.mp3" id="3_aw3ft"]
-
-[sub_resource type="Gradient" id="Gradient_hvqib"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.98039216, 0.21568628, 0.36078432, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0jcai"]
-gradient = SubResource("Gradient_hvqib")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnwmv"]
 shader = ExtResource("1_hvqib")
-shader_parameter/textureScale = Vector2(1, 1)
-shader_parameter/angle = 45.0
-shader_parameter/textureSpeed = 0.1
-shader_parameter/textureStrength = 0.5
-shader_parameter/maxLineWidth = 2.8570001357075
-shader_parameter/minLineWidth = 5.0
-shader_parameter/speed = 1.0
-shader_parameter/blockSize = 20.0
-shader_parameter/color = SubResource("GradientTexture2D_0jcai")
-shader_parameter/gradientResolution = 10
-shader_parameter/tolerance = 0.0
+shader_parameter/clr = Color(0.5176471, 0.49411765, 0.5294118, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 2.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hnwmv"]
 load_path = "res://.godot/imported/lv1.png-b7b04b2c077626b44887ec18cfe8000a.ctex"
@@ -38,12 +23,13 @@ stream_0/stream = ExtResource("3_aw3ft")
 material = SubResource("ShaderMaterial_hnwmv")
 offset_right = 96.0
 offset_bottom = 96.0
-pivot_offset = Vector2(64, 64)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
 texture_normal = SubResource("CompressedTexture2D_hnwmv")
-stretch_mode = 4
+stretch_mode = 5
 script = ExtResource("1_hnwmv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=147250182]
 stream = SubResource("AudioStreamRandomizer_ug2vx")
-volume_db = -10.0
-pitch_scale = 2.0
+volume_db = -15.0
+pitch_scale = 1.76

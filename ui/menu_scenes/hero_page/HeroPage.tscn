@@ -1,103 +1,96 @@
 [gd_scene format=3 uid="uid://dweuxvyfq4rts"]
 
 [ext_resource type="Texture2D" uid="uid://c23vcn3q2qb57" path="res://art/tilemap/bg1.png" id="1_a6o3p"]
+[ext_resource type="Script" uid="uid://rr4dmierhhjl" path="res://ui/menu_scenes/hero_page/hero_page.gd" id="1_uvp7a"]
 [ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="2_x8d3a"]
-[ext_resource type="Texture2D" uid="uid://bcokajyu8fkm7" path="res://art/dog/doggy-Sheet.png" id="6_ldcjr"]
-[ext_resource type="FontFile" uid="uid://2nvgw0vodyt3" path="res://fonts/PixelOperator8-Bold.ttf" id="8_ttgjs"]
+[ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="5_3quk7"]
+[ext_resource type="Texture2D" uid="uid://c8y4mw750jphm" path="res://art/interactables/start_button.png" id="5_ob4k5"]
+[ext_resource type="Texture2D" uid="uid://mj7y24n616ri" path="res://art/title.png" id="6_3quk7"]
+[ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="6_y8l1n"]
+[ext_resource type="Texture2D" uid="uid://c1t2lnpd8y8if" path="res://ui/menu_scenes/hero_page/well_bottom.png" id="7_y8l1n"]
+[ext_resource type="Texture2D" uid="uid://cqvhkyyxjpc8h" path="res://ui/menu_scenes/hero_page/well_bottom_half.png" id="8_uvp7a"]
 [ext_resource type="AudioStream" uid="uid://bu0md21vsuff2" path="res://audio/music/menu_.mp3" id="9_15ijf"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_17s17"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldcjr"]
-bg_color = Color(0, 0, 0, 0.43137255)
-corner_radius_top_left = 74
-corner_radius_top_right = 74
-corner_radius_bottom_right = 74
-corner_radius_bottom_left = 74
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkxok"]
+shader = ExtResource("5_3quk7")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 2.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_73f67"]
-font = ExtResource("8_ttgjs")
-font_size = 64
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1805, 20)
 
-[sub_resource type="LabelSettings" id="LabelSettings_a6o3p"]
-font = ExtResource("8_ttgjs")
-font_size = 37
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnsml"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvp7a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_idn48"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_3quk7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(588.00006, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(134.00002, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynov0"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_vkxok"]
+resource_name = "idle_title"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(600, -0.008382115, 2.0824564, 0.43333334, -107.65753, 600, -0.3, 45.373352, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(145, -0.100000024, -54.000015, 0.43333334, -62.469086, 144.78076, -0.39999998, -5.1874847, 0.3333333, 49.281143, 145, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.56666666, 1)
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkkqn"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87d6p"]
+_data = {
+&"RESET": SubResource("Animation_3quk7"),
+&"idle_title": SubResource("Animation_vkxok")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xy5tl"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsxgv"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pvuhj"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_em68d"]
-atlas = ExtResource("6_ldcjr")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uvp7a"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnsml")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_idn48")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ynov0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vkkqn")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xy5tl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsxgv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pvuhj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_em68d")
-}],
-"loop": 1,
-"name": &"run",
-"speed": 8.0
-}]
-
-[node name="HeroPage" type="Control" unique_id=268836903]
+[node name="HeroPage" type="Control" unique_id=268836903 node_paths=PackedStringArray("dog")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uvp7a")
+dog = NodePath("Dog")
 
 [node name="BackgroundPanel" type="TextureRect" parent="." unique_id=1584268957]
 modulate = Color(0.0037354275, 0.7822995, 0.7877676, 1)
@@ -110,59 +103,84 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a6o3p")
 
-[node name="LevelPanel" type="Panel" parent="." unique_id=1380331252]
-custom_minimum_size = Vector2(0, 84.13)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 0.508
-anchor_bottom = 1.0
-offset_left = 187.0
-offset_top = -530.0
-offset_right = 399.784
-offset_bottom = -93.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ldcjr")
-
-[node name="Label" type="Label" parent="LevelPanel" unique_id=1533479552]
+[node name="LevelSelection" parent="." unique_id=296607526 instance=ExtResource("2_x8d3a")]
+material = SubResource("ShaderMaterial_vkxok")
 layout_mode = 0
-offset_top = 38.0
-offset_right = 799.0
-offset_bottom = 145.0
-text = "Losthund"
-label_settings = SubResource("LabelSettings_73f67")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+offset_left = 375.0
+offset_top = 249.0
+offset_right = 759.0
+offset_bottom = 441.0
+texture_normal = ExtResource("5_ob4k5")
+delay_time = 2.7
+clickable_once = true
 
-[node name="Label2" type="Label" parent="LevelPanel" unique_id=27251576]
-layout_mode = 0
-offset_left = 246.0
-offset_top = 273.0
-offset_right = 515.0
-offset_bottom = 380.0
-text = "START"
-label_settings = SubResource("LabelSettings_a6o3p")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="LevelSelection" parent="LevelPanel" unique_id=296607526 instance=ExtResource("2_x8d3a")]
-layout_mode = 0
-offset_left = 317.0
-offset_top = 163.0
-offset_right = 413.0
-offset_bottom = 259.0
+[node name="Title" type="Sprite2D" parent="." unique_id=344798661]
+position = Vector2(588.00006, 134.00002)
+scale = Vector2(3.72, 3.72)
+texture = ExtResource("6_3quk7")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1790046663]
 stream = ExtResource("9_15ijf")
+volume_db = -3.0
 script = ExtResource("10_17s17")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=846546573]
-position = Vector2(209.00002, 496.99997)
-scale = Vector2(6.65625, 6.8750014)
-sprite_frames = SubResource("SpriteFrames_uvp7a")
-animation = &"run"
-autoplay = "run"
-frame_progress = 0.28215635
+[node name="Dog" parent="." unique_id=99944791 instance=ExtResource("6_y8l1n")]
+z_index = 1
+position = Vector2(-244.00002, 497)
+scale = Vector2(7, 7)
+SPEED = 3000.0
+air_drag = 1.0
+JUMP_VELOCITY = 800.0
+x_force = 300
+
+[node name="WellBottom" type="Sprite2D" parent="." unique_id=1614799999]
+position = Vector2(946.9999, 524)
+scale = Vector2(7, 7)
+texture = ExtResource("7_y8l1n")
+
+[node name="WellBottomHalf" type="Sprite2D" parent="WellBottom" unique_id=2093868207]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("8_uvp7a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=917744940]
+position = Vector2(-280, 632)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=684398990]
+position = Vector2(892.5, 0)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Starting pos" type="Area2D" parent="." unique_id=658466880]
+position = Vector2(286, 552)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starting pos" unique_id=1963095548]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Jump pos" type="Area2D" parent="." unique_id=1895368892]
+position = Vector2(569, 553)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump pos" unique_id=1573241684]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Disappear area" type="Area2D" parent="." unique_id=2103895787]
+position = Vector2(945, 543)
+scale = Vector2(12.285, 4.315)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Disappear area" unique_id=1383749001]
+shape = SubResource("RectangleShape2D_uvp7a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=248786024]
+libraries/ = SubResource("AnimationLibrary_87d6p")
+autoplay = &"idle_title"
+speed_scale = 0.1
+
+[connection signal="pressed" from="LevelSelection" to="." method="_on_level_selection_pressed"]
+[connection signal="body_entered" from="Starting pos" to="." method="_on_starting_pos_body_entered"]
+[connection signal="body_entered" from="Jump pos" to="." method="_on_jump_pos_body_entered"]
+[connection signal="body_entered" from="Disappear area" to="." method="_on_disappear_area_body_entered"]

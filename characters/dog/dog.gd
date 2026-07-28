@@ -3,10 +3,12 @@ extends CharacterBody2D
 class_name Dog
 
 @export var SPEED = 600.0
-@export var JUMP_VELOCITY = -400.0
 @export var air_drag = .9
 @export var ground_drag = .9
+@export_category("Jump")
+@export var JUMP_VELOCITY = 400.0
 @export var max_jump_duration = .3
+@export var x_force = 100
 @export var disable_movement := false
 
 @onready var anim_player := $AnimationPlayer
@@ -110,12 +112,12 @@ func _physics_process(delta: float) -> void:
 	# is jumping
 	if is_jumping:
 		if cur_jump_duration == max_jump_duration:
-			velocity.y = JUMP_VELOCITY
+			velocity.y = -JUMP_VELOCITY
 		
 		cur_jump_duration = clamp(cur_jump_duration - delta, 0, max_jump_duration)
 		
 		if cur_jump_duration != 0:
-			velocity.x = 100 * facing_direction 
+			velocity.x = x_force * facing_direction 
 			
 		if cur_jump_duration == 0 and is_on_floor():
 			is_jumping = false
@@ -148,6 +150,13 @@ func jump():
 	is_jumping = true
 	cur_jump_duration = max_jump_duration
 	is_just_started_executing_command = true
+	
+	
+func stop():
+	if is_executing_command.is_true():
+		is_going_left = false
+		is_going_right = false 
+		is_jumping = false
 	
 
 

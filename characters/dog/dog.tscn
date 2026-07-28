@@ -270,8 +270,8 @@ radius = 5.0
 [node name="Dog" type="CharacterBody2D" unique_id=99944791 groups=["dog"]]
 collision_layer = 4
 script = ExtResource("1_xy5tl")
-JUMP_VELOCITY = -300.0
 air_drag = 0.99
+JUMP_VELOCITY = -300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124381564]
 position = Vector2(0, 9)
@@ -298,7 +298,6 @@ debug_color = Color(0.6938875, 0.42034918, 0.69267863, 0.41960785)
 position = Vector2(14, 1)
 
 [node name="FootstepPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=926312315]
-volume_db = 10.0
 pitch_scale = 0.64
 
 [node name="RightShapeCast2D" type="ShapeCast2D" parent="." unique_id=313491402]

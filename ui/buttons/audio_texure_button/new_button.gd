@@ -3,7 +3,11 @@ extends TextureButton
 var tween: Tween
 var start_global_position: Vector2
 var saved_mat: ShaderMaterial
+@export var delay_time := 0.0
+@export var clickable_once := false
 @onready var whoosh_audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+var was_clicked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,11 +22,20 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	was_clicked = true
 	# go to scene
+	if clickable_once and was_clicked:
+		disabled = true
+		material = null
+		self_modulate = Color(1,1,1,.5)
+		
+		
 	press()
 
 
 func _on_mouse_entered() -> void:
+	if disabled: return
+	
 	material = saved_mat
 	whoosh_audio_player.play()
 	
@@ -31,11 +44,14 @@ func _on_mouse_entered() -> void:
 		
 	tween = create_tween().set_parallel(true)
 	
-	tween.tween_property(self, "scale", Vector2.ONE * .8, .1)
+	tween.tween_property(self, "scale", Vector2.ONE * 1.1, .1)
 
 
 func _on_mouse_exited() -> void:
 	material = null
+	
+	if disabled: return
+
 	whoosh_audio_player.play()
 	if tween != null and tween.is_valid():
 		tween.kill()
@@ -53,8 +69,8 @@ func press():
 	tween.tween_property(self, "scale", Vector2.ONE * .7, .1)
 	tween.tween_property(
 		self, 
-		"global_position", 
-		start_global_position - Vector2(0, -10), 
+		"offset_transform_position", 
+		Vector2(0, 20), 
 		.1
 	)
 	
@@ -63,11 +79,11 @@ func press():
 	tween.tween_property(self, "scale", Vector2.ONE * 1, .1)
 	tween.tween_property(
 		self, 
-		"global_position", 
-		start_global_position, 
+		"offset_transform_position", 
+		Vector2(0, 0), 
 		.1
 	)
 	await tween.finished
-	
+	await get_tree().create_timer(delay_time).timeout
 	GameManager.go_to_scene(name)
 	
