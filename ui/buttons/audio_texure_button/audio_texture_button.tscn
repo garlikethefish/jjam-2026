@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://gnc06spm8lw3"]
 
-[ext_resource type="Script" uid="uid://bpya78yiqhl0e" path="res://ui/buttons/audio_texure_button/new_button.gd" id="1_hnwmv"]
+[ext_resource type="Script" uid="uid://bpya78yiqhl0e" path="res://ui/buttons/audio_texure_button/change_scene_button.gd" id="1_hnwmv"]
 [ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="1_hvqib"]
 [ext_resource type="AudioStream" uid="uid://cm6e4aacjogpb" path="res://audio/sfx/whoosh.mp3" id="3_aw3ft"]
 [ext_resource type="AudioStream" uid="uid://dolx6plcghytb" path="res://audio/sfx/button2.mp3" id="4_0jcai"]
+[ext_resource type="Script" uid="uid://bepnihd7w544x" path="res://addons/tween_composer/tween_composer.gd" id="5_ituow"]
+[ext_resource type="Resource" uid="uid://c3yu2qhjghc2f" path="res://tweens/button_press_fall.tres" id="6_0ti5m"]
+[ext_resource type="Resource" uid="uid://cofu2jdkj18n2" path="res://tweens/button_fall.tres" id="6_ituow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnwmv"]
 shader = ExtResource("1_hvqib")
-shader_parameter/clr = Color(0.5176471, 0.49411765, 0.5294118, 1)
+shader_parameter/clr = Color(1, 1, 1, 1)
 shader_parameter/type = 2
 shader_parameter/thickness = 2.0
 
@@ -28,8 +31,8 @@ stream_0/stream = ExtResource("4_0jcai")
 
 [node name="AudioTextureButton" type="TextureButton" unique_id=296607526]
 material = SubResource("ShaderMaterial_hnwmv")
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = 95.99988
+offset_bottom = 95.99988
 pivot_offset_ratio = Vector2(0.5, 0.5)
 offset_transform_enabled = true
 texture_normal = SubResource("CompressedTexture2D_hnwmv")
@@ -43,4 +46,16 @@ pitch_scale = 1.76
 
 [node name="ClickAudioPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1148521048]
 stream = SubResource("AudioStreamRandomizer_1qq63")
-volume_db = -15.0
+volume_db = -5.0
+
+[node name="ClickedFallTween" type="Node" parent="." unique_id=904728249]
+script = ExtResource("5_ituow")
+tween_sequence = ExtResource("6_0ti5m")
+autostart = false
+metadata/_custom_type_script = "uid://bepnihd7w544x"
+
+[node name="FallTween" type="Node" parent="." unique_id=2077779597]
+script = ExtResource("5_ituow")
+tween_sequence = ExtResource("6_ituow")
+autostart = false
+metadata/_custom_type_script = "uid://bepnihd7w544x"

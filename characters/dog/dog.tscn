@@ -271,7 +271,6 @@ radius = 5.0
 collision_layer = 4
 script = ExtResource("1_xy5tl")
 air_drag = 0.99
-JUMP_VELOCITY = -300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124381564]
 position = Vector2(0, 9)

@@ -6,7 +6,7 @@ class_name Dog
 @export var air_drag = .9
 @export var ground_drag = .9
 @export_category("Jump")
-@export var JUMP_VELOCITY = 400.0
+@export var JUMP_VELOCITY = 300.0
 @export var max_jump_duration = .3
 @export var x_force = 100
 @export var disable_movement := false

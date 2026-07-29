@@ -9,8 +9,8 @@
 [ext_resource type="FontFile" uid="uid://xebwws2xm4gf" path="res://fonts/PixelOperator8.ttf" id="7_6un3d"]
 [ext_resource type="Script" uid="uid://b8o2inomojtcc" path="res://ui/button_go_back_in_time.gd" id="7_gbemf"]
 [ext_resource type="Texture2D" uid="uid://cn1ysm7cci275" path="res://art/q.png" id="9_6un3d"]
-[ext_resource type="Texture2D" uid="uid://co02lnasvl5g0" path="res://art/interactables/wall_long.png" id="10_eehfe"]
-[ext_resource type="Script" uid="uid://c57vug2qblt6d" path="res://ui/go_to_main_menu.gd" id="11_b6ena"]
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="12_8m17e"]
+[ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://ui/menu_scenes/level_selection/back_button.png" id="13_2gys3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etkh1"]
 atlas = ExtResource("1_2hdji")
@@ -141,34 +141,16 @@ offset_bottom = 59.0
 text = "View"
 label_settings = SubResource("LabelSettings_uhb7j")
 
-[node name="Control" type="Control" parent="." unique_id=1583909070]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect2" type="TextureButton" parent="Control" unique_id=1368783466]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 17.0
-offset_right = 92.0
-offset_bottom = 97.0
-scale = Vector2(1.9999998, 1)
-texture_normal = ExtResource("10_eehfe")
-stretch_mode = 4
-script = ExtResource("11_b6ena")
-
-[node name="Label" type="Label" parent="Control" unique_id=1861603106]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 28.0
-offset_right = 154.0
-offset_bottom = 60.0
-text = "Main menu"
-label_settings = SubResource("LabelSettings_uhb7j")
+[node name="BackButton" parent="." unique_id=296607526 instance=ExtResource("12_8m17e")]
+z_index = 1
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 103.0
+offset_bottom = 102.0
+texture_normal = ExtResource("13_2gys3")
+scene_name = "LevelSelection"
 
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/RightButton" to="Panel/RightButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/GoBackInTime" to="Panel/GoBackInTime" method="_on_pressed"]
-[connection signal="pressed" from="Control/TextureRect2" to="Control/TextureRect2" method="_on_pressed"]

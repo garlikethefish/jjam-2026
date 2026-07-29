@@ -1,12 +1,16 @@
 extends TextureButton
 
+class_name CustomButton
+
 var tween: Tween
 var start_global_position: Vector2
 var saved_mat: ShaderMaterial
 @export var delay_time := 0.0
-@export var clickable_once := false
+@export var scene_name := ""
 @onready var whoosh_audio_player: AudioStreamPlayer2D = $WhooshAudioPlayer2D
 @onready var click_audio_player: AudioStreamPlayer2D = $ClickAudioPlayer2D
+@onready var click_fall_composer: TweenComposer = $ClickedFallTween
+@onready var fall_composer: TweenComposer = $FallTween
 
 var was_clicked = false
 
@@ -23,15 +27,21 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	was_clicked = true
 	# go to scene
-	if clickable_once and was_clicked:
-		disabled = true
-		material = null
-		self_modulate = Color(1,1,1,.5)
+	if was_clicked: return
+	
+	was_clicked = true
+	disabled = true
+	material = null
+	self_modulate = Color(1.093, 0.703, 0.302)
 		
-		
-	press()
+	click_fall_composer.play_tween()
+	click_audio_player.play()
+	
+	await get_tree().create_timer(delay_time).timeout
+	
+	if scene_name != "":
+		GameManager.go_to_scene(scene_name)
 
 
 func _on_mouse_entered() -> void:
@@ -62,30 +72,5 @@ func _on_mouse_exited() -> void:
 	tween.tween_property(self, "scale", Vector2.ONE, .1)
 
 
-func press():
-	click_audio_player.play()
-	if tween != null and tween.is_valid():
-		tween.kill()
-		
-	tween = create_tween().set_parallel(true)
-	tween.tween_property(self, "scale", Vector2.ONE * .7, .1)
-	tween.tween_property(
-		self, 
-		"offset_transform_position", 
-		Vector2(0, 20), 
-		.1
-	)
-	
-	tween.chain()
-
-	tween.tween_property(self, "scale", Vector2.ONE * 1, .1)
-	tween.tween_property(
-		self, 
-		"offset_transform_position", 
-		Vector2(0, 0), 
-		.1
-	)
-	await tween.finished
-	await get_tree().create_timer(delay_time).timeout
-	GameManager.go_to_scene(name)
-	
+func fall_off():
+	fall_composer.play_tween()
