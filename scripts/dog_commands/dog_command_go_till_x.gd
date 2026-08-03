@@ -8,15 +8,16 @@ var _speed: float
 var dir: Enums.FacingDirection
 
 
-func _init(dog: Dog, x_pos: float, speed: float) -> void:
-	super._init(dog)
+func _init(x_pos: float, speed: float) -> void:
+	super()
 	_target_x = x_pos
 	_speed = speed
-	_starting_x = dog.global_position.x
 
 
 func execute() -> void:
 	super.execute()
+
+	_starting_x = _dog.global_position.x
 
 	_dog.anim_player.play("run")
 	_dog.footstep_player.stream_paused = false
@@ -26,9 +27,8 @@ func execute() -> void:
 
 
 func physics_process(delta: float) -> void:
-	if _finished:
+	if has_finished:
 		return
-	print("dir: ", dir)
 
 	_dog.velocity.x = _speed * dir * delta
 

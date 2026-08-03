@@ -3,8 +3,8 @@ extends DogCommand
 class_name DogCommandGoDown
 
 
-func _init(dog: Dog) -> void:
-	super(dog)
+func _init() -> void:
+	pass
 
 
 func _execute():

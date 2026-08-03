@@ -1,5 +1,6 @@
 extends Control
 
+var DIR = Enums.FacingDirection
 @export var dog: Dog
 @export var fall_initiator_buttons: Array[CustomButton] = []
 @export var falling_buttons: Array[CustomButton] = []
@@ -8,14 +9,23 @@ extends Control
 var is_button_pressed = false
 var is_going_back = false
 
+var dog_speed := 60000
+
+var go_back: Array[DogCommand] = []
+var start_level: Array[DogCommand] = []
+var go_to_start_pos: Array[DogCommand] = []
+
 
 func _ready():
 	for button in fall_initiator_buttons:
 		button.pressed.connect(_fall_buttons.bind(button))
 		button.pressed.connect(_on_button_pressed)
 
-	await get_tree().create_timer(.3).timeout
-	dog.go_right_for(.7, 3000).execute()
+	go_back = DogCommandBuilder.new().go_till_hits_a_wall(dog_speed, DIR.LEFT).build()
+	start_level = DogCommandBuilder.new().go_till_hits_a_wall(dog_speed, DIR.RIGHT).build()
+	go_to_start_pos = DogCommandBuilder.new().wait(.3).go_till_x(80, dog_speed).build()
+
+	dog.append_and_execute_commands(go_to_start_pos)
 
 
 func _on_end_area_2d_body_entered(_body):
@@ -30,7 +40,8 @@ func _on_back_area_2d_body_entered(_body):
 func _on_back_button_pressed():
 	is_going_back = true
 	is_button_pressed = true
-	dog.go_left_till_wall(3000).execute()
+
+	dog.append_and_execute_commands(go_back)
 
 
 func _on_button_pressed():
@@ -38,7 +49,7 @@ func _on_button_pressed():
 	if is_going_back:
 		return
 
-	dog.go_right_till_wall(30000).execute()
+	dog.append_and_execute_commands(start_level)
 
 
 func _fall_buttons(pressed_button) -> void:

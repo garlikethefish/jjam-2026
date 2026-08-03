@@ -4,18 +4,23 @@ signal finished
 
 var _dog: Dog
 var _has_started := false
-var _finished := false
+var has_finished := false
 
 
-func _init(dog: Dog) -> void:
-	_dog = dog
+func _init() -> void:
+	pass
 
 
 func _finish():
 	_dog.anim_player.play("idle")
-	_finished = true
+	has_finished = true
+	_has_started = false
 	_dog.footstep_player.stream_paused = true
 	finished.emit()
+
+
+func assign_dog(dog: Dog):
+	_dog = dog
 
 
 func physics_process(_delta):
@@ -24,4 +29,5 @@ func physics_process(_delta):
 
 func execute():
 	GameManager.executed_command_count += 1
+	has_finished = false
 	_has_started = true

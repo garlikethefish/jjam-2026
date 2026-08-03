@@ -8,15 +8,15 @@ var _speed := 0.0
 var _direction := Enums.FacingDirection.NONE
 
 
-func _init(dog: Dog, duration: float, speed: float, direction: Enums.FacingDirection) -> void:
-	super(dog)
+func _init(duration: float, speed: float, direction: Enums.FacingDirection) -> void:
+	super()
 	_speed = speed
 	_duration = duration
 	_direction = direction
 
 
 func physics_process(delta):
-	if !_has_started or _finished:
+	if !_has_started or has_finished:
 		return
 
 	super(delta)

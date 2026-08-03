@@ -1,6 +1,6 @@
 extends Control
 
-const DIR = Enums.FacingDirection
+var DIR = Enums.FacingDirection
 @export var buttons: Array[CustomButton] = []
 @export var dog: Dog
 var is_clicked = false
@@ -16,19 +16,17 @@ func _ready():
 		button.pressed.connect(_fall_buttons.bind(button))
 		button.pressed.connect(_on_button_pressed)
 
-	await get_tree().create_timer(.3).timeout
+	go_left = DogCommandBuilder.new().go_till_hits_a_wall(dog_speed, DIR.LEFT).build()
+	jump_in_well = DogCommandBuilder.new().go_till_x(550, dog_speed).jump(Vector2(225, 1000), 1).build()
+	go_to_start_pos = DogCommandBuilder.new().wait(.3).go_till_x(150, dog_speed).build()
 
-	go_left = DogCommandBuilder.new(dog).go_till_hits_a_wall(dog_speed, DIR.LEFT).build()
-	jump_in_well = DogCommandBuilder.new(dog).go_till_x(550, dog_speed).jump(Vector2(225, 1000), 1).build()
-	go_to_start_pos = DogCommandBuilder.new(dog).go_till_x(150, dog_speed).build()
-
-	dog.execute_commands(go_to_start_pos)
+	dog.append_and_execute_commands(go_to_start_pos)
 
 
 func _on_level_selection_pressed():
 	if is_clicked:
 		return
-	dog.execute_commands(jump_in_well)
+	dog.append_and_execute_commands(jump_in_well)
 
 
 func _on_disappear_area_body_entered(_body):
@@ -57,7 +55,7 @@ func _fall_buttons(pressed_button) -> void:
 
 
 func _on_exit_pressed():
-	dog.execute_commands(go_left)
+	dog.append_and_execute_commands(go_left)
 
 	await get_tree().create_timer(1.5).timeout
 	get_tree().quit()

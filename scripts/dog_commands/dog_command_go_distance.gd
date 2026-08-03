@@ -8,8 +8,8 @@ var _direction := Enums.FacingDirection.NONE
 var _start_position: float = 0.0
 
 
-func _init(dog: Dog, distance: float, speed: float, direction: Enums.FacingDirection) -> void:
-	super._init(dog)
+func _init(distance: float, speed: float, direction: Enums.FacingDirection) -> void:
+	super()
 	_target_distance = distance
 	_speed = speed
 	_direction = direction
@@ -26,7 +26,7 @@ func execute() -> void:
 
 
 func physics_process(_delta: float) -> void:
-	if _finished:
+	if has_finished:
 		return
 
 	# Apply desired velocity (your Dog script's drag will naturally smooth this out)

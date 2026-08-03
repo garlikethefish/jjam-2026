@@ -69,6 +69,8 @@ focus_mode = 0
 texture_normal = SubResource("AtlasTexture_etkh1")
 stretch_mode = 5
 script = ExtResource("2_w75a8")
+jump_force = Vector2(100, 500)
+x_force_duration = 0.2
 
 [node name="LeftButton" type="TextureButton" parent="Panel" unique_id=1451535180]
 layout_mode = 0

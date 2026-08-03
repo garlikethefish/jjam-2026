@@ -25,6 +25,7 @@ var cur_jump_duration = .3
 @onready var item_sprite := $ItemSprite2D
 @onready var footstep_player: AudioStreamPlayer2D = $FootstepPlayer2D
 
+var command_queue: Array[DogCommand] = []
 var current_command: DogCommand = null
 
 var is_executing_command := false
@@ -112,16 +113,38 @@ func discard_item():
 	item_sprite.texture = null
 
 
-func execute_commands(commands: Array[DogCommand]):
+## Execute commands if no other commands are beeing executed at the moment
+func try_execute_commands(commands: Array[DogCommand]):
 	if is_executing_command:
 		return
 
+	append_and_execute_commands(commands)
+
+
+## Adds commands to executions queue and executes em on THIS DOG
+func append_and_execute_commands(commands: Array[DogCommand]) -> void:
+	# makes all commands to manipulate THIS dog. YES THIS VERY OWN DOG. IT MOVES THE DOG. THIS DOG!
+	for command in commands:
+		command.assign_dog(self)
+
+	command_queue.append_array(commands)
+
+	if is_executing_command:
+		return
+
+	_process_command_queue()
+
+
+## Executes commands
+func _process_command_queue() -> void:
 	is_executing_command = true
 
-	for command in commands:
-		current_command = command
+	while command_queue.size() > 0:
+		current_command = command_queue.pop_front()
 		current_command.execute()
-		await current_command.finished
+		if not current_command.has_finished:
+			await current_command.finished
 
-	finished_commands.emit()
+	current_command = null
 	is_executing_command = false
+	finished_commands.emit()

@@ -1,11 +1,16 @@
 extends TextureButton
 
-var command: DogCommand
+@export var speed := 10000.0
+var go_right_till_wall: Array[DogCommand] = []
+var dog: Dog
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	var dog = get_tree().get_first_node_in_group("dog") as Dog
-	command = DogCommandGoRight.new(dog)
+	dog = get_tree().get_first_node_in_group("dog") as Dog
+	go_right_till_wall = DogCommandBuilder.new() \
+			.go_till_hits_a_wall(speed, Enums.FacingDirection.RIGHT) \
+			.build()
+
 
 func _on_pressed() -> void:
-	command._execute()
+	dog.try_execute_commands(go_right_till_wall)
