@@ -81,8 +81,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1805, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvp7a"]
 
 [node name="HeroPage" type="Control" unique_id=268836903 node_paths=PackedStringArray("buttons", "dog")]
@@ -190,22 +188,6 @@ position = Vector2(-280, 632)
 position = Vector2(892.5, 0)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Starting pos" type="Area2D" parent="." unique_id=658466880]
-position = Vector2(286, 552)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Starting pos" unique_id=1963095548]
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="Jump pos" type="Area2D" parent="." unique_id=1895368892]
-position = Vector2(569, 553)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump pos" unique_id=1573241684]
-shape = SubResource("RectangleShape2D_yf5fn")
-
 [node name="Disappear area" type="Area2D" parent="." unique_id=2103895787]
 position = Vector2(945, 543)
 scale = Vector2(12.285, 4.315)
@@ -216,7 +198,6 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_uvp7a")
 
 [connection signal="pressed" from="LevelSelection" to="." method="_on_level_selection_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="body_entered" from="Starting pos" to="." method="_on_starting_pos_body_entered"]
-[connection signal="body_entered" from="Jump pos" to="." method="_on_jump_pos_body_entered"]
 [connection signal="body_entered" from="Disappear area" to="." method="_on_disappear_area_body_entered"]

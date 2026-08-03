@@ -14,8 +14,9 @@ var level_scenes: Dictionary[String, String] = {
 	"Level5": "res://levels/Level5.tscn",
 	"Level7": "res://levels/level_7.tscn",
 	"HeroScene": "res://ui/menu_scenes/hero_page/HeroPage.tscn",
-	"LevelSelection": "res://ui/menu_scenes/level_selection/LevelSelection.tscn"
+	"LevelSelection": "res://ui/menu_scenes/level_selection/LevelSelection.tscn",
 }
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +26,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	level_timeline.process(delta)
-	
+
 
 func go_to_scene(scene_name: String):
 	await TransitionScreen.close().finished

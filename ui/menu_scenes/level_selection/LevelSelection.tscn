@@ -1181,18 +1181,9 @@ scale = Vector2(0.32, 0.32)
 
 [node name="Dog" parent="." unique_id=99944791 instance=ExtResource("18_7rcg3")]
 z_index = -1
-position = Vector2(-335, 301.00003)
+position = Vector2(-110.00002, 301.00003)
 scale = Vector2(4.495, 4.495)
 SPEED = 20500.0
-
-[node name="StopArea2D" type="Area2D" parent="." unique_id=627276441]
-position = Vector2(-100.00001, 288)
-scale = Vector2(3.545, 9.395)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StopArea2D" unique_id=221680772]
-shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="EndArea2D" type="Area2D" parent="." unique_id=1857674125]
 position = Vector2(1358, 288)
@@ -1205,7 +1196,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="BackArea2D" type="Area2D" parent="." unique_id=1457994802]
 process_mode = 3
-position = Vector2(-522, 285.99997)
+position = Vector2(-287, 286.99997)
 scale = Vector2(9.395, 28.535)
 disable_mode = 2
 collision_layer = 0
@@ -1244,6 +1235,5 @@ offset_bottom = 418.0
 texture_normal = ExtResource("21_gs3kh")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="body_entered" from="StopArea2D" to="." method="_on_stop_area_2d_body_entered"]
 [connection signal="body_entered" from="EndArea2D" to="." method="_on_end_area_2d_body_entered"]
 [connection signal="body_entered" from="BackArea2D" to="." method="_on_back_area_2d_body_entered"]
