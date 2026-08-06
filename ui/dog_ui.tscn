@@ -6,11 +6,12 @@
 [ext_resource type="Script" uid="uid://dx1xp7kq7yhcf" path="res://ui/left_button_command.gd" id="4_0uk22"]
 [ext_resource type="Script" uid="uid://01hkrten5hqi" path="res://ui/right_button_command.gd" id="4_luusd"]
 [ext_resource type="Script" uid="uid://coyymgfswjqm0" path="res://ui/command_count_tracker.gd" id="7_2hdji"]
-[ext_resource type="FontFile" uid="uid://xebwws2xm4gf" path="res://fonts/PixelOperator8.ttf" id="7_6un3d"]
 [ext_resource type="Script" uid="uid://b8o2inomojtcc" path="res://ui/button_go_back_in_time.gd" id="7_gbemf"]
+[ext_resource type="LabelSettings" uid="uid://ckxe801gy6u0g" path="res://fonts/pixel_label_settings.tres" id="8_dbae1"]
 [ext_resource type="Texture2D" uid="uid://cn1ysm7cci275" path="res://art/q.png" id="9_6un3d"]
+[ext_resource type="FontFile" uid="uid://b130171gs1oxo" path="res://fonts/MySims Racing DS Large Font.ttf" id="9_dbae1"]
 [ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="12_8m17e"]
-[ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://ui/menu_scenes/level_selection/back_button.png" id="13_2gys3"]
+[ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="13_2gys3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etkh1"]
 atlas = ExtResource("1_2hdji")
@@ -37,14 +38,22 @@ load_path = "res://.godot/imported/cursors-Sheet.png-bc30f2d4e745f78c7223e6f87e5
 atlas = SubResource("CompressedTexture2D_88824")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="LabelSettings" id="LabelSettings_uhb7j"]
-font = ExtResource("7_6un3d")
-
-[sub_resource type="LabelSettings" id="LabelSettings_2hdji"]
-font = ExtResource("7_6un3d")
+[sub_resource type="LabelSettings" id="LabelSettings_8m17e"]
+font = ExtResource("9_dbae1")
 font_size = 32
+font_color = Color(0.85490197, 0.8784314, 0.91764706, 1)
+shadow_size = 0
+shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
+shadow_offset = Vector2(-2.075, 1.93)
 
-[node name="DogUI" type="CanvasLayer" unique_id=866075244]
+[sub_resource type="LabelSettings" id="LabelSettings_2gys3"]
+font = ExtResource("9_dbae1")
+font_color = Color(0.85490197, 0.8784314, 0.91764706, 1)
+shadow_size = 0
+shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
+shadow_offset = Vector2(-1, 1.015)
+
+[node name="GameUI" type="CanvasLayer" unique_id=866075244]
 script = ExtResource("1_6un3d")
 
 [node name="Panel" type="Panel" parent="." unique_id=292041402]
@@ -107,41 +116,54 @@ script = ExtResource("7_gbemf")
 
 [node name="Label" type="Label" parent="Panel" unique_id=511781525]
 layout_mode = 0
-offset_left = 14.0
-offset_top = -17.0
-offset_right = 184.0
-offset_bottom = 15.0
+offset_left = 12.0
+offset_top = -37.0
+offset_right = 468.0
+offset_bottom = 27.0
 text = "Dog commands"
-label_settings = SubResource("LabelSettings_uhb7j")
+label_settings = SubResource("LabelSettings_8m17e")
+
+[node name="LevelNameLabel" type="Label" parent="." unique_id=1920060192]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -442.0
+offset_top = 17.0
+offset_right = 438.0
+offset_bottom = 81.0
+grow_horizontal = 2
+text = "Level t 2asadas"
+label_settings = ExtResource("8_dbae1")
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=1580141047]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -355.0
-offset_top = 27.0
-offset_right = -79.0
-offset_bottom = 59.0
+offset_left = -184.0
+offset_top = 17.0
+offset_right = 92.0
+offset_bottom = 55.0
 grow_horizontal = 0
 text = "Commands: "
-label_settings = SubResource("LabelSettings_2hdji")
+label_settings = SubResource("LabelSettings_2gys3")
 script = ExtResource("7_2hdji")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1077041142]
-offset_left = 926.0
-offset_top = 563.0
-offset_right = 1006.0
-offset_bottom = 643.0
+offset_left = 902.0
+offset_top = 558.0
+offset_right = 982.0
+offset_bottom = 638.0
 texture = ExtResource("9_6un3d")
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=1470467915]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 27.0
-offset_right = 202.0
-offset_bottom = 59.0
+offset_left = 87.0
+offset_top = 3.0
+offset_right = 239.0
+offset_bottom = 67.0
 text = "View"
-label_settings = SubResource("LabelSettings_uhb7j")
+label_settings = ExtResource("8_dbae1")
 
 [node name="BackButton" parent="." unique_id=296607526 instance=ExtResource("12_8m17e")]
 z_index = 1

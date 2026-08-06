@@ -9,6 +9,7 @@ var dog_speed := 60000
 var go_left: Array[DogCommand] = []
 var jump_in_well: Array[DogCommand] = []
 var go_to_start_pos: Array[DogCommand] = []
+var go_to_heaven: Array[DogCommand] = []
 
 
 func _ready():
@@ -19,6 +20,7 @@ func _ready():
 	go_left = DogCommandBuilder.new().go_till_hits_a_wall(dog_speed, DIR.LEFT).build()
 	jump_in_well = DogCommandBuilder.new().go_till_x(550, dog_speed).jump(Vector2(225, 1000), 1).build()
 	go_to_start_pos = DogCommandBuilder.new().wait(.3).go_till_x(150, dog_speed).build()
+	go_to_heaven = DogCommandBuilder.new().jump(Vector2(200, 2000), 1).build()
 
 	dog.append_and_execute_commands(go_to_start_pos)
 
@@ -62,4 +64,8 @@ func _on_exit_pressed():
 
 
 func _on_options_pressed():
-	pass
+	dog.append_and_execute_commands(go_to_heaven)
+
+
+func _on_sky_area_body_entered(body):
+	GameManager.go_to_scene("Options")

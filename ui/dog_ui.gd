@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var left_button: TextureButton = $Panel/LeftButton
 @onready var right_button: TextureButton = $Panel/RightButton
 @onready var go_back_in_time: TextureButton = $Panel/GoBackInTime
+@onready var level_name: Label = $LevelNameLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,3 +23,5 @@ func _process(_delta: float) -> void:
 	right_button.visible = show_right_button
 	left_button.visible = show_left_button
 	go_back_in_time.visible = show_go_back_in_time_button
+
+	level_name.text = GameManager.current_scene_name

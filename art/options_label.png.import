@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1t2lnpd8y8if"
-path="res://.godot/imported/well_bottom.png-11222d70ae60f3f1f7c39b87f778b85e.ctex"
+uid="uid://cagipauw8hs4v"
+path="res://.godot/imported/options_label.png-de131066319d21344097d3221528ffd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menu_scenes/hero_page/well_bottom.png"
-dest_files=["res://.godot/imported/well_bottom.png-11222d70ae60f3f1f7c39b87f778b85e.ctex"]
+source_file="res://art/options_label.png"
+dest_files=["res://.godot/imported/options_label.png-de131066319d21344097d3221528ffd2.ctex"]
 
 [params]
 

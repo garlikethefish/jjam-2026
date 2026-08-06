@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cterkqjcphky1" path="res://art/interactables/options_button.png" id="6_ww8sx"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="6_y8l1n"]
 [ext_resource type="Texture2D" uid="uid://cgw2pjv4wd78o" path="res://art/interactables/extras_button.png" id="7_3jyan"]
-[ext_resource type="Texture2D" uid="uid://c1t2lnpd8y8if" path="res://ui/menu_scenes/hero_page/well_bottom.png" id="7_y8l1n"]
+[ext_resource type="Texture2D" uid="uid://c1t2lnpd8y8if" path="res://art/well_bottom.png" id="7_y8l1n"]
 [ext_resource type="Texture2D" uid="uid://cjaxufkqu2iuv" path="res://art/interactables/exit_button.png" id="8_7r782"]
-[ext_resource type="Texture2D" uid="uid://cqvhkyyxjpc8h" path="res://ui/menu_scenes/hero_page/well_bottom_half.png" id="8_uvp7a"]
+[ext_resource type="Texture2D" uid="uid://cqvhkyyxjpc8h" path="res://art/well_bottom_half.png" id="8_uvp7a"]
 [ext_resource type="AudioStream" uid="uid://bu0md21vsuff2" path="res://audio/music/menu_.mp3" id="9_15ijf"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_17s17"]
 
@@ -188,16 +188,26 @@ position = Vector2(-280, 632)
 position = Vector2(892.5, 0)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Disappear area" type="Area2D" parent="." unique_id=2103895787]
+[node name="WellArea" type="Area2D" parent="." unique_id=2103895787]
 position = Vector2(945, 543)
 scale = Vector2(12.285, 4.315)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Disappear area" unique_id=1383749001]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WellArea" unique_id=1383749001]
+shape = SubResource("RectangleShape2D_uvp7a")
+
+[node name="SkyArea" type="Area2D" parent="." unique_id=1790720718]
+position = Vector2(355, -161.00002)
+scale = Vector2(62.345, 4.315)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkyArea" unique_id=73773265]
 shape = SubResource("RectangleShape2D_uvp7a")
 
 [connection signal="pressed" from="LevelSelection" to="." method="_on_level_selection_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="body_entered" from="Disappear area" to="." method="_on_disappear_area_body_entered"]
+[connection signal="body_entered" from="WellArea" to="." method="_on_disappear_area_body_entered"]
+[connection signal="body_entered" from="SkyArea" to="." method="_on_sky_area_body_entered"]

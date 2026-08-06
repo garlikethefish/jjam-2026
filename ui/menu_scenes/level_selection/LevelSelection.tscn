@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://csd75i6v51w5k" path="res://art/interactables/lvl7.png" id="9_galok"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_i87d2"]
 [ext_resource type="Texture2D" uid="uid://c1x22m34blwqi" path="res://art/interactables/lvl8.png" id="10_xgu06"]
-[ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://ui/menu_scenes/level_selection/back_button.png" id="13_xd85v"]
+[ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="13_xd85v"]
 [ext_resource type="Texture2D" uid="uid://dtuilafqmc1ka" path="res://art/temp_sprites/Assets.png" id="14_galok"]
 [ext_resource type="Texture2D" uid="uid://c0kjqc6rbxfm6" path="res://art/temp_sprites/tileset.png" id="15_xgu06"]
 [ext_resource type="Texture2D" uid="uid://i0uja1vdxihq" path="res://art/tilemap/tilesetreal.png" id="16_7rcg3"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhah2nthtp5ss"
-path="res://.godot/imported/back_button.png-8620d9680be436ad48c133b3063d05f2.ctex"
+uid="uid://b5wqvmyglx4qm"
+path="res://.godot/imported/well.png-5d60228e87af4db4fb3c363993bc65e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menu_scenes/level_selection/back_button.png"
-dest_files=["res://.godot/imported/back_button.png-8620d9680be436ad48c133b3063d05f2.ctex"]
+source_file="res://art/well.png"
+dest_files=["res://.godot/imported/well.png-5d60228e87af4db4fb3c363993bc65e5.ctex"]
 
 [params]
 
