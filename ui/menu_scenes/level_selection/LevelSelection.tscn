@@ -2,16 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dur6kwadt3cpe" path="res://art/Ekrānuzņēmums 2026-07-26 135302.png" id="1_4gwdk"]
 [ext_resource type="Script" uid="uid://bucumgwyxkngx" path="res://ui/menu_scenes/level_selection/level_selection.gd" id="1_i87d2"]
-[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="2_0eouc"]
-[ext_resource type="Texture2D" uid="uid://k6f0l55b5hw4" path="res://art/interactables/lv2.png" id="3_jn2xb"]
-[ext_resource type="Texture2D" uid="uid://srqbl3ynsbtg" path="res://art/interactables/lv3.png" id="4_4gwdk"]
-[ext_resource type="Texture2D" uid="uid://da5kqi3b6rbv2" path="res://art/interactables/lv4.png" id="5_ug2vx"]
-[ext_resource type="Texture2D" uid="uid://c8yyc0o2v1eiu" path="res://art/interactables/lv5.png" id="6_e7ddk"]
-[ext_resource type="Texture2D" uid="uid://bexglypwh226s" path="res://art/interactables/lvl6.png" id="8_8r035"]
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/scene_button/scene_button.tscn" id="2_0eouc"]
 [ext_resource type="AudioStream" uid="uid://b721qdslgyy6j" path="res://audio/music/Disney Is Back-730949910.mp3" id="9_7rcg3"]
-[ext_resource type="Texture2D" uid="uid://csd75i6v51w5k" path="res://art/interactables/lvl7.png" id="9_galok"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_i87d2"]
-[ext_resource type="Texture2D" uid="uid://c1x22m34blwqi" path="res://art/interactables/lvl8.png" id="10_xgu06"]
 [ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="13_xd85v"]
 [ext_resource type="Texture2D" uid="uid://dtuilafqmc1ka" path="res://art/temp_sprites/Assets.png" id="14_galok"]
 [ext_resource type="Texture2D" uid="uid://c0kjqc6rbxfm6" path="res://art/temp_sprites/tileset.png" id="15_xgu06"]
@@ -19,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="17_xgu06"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="18_7rcg3"]
 [ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="19_h5qwx"]
-[ext_resource type="Texture2D" uid="uid://bgn6acb0c3qbf" path="res://ui/buttons/audio_texure_button/levels_label.png" id="19_i87d2"]
-[ext_resource type="Texture2D" uid="uid://bun4yjcn2yglc" path="res://ui/buttons/audio_texure_button/left_button.png" id="21_gs3kh"]
+[ext_resource type="Texture2D" uid="uid://bgn6acb0c3qbf" path="res://art/levels_label.png" id="19_i87d2"]
+[ext_resource type="Texture2D" uid="uid://bun4yjcn2yglc" path="res://art/interactables/left_button.png" id="21_gs3kh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i87d2"]
 texture = ExtResource("14_galok")
@@ -1052,7 +1045,7 @@ _data = {
 &"idle_title": SubResource("Animation_vkxok")
 }
 
-[node name="LevelSelection" type="Control" unique_id=402798609 node_paths=PackedStringArray("dog", "fall_initiator_buttons", "falling_buttons")]
+[node name="LevelSelection" type="Control" unique_id=402798609 node_paths=PackedStringArray("dog", "level_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1061,8 +1054,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i87d2")
 dog = NodePath("Dog")
-fall_initiator_buttons = [NodePath("TutLevel1"), NodePath("TutLevel2"), NodePath("Level1"), NodePath("Level2"), NodePath("Level3"), NodePath("Level4"), NodePath("Level5"), NodePath("Level7"), NodePath("BackButton")]
-falling_buttons = [NodePath("TutLevel1"), NodePath("TutLevel2"), NodePath("Level1"), NodePath("Level2"), NodePath("Level3"), NodePath("Level4"), NodePath("Level5"), NodePath("Level7"), NodePath("Forward"), NodePath("Back")]
+level_buttons = [NodePath("LevelButtons/SceneButton"), NodePath("LevelButtons/SceneButton2"), NodePath("LevelButtons/SceneButton3"), NodePath("LevelButtons/SceneButton4"), NodePath("LevelButtons/SceneButton5"), NodePath("LevelButtons/SceneButton6"), NodePath("LevelButtons/SceneButton7"), NodePath("LevelButtons/SceneButton8")]
 
 [node name="BackgroundPanel" type="TextureRect" parent="." unique_id=2097258968]
 visible = false
@@ -1075,85 +1067,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4gwdk")
-
-[node name="TutLevel1" parent="." unique_id=296607526 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 315.0
-offset_top = 272.0
-offset_right = 411.0
-offset_bottom = 368.0
-delay_time = 0.5
-scene_name = "TutLevel1"
-
-[node name="TutLevel2" parent="." unique_id=229588650 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 442.0
-offset_top = 270.0
-offset_right = 538.0
-offset_bottom = 366.0
-texture_normal = ExtResource("3_jn2xb")
-delay_time = 0.5
-scene_name = "TutLevel2"
-
-[node name="Level1" parent="." unique_id=1517344952 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 569.0
-offset_top = 269.0
-offset_right = 665.0
-offset_bottom = 365.0
-texture_normal = ExtResource("4_4gwdk")
-delay_time = 0.5
-scene_name = "Level1"
-
-[node name="Level2" parent="." unique_id=1793235845 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 702.0
-offset_top = 269.0
-offset_right = 798.0
-offset_bottom = 365.0
-texture_normal = ExtResource("5_ug2vx")
-delay_time = 0.5
-scene_name = "Level2"
-
-[node name="Level3" parent="." unique_id=935931196 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 321.0
-offset_top = 403.0
-offset_right = 417.0
-offset_bottom = 499.0
-texture_normal = ExtResource("6_e7ddk")
-delay_time = 0.5
-scene_name = "Level3"
-
-[node name="Level4" parent="." unique_id=316084740 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 453.0
-offset_top = 401.0
-offset_right = 549.0
-offset_bottom = 497.0
-texture_normal = ExtResource("8_8r035")
-delay_time = 0.5
-scene_name = "Level4"
-
-[node name="Level5" parent="." unique_id=2084446571 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 582.0
-offset_top = 402.0
-offset_right = 678.0
-offset_bottom = 498.0
-texture_normal = ExtResource("9_galok")
-delay_time = 0.5
-scene_name = "Level5"
-
-[node name="Level7" parent="." unique_id=1398095954 instance=ExtResource("2_0eouc")]
-layout_mode = 0
-offset_left = 710.0
-offset_top = 404.0
-offset_right = 806.0
-offset_bottom = 500.0
-texture_normal = ExtResource("10_xgu06")
-delay_time = 0.5
-scene_name = "Level7"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1651334579]
 stream = ExtResource("9_7rcg3")
@@ -1233,6 +1146,75 @@ offset_top = 322.0
 offset_right = 232.0
 offset_bottom = 418.0
 texture_normal = ExtResource("21_gs3kh")
+
+[node name="LevelButtons" type="Control" parent="." unique_id=662922740]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SceneButton" parent="LevelButtons" unique_id=296607526 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 244.0
+offset_right = 385.99988
+offset_bottom = 339.99988
+scene = 5
+
+[node name="SceneButton2" parent="LevelButtons" unique_id=1707231663 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 244.0
+offset_right = 531.9999
+offset_bottom = 339.99988
+scene = 6
+
+[node name="SceneButton3" parent="LevelButtons" unique_id=1278562704 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 244.0
+offset_right = 674.9999
+offset_bottom = 339.99988
+scene = 7
+
+[node name="SceneButton4" parent="LevelButtons" unique_id=1974180497 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 244.0
+offset_right = 823.9999
+offset_bottom = 339.99988
+scene = 8
+
+[node name="SceneButton5" parent="LevelButtons" unique_id=813566571 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 396.0
+offset_right = 385.99988
+offset_bottom = 491.99988
+scene = 9
+
+[node name="SceneButton6" parent="LevelButtons" unique_id=1934425860 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 396.0
+offset_right = 531.9999
+offset_bottom = 491.99988
+scene = 10
+
+[node name="SceneButton7" parent="LevelButtons" unique_id=675351669 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 396.0
+offset_right = 674.9999
+offset_bottom = 491.99988
+scene = 11
+
+[node name="SceneButton8" parent="LevelButtons" unique_id=649169852 instance=ExtResource("2_0eouc")]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 396.0
+offset_right = 823.9999
+offset_bottom = 491.99988
+scene = 12
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="body_entered" from="EndArea2D" to="." method="_on_end_area_2d_body_entered"]

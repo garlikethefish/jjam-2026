@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 SignalBus="*uid://dgo1kqm2uue6v"
 GameManager="*uid://j1lj8tswx24o"
 TransitionScreen="*uid://dvakk3sp736d6"
-Enums="*uid://bpkfggfb3h4qi"
+E="*uid://bpkfggfb3h4qi"
 
 [display]
 

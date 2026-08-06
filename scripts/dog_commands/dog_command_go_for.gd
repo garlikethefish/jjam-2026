@@ -5,10 +5,10 @@ class_name DogCommandGoFor
 var _duration := 0.0
 var _cur_duration := 0.0
 var _speed := 0.0
-var _direction := Enums.FacingDirection.NONE
+var _direction := E.FacingDirection.NONE
 
 
-func _init(duration: float, speed: float, direction: Enums.FacingDirection) -> void:
+func _init(duration: float, speed: float, direction: E.FacingDirection) -> void:
 	super()
 	_speed = speed
 	_duration = duration

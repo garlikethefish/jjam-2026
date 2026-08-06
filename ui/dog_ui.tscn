@@ -10,7 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://ckxe801gy6u0g" path="res://fonts/pixel_label_settings.tres" id="8_dbae1"]
 [ext_resource type="Texture2D" uid="uid://cn1ysm7cci275" path="res://art/q.png" id="9_6un3d"]
 [ext_resource type="FontFile" uid="uid://b130171gs1oxo" path="res://fonts/MySims Racing DS Large Font.ttf" id="9_dbae1"]
-[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="12_8m17e"]
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/scene_button/scene_button.tscn" id="12_8m17e"]
 [ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="13_2gys3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etkh1"]

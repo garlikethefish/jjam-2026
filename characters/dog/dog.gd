@@ -37,7 +37,7 @@ var is_going_left = false
 var is_jumping = false
 var is_just_started_executing_command := false
 var current_timeline_action: TimelineAction
-var facing_direction := Enums.FacingDirection.RIGHT
+var facing_direction := E.FacingDirection.RIGHT
 
 var save_gap_delay = .01
 var cur_save_gap_delay = save_gap_delay
@@ -98,11 +98,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func handle_facing_position():
-	if facing_direction == Enums.FacingDirection.RIGHT:
+	if facing_direction == E.FacingDirection.RIGHT:
 		# is looking RIGHT
 		sprite.flip_h = false
 		item_sprite.position = item_sprite_origin_local_pos
-	elif facing_direction == Enums.FacingDirection.LEFT:
+	elif facing_direction == E.FacingDirection.LEFT:
 		# is looking LEFT
 		sprite.flip_h = true
 		item_sprite.position = -item_sprite_origin_local_pos

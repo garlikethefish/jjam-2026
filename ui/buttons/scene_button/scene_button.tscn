@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://gnc06spm8lw3"]
+
+[ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="1_2l42x"]
+[ext_resource type="Script" uid="uid://bpya78yiqhl0e" path="res://ui/buttons/scene_button/scene_button.gd" id="2_2l42x"]
+[ext_resource type="AudioStream" uid="uid://cm6e4aacjogpb" path="res://audio/sfx/whoosh.mp3" id="3_rx3uj"]
+[ext_resource type="Script" uid="uid://daxe4s6rqjw57" path="res://addons/tween_composer/ConfigurationResources/tween_sequence_resource.gd" id="3_xtaab"]
+[ext_resource type="AudioStream" uid="uid://dolx6plcghytb" path="res://audio/sfx/button2.mp3" id="4_dishw"]
+[ext_resource type="Script" uid="uid://bepnihd7w544x" path="res://addons/tween_composer/tween_composer.gd" id="5_05kce"]
+[ext_resource type="Resource" uid="uid://c3yu2qhjghc2f" path="res://tweens/button_press_fall.tres" id="6_j1inp"]
+[ext_resource type="Resource" uid="uid://cofu2jdkj18n2" path="res://tweens/button_fall.tres" id="7_fcrds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnwmv"]
+shader = ExtResource("1_2l42x")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 2.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hnwmv"]
+load_path = "res://.godot/imported/lv1.png-b7b04b2c077626b44887ec18cfe8000a.ctex"
+
+[sub_resource type="Resource" id="Resource_2l42x"]
+script = ExtResource("3_xtaab")
+metadata/_custom_type_script = "uid://daxe4s6rqjw57"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ug2vx"]
+random_pitch = 1.1892071
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("3_rx3uj")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1qq63"]
+random_pitch = 1.1892071
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("4_dishw")
+
+[node name="SceneButton" type="TextureButton" unique_id=296607526]
+material = SubResource("ShaderMaterial_hnwmv")
+offset_right = 95.99988
+offset_bottom = 95.99988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+texture_normal = SubResource("CompressedTexture2D_hnwmv")
+stretch_mode = 5
+script = ExtResource("2_2l42x")
+hover_effect = SubResource("Resource_2l42x")
+click_effect = ExtResource("6_j1inp")
+
+[node name="WhooshAudioPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=147250182]
+stream = SubResource("AudioStreamRandomizer_ug2vx")
+volume_db = -15.0
+pitch_scale = 1.76
+
+[node name="ClickAudioPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1148521048]
+stream = SubResource("AudioStreamRandomizer_1qq63")
+volume_db = -5.0
+
+[node name="ClickedFallTween" type="Node" parent="." unique_id=904728249]
+script = ExtResource("5_05kce")
+tween_sequence = ExtResource("6_j1inp")
+autostart = false
+metadata/_custom_type_script = "uid://bepnihd7w544x"
+
+[node name="FallTween" type="Node" parent="." unique_id=2077779597]
+script = ExtResource("5_05kce")
+tween_sequence = ExtResource("7_fcrds")
+autostart = false
+metadata/_custom_type_script = "uid://bepnihd7w544x"
+
+[node name="TweenComposer" type="Node" parent="." unique_id=1632593393]
+script = ExtResource("5_05kce")
+metadata/_custom_type_script = "uid://bepnihd7w544x"

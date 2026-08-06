@@ -83,7 +83,7 @@ size = Vector2(1805, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvp7a"]
 
-[node name="HeroPage" type="Control" unique_id=268836903 node_paths=PackedStringArray("buttons", "dog")]
+[node name="HeroPage" type="Control" unique_id=268836903 node_paths=PackedStringArray("dog")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,7 +91,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uvp7a")
-buttons = [NodePath("LevelSelection"), NodePath("Options"), NodePath("Extras"), NodePath("Exit")]
 dog = NodePath("Dog")
 
 [node name="BackgroundPanel" type="TextureRect" parent="." unique_id=1584268957]
@@ -114,7 +113,6 @@ offset_right = 676.0005
 offset_bottom = 331.0028
 offset_transform_scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("5_ob4k5")
-scene = 4
 
 [node name="Options" parent="." unique_id=1889757278 instance=ExtResource("2_x8d3a")]
 material = SubResource("ShaderMaterial_vkxok")

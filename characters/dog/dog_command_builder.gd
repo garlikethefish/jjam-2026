@@ -10,12 +10,12 @@ func jump(vec: Vector2, x_duration: float) -> DogCommandBuilder:
 	return self
 
 
-func go_for(duration: float, speed: float, direnction: Enums.FacingDirection) -> DogCommandBuilder:
+func go_for(duration: float, speed: float, direnction: E.FacingDirection) -> DogCommandBuilder:
 	_commands.append(DogCommandGoFor.new(duration, speed, direnction))
 	return self
 
 
-func go_till_hits_a_wall(speed: float, direnction: Enums.FacingDirection) -> DogCommandBuilder:
+func go_till_hits_a_wall(speed: float, direnction: E.FacingDirection) -> DogCommandBuilder:
 	_commands.append(DogCommandGoTillHitsWall.new(speed, direnction))
 	return self
 
@@ -30,11 +30,7 @@ func wait(seconds: float) -> DogCommandBuilder:
 	return self
 
 
-func go_distance(
-	distance: float,
-	speed: float,
-	direnction: Enums.FacingDirection,
-) -> DogCommandBuilder:
+func go_distance(distance: float, speed: float, direnction: E.FacingDirection) -> DogCommandBuilder:
 	_commands.append(DogCommandGoDistance.new(distance, speed, direnction))
 	return self
 

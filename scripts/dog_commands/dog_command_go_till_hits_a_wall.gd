@@ -1,11 +1,10 @@
-extends DogCommand
-class_name DogCommandGoTillHitsWall
+class_name DogCommandGoTillHitsWall extends DogCommand
 
 var _speed := 0.0
-var _direction: Enums.FacingDirection
+var _direction := E.FacingDirection.NONE
 
 
-func _init(speed: float, direction: Enums.FacingDirection) -> void:
+func _init(speed: float, direction: E.FacingDirection) -> void:
 	super()
 	_speed = speed
 	_direction = direction
@@ -37,8 +36,8 @@ func execute():
 
 
 func is_already_there():
-	return (_direction == Enums.FacingDirection.LEFT and _dog.left_cast_2d.is_colliding()) \
-			or (_direction == Enums.FacingDirection.RIGHT and _dog.right_cast_2d.is_colliding())
+	return (_direction == E.FacingDirection.LEFT and _dog.left_cast_2d.is_colliding()) \
+			or (_direction == E.FacingDirection.RIGHT and _dog.right_cast_2d.is_colliding())
 
 
 func _finish():

@@ -7,8 +7,11 @@
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="5_o08mv"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="6_cduag"]
 [ext_resource type="Texture2D" uid="uid://cohiijrmif7xu" path="res://art/cloud.png" id="7_k4kex"]
-[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/audio_texure_button/audio_texture_button.tscn" id="8_pwhje"]
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/scene_button/scene_button.tscn" id="8_pwhje"]
 [ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="9_o08mv"]
+[ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="10_yy3wp"]
+[ext_resource type="Texture2D" uid="uid://dbolguthb0e8k" path="res://art/interactables/blank_button.png" id="11_lu8xy"]
+[ext_resource type="FontFile" uid="uid://b130171gs1oxo" path="res://fonts/MySims Racing DS Large Font.ttf" id="12_06d66"]
 
 [sub_resource type="Animation" id="Animation_3quk7"]
 length = 0.001
@@ -70,6 +73,17 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4kex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lyhyw"]
+shader = ExtResource("10_yy3wp")
+shader_parameter/clr = Color(1, 1, 1, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_2yckw"]
+font = ExtResource("12_06d66")
+font_size = 64
+font_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
 
 [node name="OptionsPage" type="Control" unique_id=1171119003 node_paths=PackedStringArray("dog")]
 layout_mode = 3
@@ -143,5 +157,28 @@ offset_right = 124.0
 offset_bottom = 124.0
 texture_normal = ExtResource("9_o08mv")
 
+[node name="UnlockLevels" parent="." unique_id=562644755 instance=ExtResource("8_pwhje")]
+material = SubResource("ShaderMaterial_lyhyw")
+layout_mode = 0
+offset_left = 733.0
+offset_top = 353.0
+offset_right = 925.0005
+offset_bottom = 449.0028
+offset_transform_scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("11_lu8xy")
+script = null
+
+[node name="Label" type="Label" parent="UnlockLevels" unique_id=1167443750]
+layout_mode = 0
+offset_left = 37.999996
+offset_top = 25.999998
+offset_right = 246.0
+offset_bottom = 90.0
+scale = Vector2(0.595, 0.595)
+text = "Unlock"
+label_settings = SubResource("LabelSettings_2yckw")
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="BackArea" to="." method="_on_back_area_body_entered"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UnlockLevels" to="." method="_on_unlock_levels_pressed"]

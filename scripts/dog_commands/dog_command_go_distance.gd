@@ -4,11 +4,11 @@ class_name DogCommandGoDistance
 
 var _target_distance: float
 var _speed: float
-var _direction := Enums.FacingDirection.NONE
+var _direction := E.FacingDirection.NONE
 var _start_position: float = 0.0
 
 
-func _init(distance: float, speed: float, direction: Enums.FacingDirection) -> void:
+func _init(distance: float, speed: float, direction: E.FacingDirection) -> void:
 	super()
 	_target_distance = distance
 	_speed = speed

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgn6acb0c3qbf"
-path="res://.godot/imported/levels_label.png-795b056bd735780a5cfc60ddd153831a.ctex"
+uid="uid://dbolguthb0e8k"
+path="res://.godot/imported/blank_button.png-4c4fe5bc28ec1617d2f5dd4fa15b66bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/buttons/audio_texure_button/levels_label.png"
-dest_files=["res://.godot/imported/levels_label.png-795b056bd735780a5cfc60ddd153831a.ctex"]
+source_file="res://art/interactables/blank_button.png"
+dest_files=["res://.godot/imported/blank_button.png-4c4fe5bc28ec1617d2f5dd4fa15b66bb.ctex"]
 
 [params]
 

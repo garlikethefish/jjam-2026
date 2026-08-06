@@ -16,8 +16,15 @@ func _ready():
 
 
 func _on_back_area_body_entered(_body):
-	GameManager.go_to_scene("HeroScene")
+	GameManager.go_to_scene(E.Scenes.HERO)
 
 
 func _on_back_button_pressed():
 	dog.append_and_execute_commands(go_left)
+
+
+func _on_unlock_levels_pressed():
+	for value in SceneData.scenes.values():
+		var scene := value as SceneLevel
+		if scene:
+			scene.is_unlocked = true

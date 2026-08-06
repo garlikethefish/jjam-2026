@@ -5,7 +5,7 @@ class_name DogCommandGoTillX
 var _target_x: float
 var _starting_x: float
 var _speed: float
-var dir: Enums.FacingDirection
+var dir := E.FacingDirection.NONE
 
 
 func _init(x_pos: float, speed: float) -> void:
@@ -49,6 +49,6 @@ func _finish():
 func get_facing_direction():
 	var dog_x = _dog.global_position.x
 	if _target_x - dog_x < 0:
-		return Enums.FacingDirection.LEFT
+		return E.FacingDirection.LEFT
 	else:
-		return Enums.FacingDirection.RIGHT
+		return E.FacingDirection.RIGHT
