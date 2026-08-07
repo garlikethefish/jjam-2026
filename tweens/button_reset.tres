@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="TweenSequence" format=3 uid="uid://ch1xy4m33jik7"]
+
+[ext_resource type="Script" uid="uid://daxe4s6rqjw57" path="res://addons/tween_composer/ConfigurationResources/tween_sequence_resource.gd" id="1_bgnbm"]
+[ext_resource type="Script" uid="uid://b2cnshkmciixf" path="res://addons/tween_composer/ConfigurationResources/tween_step_collection_resource.gd" id="2_rh5eo"]
+[ext_resource type="Script" uid="uid://bq7aba2n0qrym" path="res://addons/tween_composer/ConfigurationResources/tween_step_item_resource.gd" id="3_rtx1r"]
+
+[sub_resource type="Resource" id="Resource_jnirc"]
+resource_local_to_scene = true
+script = ExtResource("3_rtx1r")
+transition = 1
+easing = 1
+relative_value = false
+tween_property = 4
+property_name = "scale"
+custom_property = "scale"
+custom_property_type = 5
+target_value = Vector2(1, 1)
+metadata/_custom_type_script = "uid://bq7aba2n0qrym"
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+resource_local_to_scene = true
+script = ExtResource("2_rh5eo")
+step_collection = Array[ExtResource("3_rtx1r")]([SubResource("Resource_jnirc")])
+metadata/_custom_type_script = "uid://b2cnshkmciixf"
+
+[resource]
+resource_name = "button_reset"
+script = ExtResource("1_bgnbm")
+sequence_name = "button_reset"
+tween_steps = SubResource("Resource_yf5fn")
+tween_duration = 0.1
+loop = false
+metadata/_custom_type_script = "uid://daxe4s6rqjw57"

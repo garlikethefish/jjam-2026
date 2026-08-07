@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ckxe801gy6u0g"]
+
+[ext_resource type="FontFile" uid="uid://b130171gs1oxo" path="res://fonts/MySims Racing DS Large Font.ttf" id="1_5g0yc"]
+
+[resource]
+font = ExtResource("1_5g0yc")
+font_size = 64
+font_color = Color(0.85490197, 0.8784314, 0.91764706, 1)
+shadow_size = 0
+shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
+shadow_offset = Vector2(-4.08, 4.355)

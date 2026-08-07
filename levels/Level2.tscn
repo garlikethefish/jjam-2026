@@ -74,7 +74,7 @@ rotation = -4.712389
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("11_0hhcb")]
 position = Vector2(812, 380)
-next_scene_name = "Level3"
+scene = 9
 
 [node name="DoorActivatable2" parent="." unique_id=2042251888 instance=ExtResource("12_42ah5")]
 position = Vector2(528, 386)

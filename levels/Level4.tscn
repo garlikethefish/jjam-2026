@@ -102,7 +102,7 @@ texture = ExtResource("16_a7qdg")
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("16_dp2yl")]
 position = Vector2(812, 321)
-next_scene_name = "Level5"
+scene = 11
 
 [node name="PhysicsItem" parent="." unique_id=1813311681 instance=ExtResource("16_0l8tu")]
 position = Vector2(427, 422)

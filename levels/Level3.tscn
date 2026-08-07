@@ -1089,7 +1089,7 @@ texture = ExtResource("11_m7lwk")
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("13_fqqs4")]
 position = Vector2(842, 814)
 scale = Vector2(1, 1.64)
-next_scene_name = "Level4"
+scene = 10
 
 [node name="ParallaxOverworldManager" parent="." unique_id=388889426 instance=ExtResource("15_m7lwk")]
 position = Vector2(1254.0001, 440)

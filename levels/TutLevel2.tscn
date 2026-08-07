@@ -1018,7 +1018,7 @@ tilemaps = [NodePath("../Tilemaps/TilemapOverlay1")]
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("9_32i4s")]
 position = Vector2(492, 573)
-next_scene_name = "Level1"
+scene = 7
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1062603741]
 position = Vector2(551, 312)

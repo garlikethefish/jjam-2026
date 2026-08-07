@@ -1079,7 +1079,7 @@ tilemaps = [NodePath("../Node2D/FirstPart")]
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("13_c48f6")]
 position = Vector2(786, 832)
-next_scene_name = "Level7"
+scene = 12
 
 [node name="Hole" parent="." unique_id=306291165 node_paths=PackedStringArray("output_hole") instance=ExtResource("14_bippo")]
 position = Vector2(81, 1011)

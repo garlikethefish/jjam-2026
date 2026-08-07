@@ -1,11 +1,15 @@
 extends TextureButton
 
-var command: DogCommand
+@export var jump_force := Vector2(250, 1000)
+@export var x_force_duration := 0.3
+var jump: Array[DogCommand]
+var dog: Dog
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	var dog = get_tree().get_first_node_in_group("dog") as Dog
-	command = DogCommandJump.new(dog)
+	dog = get_tree().get_first_node_in_group("dog") as Dog
+	jump = DogCommandBuilder.new().jump(jump_force, x_force_duration).build()
+
 
 func _on_pressed() -> void:
-	command._execute()
+	dog.try_execute_commands(jump)
