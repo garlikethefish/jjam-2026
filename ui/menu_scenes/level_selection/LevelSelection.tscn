@@ -7,13 +7,21 @@
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_i87d2"]
 [ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="13_xd85v"]
 [ext_resource type="Texture2D" uid="uid://dtuilafqmc1ka" path="res://art/temp_sprites/Assets.png" id="14_galok"]
+[ext_resource type="Texture2D" uid="uid://k6f0l55b5hw4" path="res://art/interactables/lv2.png" id="15_gs3kh"]
+[ext_resource type="Script" uid="uid://cg87wttwi8fp7" path="res://ui/buttons/plain_button/plain_button.gd" id="15_x56nu"]
 [ext_resource type="Texture2D" uid="uid://c0kjqc6rbxfm6" path="res://art/temp_sprites/tileset.png" id="15_xgu06"]
 [ext_resource type="Texture2D" uid="uid://i0uja1vdxihq" path="res://art/tilemap/tilesetreal.png" id="16_7rcg3"]
+[ext_resource type="Texture2D" uid="uid://srqbl3ynsbtg" path="res://art/interactables/lv3.png" id="16_x56nu"]
+[ext_resource type="Texture2D" uid="uid://da5kqi3b6rbv2" path="res://art/interactables/lv4.png" id="17_27pes"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="17_xgu06"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="18_7rcg3"]
+[ext_resource type="Texture2D" uid="uid://c8yyc0o2v1eiu" path="res://art/interactables/lv5.png" id="18_jfovt"]
+[ext_resource type="Texture2D" uid="uid://bexglypwh226s" path="res://art/interactables/lvl6.png" id="19_ewyto"]
 [ext_resource type="Shader" uid="uid://dsoqyiec78ptd" path="res://shaders/pixel_perfect_outline.gdshader" id="19_h5qwx"]
 [ext_resource type="Texture2D" uid="uid://bgn6acb0c3qbf" path="res://art/levels_label.png" id="19_i87d2"]
+[ext_resource type="Texture2D" uid="uid://csd75i6v51w5k" path="res://art/interactables/lvl7.png" id="20_6toiw"]
 [ext_resource type="Texture2D" uid="uid://bun4yjcn2yglc" path="res://art/interactables/left_button.png" id="21_gs3kh"]
+[ext_resource type="Texture2D" uid="uid://c1x22m34blwqi" path="res://art/interactables/lvl8.png" id="21_n66dk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i87d2"]
 texture = ExtResource("14_galok")
@@ -1080,6 +1088,7 @@ offset_top = 28.0
 offset_right = 124.0
 offset_bottom = 124.0
 texture_normal = ExtResource("13_xd85v")
+scene = 3
 
 [node name="Tilemap" type="TileMapLayer" parent="." unique_id=1408625039]
 z_index = -1
@@ -1099,7 +1108,7 @@ scale = Vector2(4.495, 4.495)
 SPEED = 20500.0
 
 [node name="EndArea2D" type="Area2D" parent="." unique_id=1857674125]
-position = Vector2(1358, 288)
+position = Vector2(1245, 288)
 scale = Vector2(3.32, 9.395)
 collision_layer = 0
 collision_mask = 4
@@ -1138,6 +1147,7 @@ offset_right = 1003.0
 offset_bottom = 425.0
 texture_normal = ExtResource("21_gs3kh")
 flip_h = true
+script = ExtResource("15_x56nu")
 
 [node name="Back" parent="." unique_id=54074344 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1146,6 +1156,7 @@ offset_top = 322.0
 offset_right = 232.0
 offset_bottom = 418.0
 texture_normal = ExtResource("21_gs3kh")
+script = ExtResource("15_x56nu")
 
 [node name="LevelButtons" type="Control" parent="." unique_id=662922740]
 anchors_preset = 0
@@ -1154,66 +1165,73 @@ offset_bottom = 40.0
 
 [node name="SceneButton" parent="LevelButtons" unique_id=296607526 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 244.0
-offset_right = 385.99988
-offset_bottom = 339.99988
+offset_left = 302.0
+offset_top = 246.0
+offset_right = 397.99988
+offset_bottom = 341.99988
 scene = 5
 
 [node name="SceneButton2" parent="LevelButtons" unique_id=1707231663 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 436.0
-offset_top = 244.0
-offset_right = 531.9999
-offset_bottom = 339.99988
+offset_left = 448.0
+offset_top = 246.0
+offset_right = 543.9999
+offset_bottom = 341.99988
+texture_normal = ExtResource("15_gs3kh")
 scene = 6
 
 [node name="SceneButton3" parent="LevelButtons" unique_id=1278562704 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 579.0
-offset_top = 244.0
-offset_right = 674.9999
-offset_bottom = 339.99988
+offset_left = 591.0
+offset_top = 246.0
+offset_right = 686.9999
+offset_bottom = 341.99988
+texture_normal = ExtResource("16_x56nu")
 scene = 7
 
 [node name="SceneButton4" parent="LevelButtons" unique_id=1974180497 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 728.0
-offset_top = 244.0
-offset_right = 823.9999
-offset_bottom = 339.99988
+offset_left = 740.0
+offset_top = 246.0
+offset_right = 835.9999
+offset_bottom = 341.99988
+texture_normal = ExtResource("17_27pes")
 scene = 8
 
 [node name="SceneButton5" parent="LevelButtons" unique_id=813566571 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 396.0
-offset_right = 385.99988
-offset_bottom = 491.99988
+offset_left = 302.0
+offset_top = 398.0
+offset_right = 397.99988
+offset_bottom = 493.99988
+texture_normal = ExtResource("18_jfovt")
 scene = 9
 
 [node name="SceneButton6" parent="LevelButtons" unique_id=1934425860 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 436.0
-offset_top = 396.0
-offset_right = 531.9999
-offset_bottom = 491.99988
+offset_left = 448.0
+offset_top = 398.0
+offset_right = 543.9999
+offset_bottom = 493.99988
+texture_normal = ExtResource("19_ewyto")
 scene = 10
 
 [node name="SceneButton7" parent="LevelButtons" unique_id=675351669 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 579.0
-offset_top = 396.0
-offset_right = 674.9999
-offset_bottom = 491.99988
+offset_left = 591.0
+offset_top = 398.0
+offset_right = 686.9999
+offset_bottom = 493.99988
+texture_normal = ExtResource("20_6toiw")
 scene = 11
 
 [node name="SceneButton8" parent="LevelButtons" unique_id=649169852 instance=ExtResource("2_0eouc")]
 layout_mode = 0
-offset_left = 728.0
-offset_top = 396.0
-offset_right = 823.9999
-offset_bottom = 491.99988
+offset_left = 740.0
+offset_top = 398.0
+offset_right = 835.9999
+offset_bottom = 493.99988
+texture_normal = ExtResource("21_n66dk")
 scene = 12
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -20,7 +20,7 @@ func physics_process(delta):
 		_finish()
 		return
 
-	_dog.velocity = Vector2.RIGHT * _direction * _speed * delta
+	_dog.velocity.x = _direction * _speed * delta
 
 
 func execute():

@@ -1,7 +1,10 @@
 extends Control
 
-@export var buttons: Array[SceneButton] = []
+@export var buttons: Array[PlainButton] = []
 @export var dog: Dog
+
+@onready var button_fall_tween: TweenSequence = preload("res://tweens/button_fall.tres")
+
 var is_clicked = false
 var dog_speed := 60000
 
@@ -46,14 +49,14 @@ func _on_button_pressed():
 
 
 func _fall_buttons(pressed_button) -> void:
-	pass
-	#for i in range(buttons.size()):
-	#var button = buttons[i]
-	#if pressed_button == button:
-	#continue
-#
-#var timer = get_tree().create_timer(0.1 * i)
-#timer.timeout.connect(button.fall_off)
+	for i in range(buttons.size()):
+		var button = buttons[i]
+		if pressed_button == button:
+			continue
+
+		button.disable()
+		var timer = get_tree().create_timer(0.1 * i)
+		timer.timeout.connect(button.play_tween_sequence.bind(button_fall_tween))
 
 
 func _on_exit_pressed():

@@ -1054,7 +1054,7 @@ interactables_to_trigger = [NodePath("../DoorActivatable")]
 
 [node name="WinBlock" parent="." unique_id=1043751013 instance=ExtResource("9_etkh1")]
 position = Vector2(743, 471)
-next_scene_name = "Level2"
+scene = 8
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1830306647]
 position = Vector2(551, 312)

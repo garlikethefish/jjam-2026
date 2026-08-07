@@ -1,7 +1,6 @@
 extends Control
 
 @export var dog: Dog
-var DIR = Enums.FacingDirection
 
 var dog_speed := 30000
 
@@ -12,7 +11,7 @@ var go_to_heaven: Array[DogCommand] = []
 
 
 func _ready():
-	go_left = DogCommandBuilder.new().go_till_hits_a_wall(dog_speed, DIR.LEFT).build()
+	go_left = DogCommandBuilder.new().go_till_hits_a_wall(dog_speed, E.FacingDirection.LEFT).build()
 
 
 func _on_back_area_body_entered(_body):

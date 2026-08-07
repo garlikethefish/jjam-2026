@@ -8,7 +8,7 @@ var dog: Dog
 func _ready() -> void:
 	dog = get_tree().get_first_node_in_group("dog") as Dog
 	go_right_till_wall = DogCommandBuilder.new() \
-			.go_till_hits_a_wall(speed, Enums.FacingDirection.RIGHT) \
+			.go_till_hits_a_wall(speed, E.FacingDirection.RIGHT) \
 			.build()
 
 

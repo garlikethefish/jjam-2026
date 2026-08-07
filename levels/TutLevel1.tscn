@@ -1025,7 +1025,7 @@ speed = 30
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("11_fickt")]
 position = Vector2(386, 461)
-next_scene_name = "TutLevel2"
+scene = 6
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1062603741]
 position = Vector2(551, 312)

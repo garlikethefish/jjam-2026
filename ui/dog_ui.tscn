@@ -48,6 +48,7 @@ shadow_offset = Vector2(-2.075, 1.93)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2gys3"]
 font = ExtResource("9_dbae1")
+font_size = 24
 font_color = Color(0.85490197, 0.8784314, 0.91764706, 1)
 shadow_size = 0
 shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
@@ -78,8 +79,7 @@ focus_mode = 0
 texture_normal = SubResource("AtlasTexture_etkh1")
 stretch_mode = 5
 script = ExtResource("2_w75a8")
-jump_force = Vector2(100, 500)
-x_force_duration = 0.2
+jump_force = Vector2(150, 500)
 
 [node name="LeftButton" type="TextureButton" parent="Panel" unique_id=1451535180]
 layout_mode = 0
@@ -127,10 +127,10 @@ label_settings = SubResource("LabelSettings_8m17e")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -442.0
-offset_top = 17.0
-offset_right = 438.0
-offset_bottom = 81.0
+offset_left = -433.0
+offset_top = 27.0
+offset_right = 447.0
+offset_bottom = 91.0
 grow_horizontal = 2
 text = "Level t 2asadas"
 label_settings = ExtResource("8_dbae1")
@@ -140,9 +140,9 @@ horizontal_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -184.0
+offset_left = -238.0
 offset_top = 17.0
-offset_right = 92.0
+offset_right = 38.0
 offset_bottom = 55.0
 grow_horizontal = 0
 text = "Commands: "
@@ -167,12 +167,12 @@ label_settings = ExtResource("8_dbae1")
 
 [node name="BackButton" parent="." unique_id=296607526 instance=ExtResource("12_8m17e")]
 z_index = 1
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 103.0
-offset_bottom = 102.0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 120.0
+offset_bottom = 114.0
 texture_normal = ExtResource("13_2gys3")
-scene_name = "LevelSelection"
+scene = 4
 
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]

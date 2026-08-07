@@ -9,9 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://cterkqjcphky1" path="res://art/interactables/options_button.png" id="6_ww8sx"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="6_y8l1n"]
 [ext_resource type="Texture2D" uid="uid://cgw2pjv4wd78o" path="res://art/interactables/extras_button.png" id="7_3jyan"]
+[ext_resource type="Resource" uid="uid://c3yu2qhjghc2f" path="res://tweens/button_press_fall.tres" id="7_7r782"]
 [ext_resource type="Texture2D" uid="uid://c1t2lnpd8y8if" path="res://art/well_bottom.png" id="7_y8l1n"]
 [ext_resource type="Texture2D" uid="uid://cjaxufkqu2iuv" path="res://art/interactables/exit_button.png" id="8_7r782"]
 [ext_resource type="Texture2D" uid="uid://cqvhkyyxjpc8h" path="res://art/well_bottom_half.png" id="8_uvp7a"]
+[ext_resource type="Script" uid="uid://cg87wttwi8fp7" path="res://ui/buttons/plain_button/plain_button.gd" id="9_3jyan"]
 [ext_resource type="AudioStream" uid="uid://bu0md21vsuff2" path="res://audio/music/menu_.mp3" id="9_15ijf"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="10_17s17"]
 
@@ -114,7 +116,8 @@ offset_right = 676.0005
 offset_bottom = 331.0028
 offset_transform_scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("5_ob4k5")
-scene = 4
+script = ExtResource("9_3jyan")
+click_effect = ExtResource("7_7r782")
 
 [node name="Options" parent="." unique_id=1889757278 instance=ExtResource("2_x8d3a")]
 material = SubResource("ShaderMaterial_vkxok")
@@ -124,6 +127,8 @@ offset_top = 350.0
 offset_right = 669.0005
 offset_bottom = 446.0028
 texture_normal = ExtResource("6_ww8sx")
+script = ExtResource("9_3jyan")
+click_effect = ExtResource("7_7r782")
 
 [node name="Extras" parent="." unique_id=643932679 instance=ExtResource("2_x8d3a")]
 material = SubResource("ShaderMaterial_vkxok")
@@ -132,7 +137,10 @@ offset_left = 477.0
 offset_top = 445.0
 offset_right = 669.0005
 offset_bottom = 541.0028
+disabled = true
 texture_normal = ExtResource("7_3jyan")
+scene = 2
+click_effect = ExtResource("7_7r782")
 
 [node name="Exit" parent="." unique_id=1906063636 instance=ExtResource("2_x8d3a")]
 material = SubResource("ShaderMaterial_vkxok")
@@ -142,6 +150,8 @@ offset_top = 541.0
 offset_right = 668.0005
 offset_bottom = 637.0028
 texture_normal = ExtResource("8_7r782")
+script = ExtResource("9_3jyan")
+click_effect = ExtResource("7_7r782")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=344798661]
 position = Vector2(588.00006, 134.00002)

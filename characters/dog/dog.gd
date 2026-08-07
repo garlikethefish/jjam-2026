@@ -76,15 +76,14 @@ func _physics_process(delta: float) -> void:
 	#
 	#if is_executing_command.is_true() and current_timeline_action != null:
 	#current_timeline_action.phisics_add_point(TimelineActionPoint.new(self), delta)
-
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
 	if is_on_floor():
 		velocity = velocity * ground_drag
 	else:
 		velocity = velocity * air_drag
+
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
 	# drag
 	move_and_slide()

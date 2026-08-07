@@ -20,7 +20,7 @@ func physics_process(delta):
 		return
 
 	super(delta)
-	_dog.velocity.x = Vector2.RIGHT.x * _direction * _speed * delta
+	_dog.velocity.x = _direction * _speed * delta
 	_cur_duration = clamp(_cur_duration + delta, 0, _duration)
 
 	if _cur_duration == _duration:
