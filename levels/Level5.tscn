@@ -1167,4 +1167,5 @@ scale = Vector2(0.32, 0.32)
 stream = ExtResource("20_dwd6q")
 volume_db = 8.0
 autoplay = true
+bus = &"Music"
 script = ExtResource("21_d151d")

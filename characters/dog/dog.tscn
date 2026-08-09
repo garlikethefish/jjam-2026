@@ -298,6 +298,7 @@ position = Vector2(14, 1)
 
 [node name="FootstepPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=926312315]
 pitch_scale = 0.64
+bus = &"SFX"
 
 [node name="RightShapeCast2D" type="ShapeCast2D" parent="." unique_id=313491402]
 position = Vector2(0, 9)

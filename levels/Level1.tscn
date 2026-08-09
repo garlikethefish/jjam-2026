@@ -1095,6 +1095,7 @@ current_cam_level = 3
 stream = ExtResource("12_v01fl")
 volume_db = 8.0
 autoplay = true
+bus = &"Music"
 script = ExtResource("13_ihi63")
 
 [node name="Sign" type="Sprite2D" parent="." unique_id=1166468468]

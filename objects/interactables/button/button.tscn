@@ -45,6 +45,7 @@ shape = SubResource("CapsuleShape2D_dui33")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=134999806]
 stream = SubResource("AudioStreamRandomizer_vxh61")
 volume_db = 8.0
+bus = &"SFX"
 script = ExtResource("4_8088a")
 loop_from_start = false
 

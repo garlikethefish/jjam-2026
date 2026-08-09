@@ -61,6 +61,7 @@ position = Vector2(0, -108)
 stream = ExtResource("8_8vieb")
 volume_db = 8.0
 autoplay = true
+bus = &"Music"
 script = ExtResource("9_d14rb")
 
 [node name="Hole" parent="." unique_id=306291165 node_paths=PackedStringArray("output_hole") instance=ExtResource("10_stgdi")]
