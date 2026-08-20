@@ -36,9 +36,11 @@ func _on_pressed() -> void:
 	# go to scene
 	if was_clicked:
 		return
-
+	
+	if should_disable_on_press():
+		disabled = true
+		
 	was_clicked = true
-	disabled = true
 	material = null
 	self_modulate = Color(1.093, 0.703, 0.302)
 
@@ -71,10 +73,15 @@ func _on_mouse_exited() -> void:
 func play_tween_sequence(sequence: TweenSequence):
 	tween_composer.load_tween_sequence_and_start_from_current(sequence)
 
-
+func should_disable_on_press() -> bool:
+	return true
+	
 func delayed_press():
 	delayed_pressed.emit()
 
+	if not should_disable_on_press():
+		was_clicked = false
+		enable()
 
 func disable():
 	disabled = true

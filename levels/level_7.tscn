@@ -60,6 +60,7 @@ bottom_pos_limits = Array[int]([-1, 700, 714, 200])
 current_cam_level = 3
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1751293220]
+process_mode = 3
 stream = ExtResource("8_sbxnr")
 volume_db = 8.0
 autoplay = true

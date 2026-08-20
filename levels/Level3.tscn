@@ -1100,6 +1100,7 @@ position = Vector2(571, 805)
 scale = Vector2(0.32, 0.32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1060690538]
+process_mode = 3
 stream = ExtResource("14_ws61b")
 volume_db = 8.0
 autoplay = true

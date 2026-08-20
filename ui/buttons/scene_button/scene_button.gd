@@ -33,12 +33,15 @@ func _on_mouse_exited() -> void:
 
 	super()
 
+func should_disable_on_press() -> bool:
+	return change_scene
+
 
 func delayed_press():
-	if change_scene:
-		super()
-		GameManager.go_to_scene(scene)
+	super()
 
+	if change_scene:
+		GameManager.go_to_scene(scene)
 
 func disable():
 	super()
