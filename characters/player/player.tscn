@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dila8xwnxc0ru" path="res://characters/player/player.gd" id="1_xxgcw"]
 [ext_resource type="Texture2D" uid="uid://bjfjfx4thh66q" path="res://art/player/player-Sheet.png" id="2_exd8k"]
+[ext_resource type="PackedScene" uid="uid://bojy2r86gxk12" path="res://ui/pause_menu.tscn" id="3_exd8k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dc8e"]
 atlas = ExtResource("2_exd8k")
@@ -192,3 +193,6 @@ libraries/ = SubResource("AnimationLibrary_exd8k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=151204573]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_5agn1")
+
+[node name="PauseMenu" parent="." unique_id=1383452606 instance=ExtResource("3_exd8k")]
+visible = false

@@ -8,6 +8,9 @@ extends Area2D
 @onready var particles := $GPUParticles2D
 @onready var wooden_board := $WoodenBoard
 
+@onready var rustle_sound := $RustleSound
+@onready var wood_sound := $WoodMoveSound
+
 var player_near := false
 var is_bush_destroyed := false
 var is_board_moved := false
@@ -33,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 				return
 				
 			var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
-			
+			wood_sound.play()
 			# fade tilemap
 			for tilemap in tilemaps:
 				tween.tween_property(tilemap, "modulate", Color.TRANSPARENT, 0.7)
@@ -61,7 +64,7 @@ func _physics_process(_delta: float) -> void:
 			
 			var tween = get_tree().create_tween().set_parallel(true)
 			tween.set_trans(Tween.TRANS_LINEAR)
-			
+			rustle_sound.play()
 			tween.tween_property(bush_sprite, "modulate", Color.TRANSPARENT, 1.1)
 			is_bush_destroyed = true
 

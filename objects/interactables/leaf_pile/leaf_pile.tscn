@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cmb6tsq0njol" path="res://art/interactables/bush.png" id="2_1npa4"]
 [ext_resource type="PackedScene" uid="uid://b4ux4gyo5qphg" path="res://objects/interactables/wooden_board.tscn" id="2_61nel"]
 [ext_resource type="PackedScene" uid="uid://ccpfv2v7oimcn" path="res://ui/interact_button.tscn" id="4_1npa4"]
+[ext_resource type="AudioStream" uid="uid://dh0y4cu4pd0vv" path="res://audio/sfx/dragon-studio-dry-grass-rustling-478361(1).mp3" id="5_bf0h1"]
+[ext_resource type="AudioStream" uid="uid://bw7lq5l2erwvv" path="res://audio/sfx/woodsound2.wav" id="6_tdq8c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5agn1"]
 radius = 6.0
@@ -71,6 +73,16 @@ position = Vector2(0, -26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2116896835]
 shape = SubResource("CircleShape2D_e0wf5")
+
+[node name="RustleSound" type="AudioStreamPlayer2D" parent="." unique_id=50676539]
+stream = ExtResource("5_bf0h1")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="WoodMoveSound" type="AudioStreamPlayer2D" parent="." unique_id=1912259671]
+stream = ExtResource("6_tdq8c")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

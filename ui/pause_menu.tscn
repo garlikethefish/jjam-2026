@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://bojy2r86gxk12"]
+
+[ext_resource type="Script" uid="uid://dwg4fc1tib1wo" path="res://ui/pause_menu.gd" id="1_avurv"]
+[ext_resource type="FontFile" uid="uid://b130171gs1oxo" path="res://fonts/MySims Racing DS Large Font.ttf" id="1_fob5h"]
+[ext_resource type="PackedScene" uid="uid://gnc06spm8lw3" path="res://ui/buttons/scene_button/scene_button.tscn" id="2_avurv"]
+[ext_resource type="Texture2D" uid="uid://bhah2nthtp5ss" path="res://art/interactables/back_button.png" id="3_npydk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ap7o"]
+font = ExtResource("1_fob5h")
+font_size = 49
+font_color = Color(0.85490197, 0.8784314, 0.91764706, 1)
+shadow_size = 0
+shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
+shadow_offset = Vector2(-4.08, 4.355)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j3kxr"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vovkw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jyvtb"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fijdv"]
+color = Color(0.6060853, 0.60608494, 0.6060852, 1)
+thickness = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpidc"]
+bg_color = Color(0.8741615, 0.8741615, 0.8741613, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1mq0"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_reb5t"]
+font = ExtResource("1_fob5h")
+font_size = 38
+font_color = Color(0.85490197, 0.8784314, 0.91764706, 1)
+shadow_size = 0
+shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
+shadow_offset = Vector2(-4.08, 4.355)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1383452606]
+process_mode = 3
+script = ExtResource("1_avurv")
+
+[node name="Panel" type="Panel" parent="." unique_id=450492919]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 257.0
+offset_top = 76.0
+offset_right = -259.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel" unique_id=1951392838]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 38.0
+offset_right = 454.0
+offset_bottom = 87.0
+text = "Pause menu"
+label_settings = SubResource("LabelSettings_6ap7o")
+
+[node name="MainVolumeSlider" type="HSlider" parent="Panel" unique_id=1652532504]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 198.0
+offset_right = 470.0
+offset_bottom = 237.0
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_j3kxr")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_vovkw")
+theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_jyvtb")
+theme_override_styles/slider = SubResource("StyleBoxLine_fijdv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lpidc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_b1mq0")
+min_value = -40.0
+max_value = 15.0
+value = 15.0
+
+[node name="Label" type="Label" parent="Panel/MainVolumeSlider" unique_id=832639448]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -53.0
+offset_right = 345.0
+offset_bottom = 11.0
+text = "Main volume"
+label_settings = SubResource("LabelSettings_reb5t")
+horizontal_alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Panel" unique_id=1536032635]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 303.0
+offset_right = 470.0
+offset_bottom = 342.0
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_j3kxr")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_vovkw")
+theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_jyvtb")
+theme_override_styles/slider = SubResource("StyleBoxLine_fijdv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lpidc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_b1mq0")
+min_value = -40.0
+max_value = 15.0
+value = 15.0
+
+[node name="Label" type="Label" parent="Panel/SFXVolumeSlider" unique_id=1520210746]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -53.0
+offset_right = 345.0
+offset_bottom = 11.0
+text = "Sound effects"
+label_settings = SubResource("LabelSettings_reb5t")
+horizontal_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Panel" unique_id=34768230]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 398.0
+offset_right = 470.0
+offset_bottom = 437.0
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_j3kxr")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_vovkw")
+theme_override_icons/grabber_disabled = SubResource("PlaceholderTexture2D_jyvtb")
+theme_override_styles/slider = SubResource("StyleBoxLine_fijdv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lpidc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_b1mq0")
+min_value = -40.0
+max_value = 15.0
+value = 15.0
+
+[node name="Label" type="Label" parent="Panel/MusicVolumeSlider" unique_id=1906195935]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -53.0
+offset_right = 345.0
+offset_bottom = 11.0
+text = "Music"
+label_settings = SubResource("LabelSettings_reb5t")
+horizontal_alignment = 1
+
+[node name="BackButton" parent="Panel/MusicVolumeSlider" unique_id=296607526 instance=ExtResource("2_avurv")]
+z_index = 1
+layout_mode = 0
+offset_left = -118.0
+offset_top = -368.0
+offset_right = -53.0
+offset_bottom = -303.0
+texture_normal = ExtResource("3_npydk")
+change_scene = false
+
+[connection signal="value_changed" from="Panel/MainVolumeSlider" to="." method="_on_main_volume_slider_value_changed"]
+[connection signal="value_changed" from="Panel/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="Panel/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="pressed" from="Panel/MusicVolumeSlider/BackButton" to="." method="_on_back_button_pressed"]
