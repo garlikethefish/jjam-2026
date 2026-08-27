@@ -41,7 +41,7 @@ func _on_disappear_area_body_entered(_body):
 
 	await tween.finished
 
-	GameManager.go_to_scene(E.Scenes.LEVEL_SELECTION)
+	GameManager.go_to_scene(E.Scenes.INTRO)
 
 
 func _on_button_pressed():

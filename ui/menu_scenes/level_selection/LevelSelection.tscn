@@ -1078,6 +1078,7 @@ texture = ExtResource("1_4gwdk")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1651334579]
 stream = ExtResource("9_7rcg3")
+volume_db = 8.0
 bus = &"Music"
 script = ExtResource("10_i87d2")
 
@@ -1170,7 +1171,7 @@ offset_left = 302.0
 offset_top = 246.0
 offset_right = 397.99988
 offset_bottom = 341.99988
-scene = 5
+scene = 6
 
 [node name="SceneButton2" parent="LevelButtons" unique_id=1707231663 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1179,7 +1180,7 @@ offset_top = 246.0
 offset_right = 543.9999
 offset_bottom = 341.99988
 texture_normal = ExtResource("15_gs3kh")
-scene = 6
+scene = 7
 
 [node name="SceneButton3" parent="LevelButtons" unique_id=1278562704 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1188,7 +1189,7 @@ offset_top = 246.0
 offset_right = 686.9999
 offset_bottom = 341.99988
 texture_normal = ExtResource("16_x56nu")
-scene = 7
+scene = 8
 
 [node name="SceneButton4" parent="LevelButtons" unique_id=1974180497 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1197,7 +1198,7 @@ offset_top = 246.0
 offset_right = 835.9999
 offset_bottom = 341.99988
 texture_normal = ExtResource("17_27pes")
-scene = 8
+scene = 9
 
 [node name="SceneButton5" parent="LevelButtons" unique_id=813566571 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1206,7 +1207,7 @@ offset_top = 398.0
 offset_right = 397.99988
 offset_bottom = 493.99988
 texture_normal = ExtResource("18_jfovt")
-scene = 9
+scene = 10
 
 [node name="SceneButton6" parent="LevelButtons" unique_id=1934425860 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1215,7 +1216,7 @@ offset_top = 398.0
 offset_right = 543.9999
 offset_bottom = 493.99988
 texture_normal = ExtResource("19_ewyto")
-scene = 10
+scene = 11
 
 [node name="SceneButton7" parent="LevelButtons" unique_id=675351669 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1224,7 +1225,7 @@ offset_top = 398.0
 offset_right = 686.9999
 offset_bottom = 493.99988
 texture_normal = ExtResource("20_6toiw")
-scene = 11
+scene = 12
 
 [node name="SceneButton8" parent="LevelButtons" unique_id=649169852 instance=ExtResource("2_0eouc")]
 layout_mode = 0
@@ -1233,7 +1234,7 @@ offset_top = 398.0
 offset_right = 835.9999
 offset_bottom = 493.99988
 texture_normal = ExtResource("21_n66dk")
-scene = 12
+scene = 13
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="body_entered" from="EndArea2D" to="." method="_on_end_area_2d_body_entered"]

@@ -2,6 +2,7 @@ class_name SceneData extends RefCounted
 
 static var scenes: Dictionary[E.Scenes, Scene] = {
 	E.Scenes.HERO: Scene.new("res://ui/menu_scenes/hero_page/HeroPage.tscn"),
+	E.Scenes.INTRO: Scene.new("res://cutscenes/cutscene_intro.tscn"),
 	E.Scenes.LEVEL_SELECTION: Scene.new("res://ui/menu_scenes/level_selection/LevelSelection.tscn"),
 	E.Scenes.OPTIONS: Scene.new("res://ui/menu_scenes/options/OptionsPage.tscn"),
 	E.Scenes.EXTRAS: Scene.new(""),

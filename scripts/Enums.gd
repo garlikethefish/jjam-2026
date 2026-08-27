@@ -11,6 +11,7 @@ enum Scenes {
 	OPTIONS,
 	EXTRAS,
 	HERO,
+	INTRO,
 	LEVEL_SELECTION,
 	LEVEL_1,
 	LEVEL_2,

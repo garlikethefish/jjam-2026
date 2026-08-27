@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bqyvukkyewevj"]
+
+[ext_resource type="Texture2D" uid="uid://bcokajyu8fkm7" path="res://art/dog/doggy-Sheet.png" id="1_gedhf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnsml"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idn48"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynov0"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkkqn"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy5tl"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsxgv"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvuhj"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em68d"]
+atlas = ExtResource("1_gedhf")
+region = Rect2(96, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnsml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idn48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynov0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkkqn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy5tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsxgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvuhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em68d")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}]

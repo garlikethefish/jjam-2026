@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4l35gwg5yp70"
-path="res://.godot/imported/decor-Sheet.png-1b76342547cfe7ab2cf1c5a3533a9ce2.ctex"
+uid="uid://dh17rfkfv1w8j"
+path="res://.godot/imported/flowers-Sheet.png-ec16b4604206a8e4e25ef879da3cb92c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/decor/decor-Sheet.png"
-dest_files=["res://.godot/imported/decor-Sheet.png-1b76342547cfe7ab2cf1c5a3533a9ce2.ctex"]
+source_file="res://art/decor/flowers-Sheet.png"
+dest_files=["res://.godot/imported/flowers-Sheet.png-ec16b4604206a8e4e25ef879da3cb92c.ctex"]
 
 [params]
 
