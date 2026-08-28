@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0kjqc6rbxfm6" path="res://art/temp_sprites/tileset.png" id="2_l0dh8"]
 [ext_resource type="Texture2D" uid="uid://i0uja1vdxihq" path="res://art/tilemap/tilesetreal.png" id="3_d523w"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/pusher/door_activatable.tscn" id="4_k6i8e"]
+[ext_resource type="Texture2D" uid="uid://dh17rfkfv1w8j" path="res://art/decor/flowers-Sheet.png" id="4_ohql1"]
 [ext_resource type="PackedScene" uid="uid://yr4akl47psvr" path="res://objects/interactables/locked_door/locked_door.tscn" id="5_bf3ww"]
 [ext_resource type="Resource" uid="uid://brtgtbr8wmyf6" path="res://objects/items/BlueKey.tres" id="6_vej6f"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="7_kwmjv"]
@@ -987,6 +988,25 @@ sources/0 = SubResource("TileSetAtlasSource_x6hgv")
 sources/1 = SubResource("TileSetAtlasSource_kbw5q")
 sources/2 = SubResource("TileSetAtlasSource_ru3hm")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohql1"]
+texture = ExtResource("4_ohql1")
+texture_region_size = Vector2i(32, 32)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d151d"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_ohql1")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhb7j"]
 size = Vector2(385, 20)
 
@@ -1014,6 +1034,11 @@ collision_enabled = false
 z_index = 2
 tile_map_data = PackedByteArray("AAAWABsAAgAOAAIAAAAQABcAAgACAAIAAAAQABgAAgACAAIAAAAQABkAAgAOAAIAAAAQABoAAgAOAAIAAAAQABYAAgAOAAEAAAARABQAAgACAAAAAAARABUAAgACAAEAAAARABYAAgAOAAEAAAARABcAAgANAAIAAAARABgAAgACAAIAAAARABkAAgAOAAIAAAARABoAAgAOAAIAAAARABsAAgAOAAIAAAARABwAAgAOAAIAAAARAB0AAgAOAAIAAAASABQAAgACAAAAAAASABUAAgACAAEAAAASABYAAgANAAIAAAASABcAAgACAAIAAAASABgAAgAOAAIAAAASABkAAgAOAAIAAAASABoAAgAOAAIAAAASABsAAgAOAAIAAAASABwAAgAOAAIAAAASAB0AAgAOAAIAAAASAB4AAgAOAAIAAAATABQAAgACAAAAAAATABUAAgACAAEAAAATABYAAgAOAAEAAAATABcAAgACAAIAAAATABgAAgACAAIAAAATABkAAgAOAAIAAAATABoAAgAOAAIAAAATABsAAgAOAAIAAAATABwAAgAOAAIAAAATAB0AAgAOAAIAAAATAB4AAgAOAAIAAAAUABQAAgACAAAAAAAUABUAAgACAAEAAAAUABYAAgANAAIAAAAUABcAAgACAAIAAAAUABgAAgAOAAIAAAAUABkAAgAOAAIAAAAUABoAAgAOAAIAAAAUABsAAgAOAAIAAAAUABwAAgAOAAIAAAAUAB0AAgAOAAIAAAAUAB4AAgAOAAIAAAAVABQAAgACAAAAAAAVABUAAgACAAEAAAAVABYAAgAOAAMAAAAVABcAAgACAAIAAAAVABgAAgACAAIAAAAVABkAAgAOAAIAAAAVABoAAgAOAAIAAAAVABsAAgAOAAIAAAAVABwAAgAOAAIAAAAVAB0AAgAOAAIAAAAVAB4AAgAOAAIAAAAWABQAAgACAAAAAAAWABUAAgACAAEAAAAWABYAAgAOAAMAAAAWABcAAgANAAIAAAAWABgAAgACAAIAAAAWABkAAgACAAIAAAAWABoAAgAOAAIAAAAWABwAAgAOAAIAAAAWAB0AAgAOAAIAAAAWAB4AAgAOAAIAAAAXABcAAgANAAIAAAAXABgAAgACAAIAAAAXABkAAgACAAIAAAAXABoAAgAOAAIAAAAXABsAAgAOAAIAAAAXABwAAgAOAAIAAAAXAB0AAgAOAAIAAAAXAB4AAgAOAAIAAAAYABcAAgACAAIAAAAYABgAAgAOAAIAAAAYABkAAgAOAAIAAAAYABoAAgAOAAIAAAAYABsAAgAOAAIAAAAYABwAAgAOAAIAAAAYAB0AAgAOAAIAAAAZACAAAgAOAAIAAAAZABkAAgAOAAIAAAAZABoAAgAOAAIAAAAaABoAAgAOAAIAAAAaABkAAgAOAAIAAAAZABsAAgAOAAIAAAAaABsAAgAOAAIAAAAaABwAAgAOAAIAAAAbABsAAgAOAAIAAAAcABsAAgAOAAIAAAAcABoAAgAOAAIAAAAbABoAAgAOAAIAAAAbABkAAgAOAAIAAAAaABgAAgAOAAIAAAAZABgAAgAOAAIAAAAaABcAAgAOAAIAAAAZABcAAgAOAAIAAAAOABQAAgACAAAAAAAOABUAAgACAAEAAAAPABQAAgACAAAAAAAPABUAAgACAAEAAAAQABQAAgACAAAAAAAQABUAAgACAAEAAAA=")
 tile_set = SubResource("TileSet_yx4m1")
+collision_enabled = false
+
+[node name="Decor" type="TileMapLayer" parent="Node2D" unique_id=1548933274]
+tile_map_data = PackedByteArray("AAADABMAAAAGAAAAAAALABQAAAAFAAAAAAAKABAAAAAFAAAAAAAPAA8AAAAEAAEAAAAIABIAAAAEAAEAAAAPABMAAAAFAAEAAAAJABMAAAAFAAEAAAAUAA8AAAAFAAEAAAASAA8AAAAEAAAAAAARAA8AAAACAAAAAAAUABMAAAAEAAEAAAAWABMAAAAFAAAAAAAZABMAAAAHAAAAAAA=")
+tile_set = SubResource("TileSet_d151d")
 collision_enabled = false
 
 [node name="LockedDoor" parent="." unique_id=1943244515 instance=ExtResource("5_bf3ww")]
@@ -1079,7 +1104,7 @@ tilemaps = [NodePath("../Node2D/FirstPart")]
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("13_c48f6")]
 position = Vector2(786, 832)
-scene = 12
+scene = 13
 
 [node name="Hole" parent="." unique_id=306291165 node_paths=PackedStringArray("output_hole") instance=ExtResource("14_bippo")]
 position = Vector2(81, 1011)
@@ -1161,6 +1186,10 @@ scale = Vector2(1.25, 1.25)
 
 [node name="ParallaxUndergroundManager" parent="." unique_id=94066773 instance=ExtResource("19_ohql1")]
 position = Vector2(571, 805)
+scale = Vector2(0.32, 0.32)
+
+[node name="ParallaxUndergroundManager2" parent="." unique_id=402192041 instance=ExtResource("19_ohql1")]
+position = Vector2(571, 1131)
 scale = Vector2(0.32, 0.32)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1820127737]

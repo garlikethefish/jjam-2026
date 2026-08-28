@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="2_ydrim"]
 [ext_resource type="Texture2D" uid="uid://i0uja1vdxihq" path="res://art/tilemap/tilesetreal.png" id="3_sxi1f"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="3_y3fui"]
-[ext_resource type="Texture2D" uid="uid://b4l35gwg5yp70" path="res://art/decor/decor-Sheet.png" id="4_6gurj"]
+[ext_resource type="Texture2D" uid="uid://dh17rfkfv1w8j" path="res://art/decor/flowers-Sheet.png" id="4_6gurj"]
 [ext_resource type="PackedScene" uid="uid://bbxqf8ff1rep2" path="res://objects/interactables/leaf_pile/leaf_pile.tscn" id="5_b7a35"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="6_b7a35"]
 [ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher/pusher_up.tscn" id="6_jwm2h"]
@@ -986,7 +986,10 @@ sources/2 = SubResource("TileSetAtlasSource_yue7b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bnej"]
 texture = ExtResource("4_6gurj")
-0:0/0 = 0
+texture_region_size = Vector2i(32, 32)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -994,11 +997,10 @@ texture = ExtResource("4_6gurj")
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-11:0/0 = 0
+0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_1bxb8"]
+[sub_resource type="TileSet" id="TileSet_audcl"]
+tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_0bnej")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
@@ -1024,10 +1026,10 @@ tile_map_data = PackedByteArray("AAAAABQAAgACAAAAAAAAAB4AAgAOAAIAAAABABQAAgACAAA
 tile_set = SubResource("TileSet_5p8kf")
 collision_enabled = false
 
-[node name="Decor" type="TileMapLayer" parent="Tilemaps" unique_id=2099144591]
-z_index = -2
-tile_map_data = PackedByteArray("AAAQACcAAAAEAAAAAAASACcAAAACAAAAAAAHACcAAAACAAAAAAAfACcAAAAEAAAAAAAZACcAAAAGAAAAAAARACcAAAAHAAAAAAAGACcAAAAGAAAAAAAgACcAAAAGAAAAAAAlACcAAAAHAAAAAAAsACcAAAAJAAAAAAAvACcAAAAIAAAAAAAuACcAAAACAAAAAAA=")
-tile_set = SubResource("TileSet_1bxb8")
+[node name="Decor" type="TileMapLayer" parent="Tilemaps" unique_id=2078641872]
+tile_map_data = PackedByteArray("AAADABMAAAAAAAAAAAAEABMAAAAEAAAAAAAIABMAAAAHAAAAAAAMABMAAAAGAAAAAAAQABMAAAAFAAAAAAAWABMAAAAFAAEAAAACABMAAAAFAAEAAAA=")
+tile_set = SubResource("TileSet_audcl")
+collision_enabled = false
 
 [node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("1_cosrn")]
 
@@ -1077,7 +1079,7 @@ interactables_to_trigger = [NodePath("../DoorActivatable")]
 
 [node name="WinBlock" parent="." unique_id=1043751013 instance=ExtResource("9_etkh1")]
 position = Vector2(743, 471)
-scene = 8
+scene = 9
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1830306647]
 position = Vector2(551, 312)

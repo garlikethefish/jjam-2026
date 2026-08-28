@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0kjqc6rbxfm6" path="res://art/temp_sprites/tileset.png" id="2_i35eb"]
 [ext_resource type="Texture2D" uid="uid://i0uja1vdxihq" path="res://art/tilemap/tilesetreal.png" id="3_ilucm"]
 [ext_resource type="PackedScene" uid="uid://64q5gdatilyk" path="res://ui/dog_ui.tscn" id="4_47vp0"]
+[ext_resource type="Texture2D" uid="uid://dh17rfkfv1w8j" path="res://art/decor/flowers-Sheet.png" id="4_qmaqm"]
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="5_aelgx"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="6_17vc5"]
 [ext_resource type="PackedScene" uid="uid://bbxqf8ff1rep2" path="res://objects/interactables/leaf_pile/leaf_pile.tscn" id="7_w8oag"]
@@ -980,6 +981,25 @@ sources/0 = SubResource("TileSetAtlasSource_gnn6l")
 sources/1 = SubResource("TileSetAtlasSource_p10yx")
 sources/2 = SubResource("TileSetAtlasSource_morxv")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i35eb"]
+texture = ExtResource("4_qmaqm")
+texture_region_size = Vector2i(32, 32)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ilucm"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_i35eb")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6crus"]
 size = Vector2(46, 20)
 
@@ -1001,6 +1021,11 @@ tile_map_data = PackedByteArray("AAAAABQAAgACAAAAAAAAAB4AAgAOAAIAAAABABQAAgACAAA
 tile_set = SubResource("TileSet_poecr")
 collision_enabled = false
 
+[node name="Decor" type="TileMapLayer" parent="Tilemaps" unique_id=265045193]
+tile_map_data = PackedByteArray("AAADABMAAAAAAAAAAAAIABMAAAAFAAAAAAALABMAAAAEAAAAAAAQABMAAAAGAAAAAAAYABMAAAAGAAAAAAATABMAAAACAAAAAAAaABMAAAAAAAAAAAANAA4AAAAAAAAAAAALAA4AAAAFAAEAAAAQAA4AAAAEAAAAAAAUAA8AAAAFAAAAAAASAA4AAAAFAAAAAAARAA4AAAACAAAAAAAPAA4AAAADAAEAAAAKABMAAAAGAAAAAAACABMAAAAGAAAAAAA=")
+tile_set = SubResource("TileSet_ilucm")
+collision_enabled = false
+
 [node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("4_47vp0")]
 show_up_button = false
 show_go_back_in_time_button = false
@@ -1018,7 +1043,7 @@ tilemaps = [NodePath("../Tilemaps/TilemapOverlay1")]
 
 [node name="WinBlock" parent="." unique_id=781955561 instance=ExtResource("9_32i4s")]
 position = Vector2(492, 573)
-scene = 7
+scene = 8
 
 [node name="PlayerBlocker2" type="StaticBody2D" parent="." unique_id=1062603741]
 position = Vector2(551, 312)

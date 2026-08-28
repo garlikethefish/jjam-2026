@@ -172,7 +172,7 @@ offset_top = 18.0
 offset_right = 120.0
 offset_bottom = 114.0
 texture_normal = ExtResource("13_2gys3")
-scene = 4
+scene = 5
 
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]
