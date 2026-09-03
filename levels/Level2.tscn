@@ -6,14 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="4_6qtqa"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="5_jc5sa"]
 [ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="6_b5alm"]
-[ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="7_j7m3c"]
 [ext_resource type="AudioStream" uid="uid://bn1he5iy42es" path="res://audio/music/soundtrack_extra2.mp3" id="8_8vieb"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="9_d14rb"]
 [ext_resource type="PackedScene" uid="uid://c542oi4dxmucx" path="res://objects/interactables/hole/Hole.tscn" id="10_stgdi"]
 [ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="11_0hhcb"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/pusher/door_activatable.tscn" id="12_42ah5"]
 [ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher/pusher_up.tscn" id="13_mwduv"]
+[ext_resource type="PackedScene" uid="uid://bgwlr4rs1noie" path="res://objects/camera/MainCamera.tscn" id="14_pb71r"]
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button/button.tscn" id="14_t3ufo"]
+[ext_resource type="PackedScene" uid="uid://b2t0so01oxdop" path="res://objects/camera/FollowableObject.tscn" id="15_behg1"]
+[ext_resource type="Texture2D" uid="uid://dmbpfy6nj4avv" path="res://art/doggy.png" id="16_gwanj"]
+[ext_resource type="Texture2D" uid="uid://d2aeyrm13ukji" path="res://art/player/player.png" id="17_nn1ti"]
 
 [node name="Level2new" type="Node2D" unique_id=440271369]
 
@@ -40,21 +43,6 @@ position = Vector2(91, 287)
 [node name="Player" parent="." unique_id=1465888395 instance=ExtResource("6_b5alm")]
 z_index = -1
 position = Vector2(107, 122)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1569748020]
-position = Vector2(263, 86)
-zoom = Vector2(1.665, 1.665)
-limit_left = 63
-limit_top = 517
-limit_right = 863
-limit_bottom = -176
-limit_smoothed = true
-position_smoothing_enabled = true
-script = ExtResource("7_j7m3c")
-top_pos_limits = Array[int]([63, 234, 883, -176])
-middle_pos_limits = Array[int]([63, 517, 883, -176])
-bottom_pos_limits = Array[int]([63, 517, 883, 190])
-current_cam_level = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=47789839]
 process_mode = 3
@@ -92,3 +80,15 @@ interactables_to_trigger = [NodePath("../PusherUp")]
 [node name="Button2" parent="." unique_id=226756747 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("14_t3ufo")]
 position = Vector2(496, 9)
 interactables_to_trigger = [NodePath("../DoorActivatable2")]
+
+[node name="MainCamera" parent="." unique_id=1920733498 node_paths=PackedStringArray("focused_follower") instance=ExtResource("14_pb71r")]
+position = Vector2(603, 851)
+focused_follower = NodePath("FollowableObject")
+
+[node name="FollowableObject" parent="MainCamera" unique_id=736832149 node_paths=PackedStringArray("node") instance=ExtResource("15_behg1")]
+icon_texture = ExtResource("16_gwanj")
+node = NodePath("../../Dog")
+
+[node name="FollowableObject2" parent="MainCamera" unique_id=1751557028 node_paths=PackedStringArray("node") instance=ExtResource("15_behg1")]
+icon_texture = ExtResource("17_nn1ti")
+node = NodePath("../../Player")

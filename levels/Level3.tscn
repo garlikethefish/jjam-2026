@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dh17rfkfv1w8j" path="res://art/decor/flowers-Sheet.png" id="4_gtknj"]
 [ext_resource type="PackedScene" uid="uid://bbxqf8ff1rep2" path="res://objects/interactables/leaf_pile/leaf_pile.tscn" id="5_ldhjt"]
 [ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher/pusher_up.tscn" id="6_oq8ku"]
-[ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="9_52gcn"]
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="9_oq8ku"]
 [ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="10_mppvi"]
 [ext_resource type="Texture2D" uid="uid://bcwrwq7gpwa3h" path="res://art/sign1-export.png" id="11_m7lwk"]
@@ -17,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="15_m7lwk"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="16_gtknj"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="18_77jv8"]
+[ext_resource type="PackedScene" uid="uid://bgwlr4rs1noie" path="res://objects/camera/MainCamera.tscn" id="18_w4yws"]
+[ext_resource type="PackedScene" uid="uid://b2t0so01oxdop" path="res://objects/camera/FollowableObject.tscn" id="19_en7ln"]
+[ext_resource type="Texture2D" uid="uid://dmbpfy6nj4avv" path="res://art/doggy.png" id="20_en7ln"]
+[ext_resource type="Texture2D" uid="uid://d2aeyrm13ukji" path="res://art/player/player.png" id="21_5nt5t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ws61b"]
 texture = ExtResource("1_r8psn")
@@ -1032,20 +1035,6 @@ position = Vector2(107, 842)
 z_index = -1
 position = Vector2(109, 618)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=708925801]
-position = Vector2(263, 86)
-zoom = Vector2(1.915, 1.915)
-limit_left = 62
-limit_top = 972
-limit_right = 863
-limit_bottom = 607
-limit_smoothed = true
-position_smoothing_enabled = true
-script = ExtResource("9_52gcn")
-top_pos_limits = Array[int]([62, 689, 863, 317])
-middle_pos_limits = Array[int]([62, 823, 863, 530])
-bottom_pos_limits = Array[int]([62, 1057, 863, 607])
-
 [node name="DogUI" parent="." unique_id=866075244 instance=ExtResource("11_mppvi")]
 
 [node name="PusherBridge" type="Node2D" parent="." unique_id=1065502732]
@@ -1138,3 +1127,15 @@ position = Vector2(473, 650)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=587717169]
 position = Vector2(-57.5, 0)
 shape = SubResource("RectangleShape2D_uhb7j")
+
+[node name="MainCamera" parent="." unique_id=1920733498 node_paths=PackedStringArray("focused_follower") instance=ExtResource("18_w4yws")]
+position = Vector2(107, 842)
+focused_follower = NodePath("FollowableObject")
+
+[node name="FollowableObject" parent="MainCamera" unique_id=736832149 node_paths=PackedStringArray("node") instance=ExtResource("19_en7ln")]
+icon_texture = ExtResource("20_en7ln")
+node = NodePath("../../Dog")
+
+[node name="FollowableObject2" parent="MainCamera" unique_id=1199085272 node_paths=PackedStringArray("node") instance=ExtResource("19_en7ln")]
+icon_texture = ExtResource("21_5nt5t")
+node = NodePath("../../Player")

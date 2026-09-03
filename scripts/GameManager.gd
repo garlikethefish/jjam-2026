@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		SignalBus.trigger_pausemenu.emit()
 
+
 func go_to_scene(scene: E.Scenes):
 	await TransitionScreen.close().finished
 

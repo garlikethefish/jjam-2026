@@ -13,9 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://bt1dcowei4q0a" path="res://characters/dog/dog.tscn" id="12_bbw8r"]
 [ext_resource type="PackedScene" uid="uid://dt420ydpmvsoo" path="res://characters/player/player.tscn" id="13_11nnf"]
 [ext_resource type="AudioStream" uid="uid://b721qdslgyy6j" path="res://audio/music/Disney Is Back-730949910.mp3" id="13_fnln3"]
-[ext_resource type="Script" uid="uid://b761r1x8i32k" path="res://scripts/camera.gd" id="14_80a6m"]
+[ext_resource type="PackedScene" uid="uid://bgwlr4rs1noie" path="res://objects/camera/MainCamera.tscn" id="16_a811r"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="16_imc2b"]
+[ext_resource type="PackedScene" uid="uid://b2t0so01oxdop" path="res://objects/camera/FollowableObject.tscn" id="17_uvs48"]
 [ext_resource type="Texture2D" uid="uid://c55ktv847xkmj" path="res://art/cursors-Sheet.png" id="17_ver0d"]
+[ext_resource type="Texture2D" uid="uid://dmbpfy6nj4avv" path="res://art/doggy.png" id="18_jwcof"]
+[ext_resource type="Texture2D" uid="uid://d2aeyrm13ukji" path="res://art/player/player.png" id="19_5g1cf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnn6l"]
 texture = ExtResource("1_tq1tw")
@@ -1072,21 +1075,6 @@ position = Vector2(62, 463)
 z_index = -1
 position = Vector2(48, 276)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1445891188]
-position = Vector2(263, 86)
-zoom = Vector2(2, 2)
-limit_left = -1
-limit_top = 592
-limit_right = 419
-limit_bottom = -130
-limit_smoothed = true
-position_smoothing_enabled = true
-script = ExtResource("14_80a6m")
-top_pos_limits = Array[int]([-1, 592, 714, -130])
-middle_pos_limits = Array[int]([-1, 700, 714, 31])
-bottom_pos_limits = Array[int]([-1, 700, 714, 200])
-current_cam_level = 3
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=398227438]
 process_mode = 3
 stream = ExtResource("13_fnln3")
@@ -1098,3 +1086,15 @@ script = ExtResource("16_imc2b")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=115844613]
 position = Vector2(104, 224)
 texture = SubResource("AtlasTexture_uhb7j")
+
+[node name="MainCamera" parent="." unique_id=1920733498 node_paths=PackedStringArray("focused_follower") instance=ExtResource("16_a811r")]
+position = Vector2(603, 851)
+focused_follower = NodePath("FollowableObject")
+
+[node name="FollowableObject" parent="MainCamera" unique_id=736832149 node_paths=PackedStringArray("node") instance=ExtResource("17_uvs48")]
+icon_texture = ExtResource("18_jwcof")
+node = NodePath("../../Dog")
+
+[node name="FollowableObject2" parent="MainCamera" unique_id=2038826281 node_paths=PackedStringArray("node") instance=ExtResource("17_uvs48")]
+icon_texture = ExtResource("19_5g1cf")
+node = NodePath("../../Player")
