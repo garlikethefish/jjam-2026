@@ -50,9 +50,9 @@ func _physics_process(_delta: float) -> void:
 			await tween.finished
 			is_board_moved = true
 			
-			
-			
+			SignalBus.trigger_cam_view_highlight.emit()
 			await get_tree().create_timer(1.2).timeout
+			
 
 		
 		if !is_bush_destroyed:

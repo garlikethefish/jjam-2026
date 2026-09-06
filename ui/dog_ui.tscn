@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dx1xp7kq7yhcf" path="res://ui/left_button_command.gd" id="4_0uk22"]
 [ext_resource type="Script" uid="uid://01hkrten5hqi" path="res://ui/right_button_command.gd" id="4_luusd"]
 [ext_resource type="Script" uid="uid://coyymgfswjqm0" path="res://ui/command_count_tracker.gd" id="7_2hdji"]
-[ext_resource type="Script" uid="uid://b8o2inomojtcc" path="res://ui/button_go_back_in_time.gd" id="7_gbemf"]
 [ext_resource type="LabelSettings" uid="uid://ckxe801gy6u0g" path="res://fonts/pixel_label_settings.tres" id="8_dbae1"]
 [ext_resource type="Texture2D" uid="uid://cn1ysm7cci275" path="res://art/q.png" id="9_6un3d"]
 [ext_resource type="FontFile" uid="uid://b130171gs1oxo" path="res://fonts/MySims Racing DS Large Font.ttf" id="9_dbae1"]
@@ -31,13 +30,6 @@ load_path = "res://.godot/imported/cursors-Sheet.png-bc30f2d4e745f78c7223e6f87e5
 atlas = SubResource("CompressedTexture2D_dbae1")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_88824"]
-load_path = "res://.godot/imported/cursors-Sheet.png-bc30f2d4e745f78c7223e6f87e52850e.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_khrw6"]
-atlas = SubResource("CompressedTexture2D_88824")
-region = Rect2(224, 0, 32, 32)
-
 [sub_resource type="LabelSettings" id="LabelSettings_8m17e"]
 font = ExtResource("9_dbae1")
 font_size = 32
@@ -54,6 +46,59 @@ shadow_size = 0
 shadow_color = Color(0.54509807, 0.5764706, 0.6862745, 1)
 shadow_offset = Vector2(-1, 1.015)
 
+[sub_resource type="Animation" id="Animation_b6ena"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(867, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_dbae1"]
+resource_name = "tut_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(867, 670.735)]
+}
+
+[sub_resource type="Animation" id="Animation_8m17e"]
+resource_name = "tut_movev"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(867, 647.01), Vector2(867, 550.35)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2gys3"]
+_data = {
+&"RESET": SubResource("Animation_b6ena"),
+&"tut_hide": SubResource("Animation_dbae1"),
+&"tut_movev": SubResource("Animation_8m17e")
+}
+
 [node name="GameUI" type="CanvasLayer" unique_id=866075244]
 script = ExtResource("1_6un3d")
 
@@ -64,7 +109,7 @@ anchor_top = 1.0
 anchor_right = 0.58000004
 anchor_bottom = 1.0
 offset_top = -84.0
-offset_right = -313.16003
+offset_right = -413.16003
 offset_bottom = 0.13000488
 grow_horizontal = 2
 grow_vertical = 0
@@ -103,17 +148,6 @@ texture_normal = SubResource("AtlasTexture_8m17e")
 stretch_mode = 5
 script = ExtResource("4_luusd")
 
-[node name="GoBackInTime" type="TextureButton" parent="Panel" unique_id=1409984007]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 5.0
-offset_right = 332.0
-offset_bottom = 73.0
-focus_mode = 0
-texture_normal = SubResource("AtlasTexture_khrw6")
-stretch_mode = 5
-script = ExtResource("7_gbemf")
-
 [node name="Label" type="Label" parent="Panel" unique_id=511781525]
 layout_mode = 0
 offset_left = 12.0
@@ -150,18 +184,18 @@ label_settings = SubResource("LabelSettings_2gys3")
 script = ExtResource("7_2hdji")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1077041142]
-offset_left = 902.0
-offset_top = 558.0
-offset_right = 982.0
-offset_bottom = 638.0
+offset_left = 867.0
+offset_top = 540.0
+offset_right = 947.0
+offset_bottom = 620.0
 texture = ExtResource("9_6un3d")
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=1470467915]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 3.0
-offset_right = 239.0
-offset_bottom = 67.0
+offset_left = 103.0
+offset_top = 14.0
+offset_right = 255.0
+offset_bottom = 78.0
 text = "View"
 label_settings = ExtResource("8_dbae1")
 
@@ -174,7 +208,10 @@ offset_bottom = 114.0
 texture_normal = ExtResource("13_2gys3")
 scene = 5
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2089960394]
+libraries/ = SubResource("AnimationLibrary_2gys3")
+autoplay = &"tut_hide"
+
 [connection signal="pressed" from="Panel/UpButton" to="Panel/UpButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="Panel/LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="Panel/RightButton" to="Panel/RightButton" method="_on_pressed"]
-[connection signal="pressed" from="Panel/GoBackInTime" to="Panel/GoBackInTime" method="_on_pressed"]

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://x3n5exl1poym" path="res://objects/win_block.tscn" id="11_0hhcb"]
 [ext_resource type="PackedScene" uid="uid://d12qbjxdr13sl" path="res://objects/interactables/pusher/door_activatable.tscn" id="12_42ah5"]
 [ext_resource type="PackedScene" uid="uid://b14iipby37noq" path="res://objects/interactables/pusher/pusher_up.tscn" id="13_mwduv"]
+[ext_resource type="PackedScene" uid="uid://dfwy6tby50873" path="res://objects/barrier.tscn" id="14_behg1"]
 [ext_resource type="PackedScene" uid="uid://bgwlr4rs1noie" path="res://objects/camera/MainCamera.tscn" id="14_pb71r"]
 [ext_resource type="PackedScene" uid="uid://ceibafxmaqdmu" path="res://objects/interactables/button/button.tscn" id="14_t3ufo"]
 [ext_resource type="PackedScene" uid="uid://b2t0so01oxdop" path="res://objects/camera/FollowableObject.tscn" id="15_behg1"]
@@ -80,6 +81,12 @@ interactables_to_trigger = [NodePath("../PusherUp")]
 [node name="Button2" parent="." unique_id=226756747 node_paths=PackedStringArray("interactables_to_trigger") instance=ExtResource("14_t3ufo")]
 position = Vector2(496, 9)
 interactables_to_trigger = [NodePath("../DoorActivatable2")]
+
+[node name="Barrier" parent="." unique_id=767985791 instance=ExtResource("14_behg1")]
+position = Vector2(146, -217)
+
+[node name="Barrier2" parent="." unique_id=1925313322 instance=ExtResource("14_behg1")]
+position = Vector2(967, -203)
 
 [node name="MainCamera" parent="." unique_id=1920733498 node_paths=PackedStringArray("focused_follower") instance=ExtResource("14_pb71r")]
 position = Vector2(603, 851)
