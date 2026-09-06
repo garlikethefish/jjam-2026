@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var tilemaps: Array[TileMapLayer] = []
+@export var objs_to_unhide : Array[Node2D] = []
 @export var interact_key: AnimatedSprite2D
 @export var add_plank := true
 
@@ -36,10 +37,14 @@ func _physics_process(_delta: float) -> void:
 				return
 				
 			var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
+			var obj_tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
 			wood_sound.play()
 			# fade tilemap
+			var i = -1
 			for tilemap in tilemaps:
+				i+=1
 				tween.tween_property(tilemap, "modulate", Color.TRANSPARENT, 0.7)
+				obj_tween.tween_property(objs_to_unhide.get(i), "modulate", Color.TRANSPARENT, 0.7)
 				
 			# move board
 			tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR)
