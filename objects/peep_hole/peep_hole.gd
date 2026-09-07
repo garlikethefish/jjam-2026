@@ -9,9 +9,6 @@ var is_peepin := false
 var main_camera_starting_global_pos := Vector2.ZERO
 var target_zoom := Vector2(2, 2)
 
-@export var peep_shader: ShaderDataRes
-@export var grand_reveal_shader: ShaderDataRes
-
 
 func _ready() -> void:
 	main_camera = get_tree().get_first_node_in_group("main_camera")
@@ -48,29 +45,27 @@ func switch_camera_A_to_B():
 		return
 
 	is_switching = true
-
-	# capturing starting state
-	main_camera_starting_global_pos = main_camera.global_position
-
-	# zoom to point A
-	main_camera.follow_player = false
-	main_camera.global_position = self.global_position - Vector2(0, -60)
-	main_camera.transition_zoom(Vector2(5, 5))
-	main_camera.set_shader(peep_shader)
-	main_camera.cover_screen()
-
-	await get_tree().create_timer(.6).timeout
-
-	# transition to point B
-	main_camera.global_position = peep_camera.global_position
-
-	await get_tree().create_timer(.6).timeout
-
-	main_camera.set_shader(grand_reveal_shader)
-	main_camera.uncover_screen()
-
-	main_camera.transition_zoom(peep_camera.zoom)
-
+	#
+	## capturing starting state
+	#main_camera_starting_global_pos = main_camera.global_position
+	#
+	## zoom to point A
+	#main_camera.follow_player = false
+	#main_camera.transition_zoom(Vector2(9, 9))
+	#main_camera.set_shader(peep_shader)
+	#main_camera.cover_screen()
+	#
+	#await get_tree().create_timer(.6).timeout
+	#
+	## transition to point B
+	#main_camera.global_position = peep_camera.global_position
+	#
+	#await get_tree().create_timer(.6).timeout
+	#
+	#main_camera.set_shader(grand_reveal_shader)
+	#main_camera.uncover_screen()
+	#
+	#main_camera.transition_zoom(peep_camera.zoom)
 	is_switching = false
 	is_peepin = true
 
@@ -82,25 +77,24 @@ func switch_camera_B_to_A():
 	is_switching = true
 
 	# zoom to point B
-	main_camera.transition_zoom(Vector2(5, 5))
-	main_camera.global_position = peep_camera.global_position
-
-	main_camera.set_shader(grand_reveal_shader)
-	main_camera.cover_screen()
-
-	await get_tree().create_timer(.5).timeout
-
-	# go back to point A
-	main_camera.global_position = main_camera_starting_global_pos - Vector2(0, -60)
-
-	await get_tree().create_timer(.5).timeout
-
-	main_camera.set_shader(peep_shader)
-	main_camera.uncover_screen()
-
-	main_camera.transition_zoom(Vector2(2, 2))
-	print(main_camera.actual_zoom_value)
-	main_camera.follow_player = true
-
+	#main_camera.transition_zoom(Vector2(5, 5))
+	#main_camera.global_position = peep_camera.global_position
+	#
+	#main_camera.set_shader(grand_reveal_shader)
+	#main_camera.cover_screen()
+	#
+	#await get_tree().create_timer(.5).timeout
+	#
+	## go back to point A
+	#main_camera.global_position = main_camera_starting_global_pos - Vector2(0, -60)
+	#
+	#await get_tree().create_timer(.5).timeout
+	#
+	#main_camera.set_shader(peep_shader)
+	#main_camera.uncover_screen()
+	#
+	#main_camera.transition_zoom(Vector2(2, 2))
+	#print(main_camera.actual_zoom_value)
+	#main_camera.follow_player = true
 	is_switching = false
 	is_peepin = false

@@ -16,10 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://4111ajrxocx0" path="res://objects/parallax_overworld_manager.tscn" id="15_m7lwk"]
 [ext_resource type="PackedScene" uid="uid://c68napmu6sr6r" path="res://objects/parallax_underground_manager.tscn" id="16_gtknj"]
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="18_77jv8"]
+[ext_resource type="PackedScene" uid="uid://b111c6wr3vasa" path="res://objects/peep_hole/PeepHole.tscn" id="18_t3rlc"]
 [ext_resource type="PackedScene" uid="uid://bgwlr4rs1noie" path="res://objects/camera/MainCamera.tscn" id="18_w4yws"]
-[ext_resource type="PackedScene" uid="uid://b2t0so01oxdop" path="res://objects/camera/FollowableObject.tscn" id="19_en7ln"]
-[ext_resource type="Texture2D" uid="uid://dmbpfy6nj4avv" path="res://art/doggy.png" id="20_en7ln"]
-[ext_resource type="Texture2D" uid="uid://d2aeyrm13ukji" path="res://art/player/player.png" id="21_5nt5t"]
+[ext_resource type="PackedScene" uid="uid://bch8vl3wxo8w5" path="res://levels/transition_layer/TransitionLayer.tscn" id="19_77jv8"]
+[ext_resource type="Script" uid="uid://b30fwftq4xcgt" path="res://levels/cinematic_camera.gd" id="19_w4yws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ws61b"]
 texture = ExtResource("1_r8psn")
@@ -1130,12 +1130,25 @@ shape = SubResource("RectangleShape2D_uhb7j")
 
 [node name="MainCamera" parent="." unique_id=1920733498 node_paths=PackedStringArray("focused_follower") instance=ExtResource("18_w4yws")]
 position = Vector2(107, 842)
-focused_follower = NodePath("FollowableObject")
+focused_follower = NodePath("../Player")
 
-[node name="FollowableObject" parent="MainCamera" unique_id=736832149 node_paths=PackedStringArray("node") instance=ExtResource("19_en7ln")]
-icon_texture = ExtResource("20_en7ln")
-node = NodePath("../../Dog")
+[node name="PeepHole" parent="." unique_id=1249271270 node_paths=PackedStringArray("peep_camera") instance=ExtResource("18_t3rlc")]
+position = Vector2(141, 636)
+peep_camera = NodePath("../Camera2D")
 
-[node name="FollowableObject2" parent="MainCamera" unique_id=1199085272 node_paths=PackedStringArray("node") instance=ExtResource("19_en7ln")]
-icon_texture = ExtResource("21_5nt5t")
-node = NodePath("../../Player")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1206606737]
+position = Vector2(353, 835)
+zoom = Vector2(2, 2)
+script = ExtResource("19_w4yws")
+
+[node name="TransitionLayer" parent="Camera2D" unique_id=2201102 instance=ExtResource("19_77jv8")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=2038924384]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=987714270]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
