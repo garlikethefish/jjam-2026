@@ -8,13 +8,13 @@ extends CanvasLayer
 @onready var up_button: TextureButton = $Panel/UpButton
 @onready var left_button: TextureButton = $Panel/LeftButton
 @onready var right_button: TextureButton = $Panel/RightButton
-@onready var go_back_in_time: TextureButton = $Panel/GoBackInTime
 @onready var level_name: Label = $LevelNameLabel
+@onready var anim_player := $AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.trigger_cam_view_highlight.connect(highlight)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +22,9 @@ func _process(_delta: float) -> void:
 	up_button.visible = show_up_button
 	right_button.visible = show_right_button
 	left_button.visible = show_left_button
-	go_back_in_time.visible = show_go_back_in_time_button
 
 	level_name.text = GameManager.current_scene_name
+
+func highlight():
+	if level_name.text == "Line":
+		anim_player.play("tut_movev")

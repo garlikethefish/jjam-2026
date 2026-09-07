@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cjiwaxjbug1lf"]
+
+[ext_resource type="Texture2D" uid="uid://bm323p06uswb4" path="res://art/transition_tunnel.png" id="1_5b6oh"]
+
+[node name="TransitionWinFade" type="Sprite2D" unique_id=2645263]
+texture = ExtResource("1_5b6oh")

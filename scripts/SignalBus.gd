@@ -1,3 +1,4 @@
 extends Node
 
 signal trigger_pausemenu
+signal trigger_cam_view_highlight
