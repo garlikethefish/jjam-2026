@@ -1,10 +1,8 @@
-extends CharacterBody2D
-
+class_name Human extends PlayerCharacterBase
 
 @export var regular_speed = 100.0
 @export var jump_velocity = -400.0
 @export var sprint_speed := 200.0
-@export var disable_movement := false
 @onready var sprite := $AnimatedSprite2D
 @onready var anim_player := $AnimationPlayer
 
@@ -14,8 +12,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		anim_player.play("run")
 		velocity += get_gravity() * delta
-		
-	if disable_movement: return
+
+	if disable_movement:
+		return
 
 	# Handle jump.
 	if Input.is_action_just_pressed("up") and is_on_floor():

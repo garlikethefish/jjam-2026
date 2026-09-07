@@ -1,6 +1,4 @@
-extends CharacterBody2D
-
-class_name Dog
+class_name Dog extends PlayerCharacterBase
 
 signal finished_commands
 
@@ -11,8 +9,6 @@ signal finished_commands
 @export var JUMP_VELOCITY = 300.0
 @export var max_jump_duration = .3
 @export var x_force = 100
-@export_category("Other")
-@export var disable_movement := false
 
 @onready var anim_player := $AnimationPlayer
 var cur_jump_duration = .3

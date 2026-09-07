@@ -1133,39 +1133,22 @@ position = Vector2(107, 842)
 focused_follower = NodePath("../Player")
 
 [node name="PeepHole" parent="." unique_id=1249271270 node_paths=PackedStringArray("cin_camera") instance=ExtResource("18_t3rlc")]
-position = Vector2(177, 632)
+position = Vector2(141, 636)
 cin_camera = NodePath("../Camera2D")
-zoom_in_ease = 1
-zoom_in_transition = 7
-zoom_out_transition = 10
 
-[node name="Camera2D" type="Camera2D" parent="PeepHole" unique_id=634409684]
-enabled = false
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1206606737 node_paths=PackedStringArray("cams_layer")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1206606737]
 position = Vector2(353, 835)
 enabled = false
 zoom = Vector2(2, 2)
 script = ExtResource("19_w4yws")
-cams_layer = NodePath("PlainFade")
-enter_duration = 1.0
-enter_pos_offset = Vector2(0, -50)
-enter_zoom_offset = Vector2(3, 3)
-exit_duration = 1.0
-exit_pos_offset = Vector2(0, -50)
-exit_zoom_offset = Vector2(2, 2)
 
-[node name="PlainFade" type="CanvasLayer" parent="Camera2D" unique_id=2038924384]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=2038924384]
 script = ExtResource("21_en7ln")
-cover_transition = 4
-uncover_transition = 5
 
-[node name="ColorRect" type="ColorRect" parent="Camera2D/PlainFade" unique_id=987714270]
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=987714270]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0.045097284, 5.264301e-09, 0.009100309, 1)

@@ -1,5 +1,11 @@
 extends Node
 
+enum CoverLayerState {
+	COVERED,
+	UNCOVERED,
+	CHANGING,
+}
+
 enum FacingDirection {
 	NONE = 0,
 	RIGHT = 1,

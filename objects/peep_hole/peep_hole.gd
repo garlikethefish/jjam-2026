@@ -1,10 +1,26 @@
 extends Area2D
 
-@export var peep_camera: Camera2D
+@export var cin_camera: CinematicCamera
+
+@export_group("Zoom in")
+@export var zoom := Vector2(6, 6)
+@export var zoom_in_duration := .6
+@export var zoom_in_ease: Tween.EaseType
+@export var zoom_in_transition: Tween.TransitionType
+
+@export_group("Zoom out")
+@export var zoom_out_duration := .6
+@export var zoom_out_ease: Tween.EaseType
+@export var zoom_out_transition: Tween.TransitionType
+
+@onready var zoom_camera: Camera2D = $Camera2D
+var cam_to_copy_ref: Camera2D = null
+var tween: Tween
+var is_zoomin := false
+
 var main_camera: MainCamera
-var player_in_range: CharacterBody2D = null
+var player_in_range: PlayerCharacterBase = null
 var is_switching := false
-var is_peepin := false
 
 var main_camera_starting_global_pos := Vector2.ZERO
 var target_zoom := Vector2(2, 2)
@@ -15,16 +31,23 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if !player_in_range:
-		return
+	if Input.is_action_just_pressed("interact") and player_in_range != null:
+		if cin_camera.cams_layer.state == E.CoverLayerState.CHANGING or is_switching:
+			return
 
-	if Input.is_action_just_pressed("interact"):
-		if !is_peepin:
-			switch_camera_A_to_B()
+		if !cin_camera.enabled:
+			is_switching = true
+			player_in_range.disable_movement = true
+			await async_zoom_into_hole(main_camera)
+			await cin_camera.async_enter()
+
 		else:
-			switch_camera_B_to_A()
+			is_switching = true
+			await cin_camera.async_exit()
+			await async_zoom_out_the_hole()
+			player_in_range.disable_movement = false
 
-		print("is peepin: ", is_peepin)
+		is_switching = false
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -34,67 +57,69 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_body_exited(body: Node2D) -> void:
-	print("is body in range: ", player_in_range, " body: ", body)
-
 	if player_in_range != null and body == player_in_range:
+		print("area exited")
 		player_in_range = null
 
 
-func switch_camera_A_to_B():
-	if is_switching:
+func async_zoom_into_hole(cam_to_copy: Camera2D = null):
+	if is_zoomin:
 		return
+	is_zoomin = true
 
-	is_switching = true
-	#
-	## capturing starting state
-	#main_camera_starting_global_pos = main_camera.global_position
-	#
-	## zoom to point A
-	#main_camera.follow_player = false
-	#main_camera.transition_zoom(Vector2(9, 9))
-	#main_camera.set_shader(peep_shader)
-	#main_camera.cover_screen()
-	#
-	#await get_tree().create_timer(.6).timeout
-	#
-	## transition to point B
-	#main_camera.global_position = peep_camera.global_position
-	#
-	#await get_tree().create_timer(.6).timeout
-	#
-	#main_camera.set_shader(grand_reveal_shader)
-	#main_camera.uncover_screen()
-	#
-	#main_camera.transition_zoom(peep_camera.zoom)
-	is_switching = false
-	is_peepin = true
+	zoom_camera.enabled = true
+	zoom_camera.make_current()
+
+	if cam_to_copy != null:
+		cam_to_copy_ref = cam_to_copy
+		zoom_camera.zoom = cam_to_copy.zoom
+		zoom_camera.global_position = cam_to_copy.global_position
+
+	if tween != null and tween.is_valid():
+		tween.kill()
+
+	tween = create_tween().set_ease(zoom_in_ease).set_trans(zoom_in_transition).set_parallel()
+	tween.tween_property(zoom_camera, "zoom", zoom, zoom_in_duration)
+	tween.tween_property(
+		zoom_camera,
+		"global_position",
+		global_position - Vector2(0, 20),
+		zoom_out_duration,
+	)
+
+	await tween.finished
+
+	zoom_camera.enabled = false
+	is_zoomin = false
 
 
-func switch_camera_B_to_A():
-	if is_switching:
+func async_zoom_out_the_hole():
+	if is_zoomin:
 		return
+	is_zoomin = true
 
-	is_switching = true
+	zoom_camera.enabled = true
+	zoom_camera.make_current()
 
-	# zoom to point B
-	#main_camera.transition_zoom(Vector2(5, 5))
-	#main_camera.global_position = peep_camera.global_position
-	#
-	#main_camera.set_shader(grand_reveal_shader)
-	#main_camera.cover_screen()
-	#
-	#await get_tree().create_timer(.5).timeout
-	#
-	## go back to point A
-	#main_camera.global_position = main_camera_starting_global_pos - Vector2(0, -60)
-	#
-	#await get_tree().create_timer(.5).timeout
-	#
-	#main_camera.set_shader(peep_shader)
-	#main_camera.uncover_screen()
-	#
-	#main_camera.transition_zoom(Vector2(2, 2))
-	#print(main_camera.actual_zoom_value)
-	#main_camera.follow_player = true
-	is_switching = false
-	is_peepin = false
+	var zoom_: Vector2
+	var end_pos_: Vector2
+
+	if cam_to_copy_ref != null:
+		zoom_ = cam_to_copy_ref.zoom
+		end_pos_ = cam_to_copy_ref.global_position
+	else:
+		zoom_ = Vector2(2, 2)
+		end_pos_ = player_in_range.global_position
+
+	if tween != null and tween.is_valid():
+		tween.kill()
+
+	tween = create_tween().set_ease(zoom_out_ease).set_trans(zoom_out_transition).set_parallel()
+	tween.tween_property(zoom_camera, "zoom", zoom_, zoom_out_duration)
+	tween.tween_property(zoom_camera, "global_position", end_pos_, zoom_out_duration)
+
+	await tween.finished
+
+	zoom_camera.enabled = false
+	cam_to_copy_ref = null
+	is_zoomin = false

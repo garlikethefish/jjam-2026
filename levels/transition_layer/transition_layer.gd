@@ -1,4 +1,4 @@
-class_name TransitionLayer extends CanvasLayer
+class_name CoverTransitionLayer extends CanvasLayer
 
 @export var open_on_start := true
 
