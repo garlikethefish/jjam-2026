@@ -18,9 +18,12 @@
 [ext_resource type="Script" uid="uid://bk7elnuphine7" path="res://levels/audio_stream_player_2d.gd" id="13_ihi63"]
 [ext_resource type="Texture2D" uid="uid://cis1nukbi6lr7" path="res://art/sign2-export.png" id="17_sxi1f"]
 [ext_resource type="PackedScene" uid="uid://bgwlr4rs1noie" path="res://objects/camera/MainCamera.tscn" id="18_ccxey"]
+[ext_resource type="PackedScene" uid="uid://b111c6wr3vasa" path="res://objects/peep_hole/PeepHole.tscn" id="18_tsgrn"]
+[ext_resource type="Script" uid="uid://cjpaya6f8l3ow" path="res://shaders/shader_data_res.gd" id="19_8dxbh"]
 [ext_resource type="PackedScene" uid="uid://b2t0so01oxdop" path="res://objects/camera/FollowableObject.tscn" id="19_tsgrn"]
-[ext_resource type="Texture2D" uid="uid://dmbpfy6nj4avv" path="res://art/doggy.png" id="20_8dxbh"]
+[ext_resource type="Shader" uid="uid://3sw1f764450" path="res://shaders/diamond_vertical.gdshader" id="20_mq75a"]
 [ext_resource type="Texture2D" uid="uid://d2aeyrm13ukji" path="res://art/player/player.png" id="21_mq75a"]
+[ext_resource type="Shader" uid="uid://drvlcmbe0n647" path="res://shaders/double_dither.gdshader" id="21_ok7fr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxdby"]
 texture = ExtResource("1_swn5e")
@@ -1009,6 +1012,42 @@ sources/0 = SubResource("TileSetAtlasSource_0bnej")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wf5"]
 size = Vector2(46, 20)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tsgrn"]
+shader = ExtResource("20_mq75a")
+shader_parameter/AspectRatio = 1.2
+shader_parameter/Diamonds = 25.0
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = -0.11
+shader_parameter/disable_pixel = false
+
+[sub_resource type="Resource" id="Resource_ccxey"]
+script = ExtResource("19_8dxbh")
+shader_mat = SubResource("ShaderMaterial_tsgrn")
+progres_prop_name = "height"
+min_v = -1.0
+max_v = 1.0
+metadata/_custom_type_script = "uid://cjpaya6f8l3ow"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mq75a"]
+shader = ExtResource("21_ok7fr")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.45
+shader_parameter/pixel_size = 8.0
+shader_parameter/resolution = Vector2(400, 400)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_8dxbh"]
+script = ExtResource("19_8dxbh")
+shader_mat = SubResource("ShaderMaterial_mq75a")
+progres_prop_name = "radius"
+min_v = 1.0
+metadata/_custom_type_script = "uid://cjpaya6f8l3ow"
+
 [node name="GarTestingGround" type="Node2D" unique_id=1688828784]
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=211511392]
@@ -1019,6 +1058,7 @@ tile_map_data = PackedByteArray("AAD+/xAAAgAOAAIAAAD+/xEAAgAOAAIAAAD//xAAAgAOAAI
 tile_set = SubResource("TileSet_5p8kf")
 
 [node name="TilemapOverlay1" type="TileMapLayer" parent="Tilemaps" unique_id=2039926583]
+visible = false
 tile_map_data = PackedByteArray("AAAAABQAAgACAAAAAAAAAB4AAgAOAAIAAAABABQAAgACAAAAAAABAB4AAgAOAAIAAAACABQAAgACAAAAAAACAB4AAgAOAAIAAAADABQAAgACAAAAAAADAB4AAgAOAAIAAAAEABQAAgACAAAAAAAEAB4AAgAOAAIAAAAFABQAAgACAAAAAAAFAB4AAgAOAAIAAAAGABQAAgACAAAAAAAGAB4AAgAOAAIAAAAHABQAAgACAAAAAAAHAB4AAgAOAAIAAAAIABQAAgACAAAAAAAIAB4AAgAOAAIAAAAJABQAAgACAAAAAAAJAB4AAgAOAAIAAAAKABQAAgACAAAAAAAKAB4AAgAOAAIAAAALABQAAgACAAAAAAALAB4AAgAOAAIAAAAMABQAAgACAAAAAAANABQAAgACAAAAAAAOABQAAgACAAAAAAAPABQAAgACAAAAAAAQABQAAgACAAAAAAARABQAAgACAAAAAAAAABUAAgACAAEAAAAAABYAAgAOAAEAAAAAABcAAgACAAIAAAAAABgAAgACAAIAAAAAABkAAgAOAAIAAAAAABoAAgAOAAIAAAAAABsAAgAOAAIAAAAAABwAAgAOAAIAAAAAAB0AAgAOAAIAAAABABUAAgACAAEAAAABABYAAgAOAAEAAAABABcAAgANAAIAAAABABgAAgACAAIAAAABABkAAgAOAAIAAAABABoAAgAOAAIAAAABABsAAgAOAAIAAAABABwAAgAOAAIAAAABAB0AAgAOAAIAAAACABUAAgACAAEAAAACABYAAgANAAIAAAACABcAAgACAAIAAAACABgAAgAOAAIAAAACABkAAgAOAAIAAAACABoAAgAOAAIAAAACABsAAgAOAAIAAAACABwAAgAOAAIAAAACAB0AAgAOAAIAAAADABUAAgACAAEAAAADABYAAgAOAAEAAAADABcAAgACAAIAAAADABgAAgACAAIAAAADABkAAgAOAAIAAAADABoAAgAOAAIAAAADABsAAgAOAAIAAAADABwAAgAOAAIAAAADAB0AAgAOAAIAAAAEABUAAgACAAEAAAAEABYAAgANAAIAAAAEABcAAgACAAIAAAAEABgAAgAOAAIAAAAEABkAAgAOAAIAAAAEABoAAgAOAAIAAAAEABsAAgAOAAIAAAAEABwAAgAOAAIAAAAEAB0AAgAOAAIAAAAFABUAAgACAAEAAAAFABYAAgAOAAMAAAAFABcAAgACAAIAAAAFABgAAgACAAIAAAAFABkAAgAOAAIAAAAFABoAAgAOAAIAAAAFABsAAgAOAAIAAAAFABwAAgAOAAIAAAAFAB0AAgAOAAIAAAAGABUAAgACAAEAAAAGABYAAgAOAAMAAAAGABcAAgANAAIAAAAGABgAAgACAAIAAAAGABkAAgAOAAIAAAAGABoAAgAOAAIAAAAGABsAAgAOAAIAAAAGABwAAgAOAAIAAAAGAB0AAgAOAAIAAAAHABUAAgACAAEAAAAHABYAAgANAAIAAAAHABcAAgANAAIAAAAHABgAAgACAAIAAAAHABkAAgAOAAIAAAAHABoAAgAOAAIAAAAHABsAAgAOAAIAAAAHABwAAgAOAAIAAAAHAB0AAgAOAAIAAAAIABUAAgACAAEAAAAIABYAAgAOAAEAAAAIABcAAgACAAIAAAAIABgAAgACAAIAAAAIABkAAgAOAAIAAAAIABoAAgAOAAIAAAAIABsAAgAOAAIAAAAIABwAAgAOAAIAAAAIAB0AAgAOAAIAAAAJABUAAgACAAEAAAAJABYAAgANAAIAAAAJABcAAgACAAIAAAAJABgAAgACAAIAAAAJABkAAgAOAAIAAAAJABoAAgAOAAIAAAAJABsAAgAOAAIAAAAJABwAAgAOAAIAAAAJAB0AAgAOAAIAAAAKABUAAgACAAEAAAAKABYAAgAOAAEAAAAKABcAAgANAAIAAAAKABgAAgACAAIAAAAKABkAAgAOAAIAAAAKABoAAgAOAAIAAAAKABsAAgAOAAIAAAAKABwAAgAOAAIAAAAKAB0AAgAOAAIAAAALABUAAgACAAEAAAALABYAAgAOAAMAAAALABcAAgACAAIAAAALABgAAgACAAIAAAALABkAAgAOAAIAAAALABoAAgAOAAIAAAALABsAAgAOAAIAAAALABwAAgAOAAIAAAALAB0AAgAOAAIAAAA=")
 tile_set = SubResource("TileSet_5p8kf")
 collision_enabled = false
@@ -1117,13 +1157,20 @@ z_index = -2
 position = Vector2(479, 286)
 texture = ExtResource("17_sxi1f")
 
+[node name="PeepHole" parent="." unique_id=1249271270 node_paths=PackedStringArray("peep_camera") instance=ExtResource("18_tsgrn")]
+position = Vector2(21, 294)
+peep_camera = NodePath("Camera2D")
+peep_shader = SubResource("Resource_ccxey")
+grand_reveal_shader = SubResource("Resource_8dxbh")
+
+[node name="Camera2D" type="Camera2D" parent="PeepHole" unique_id=1183159128]
+position = Vector2(104, 155)
+enabled = false
+zoom = Vector2(2.78, 2.78)
+
 [node name="MainCamera" parent="." unique_id=1920733498 node_paths=PackedStringArray("focused_follower") instance=ExtResource("18_ccxey")]
 position = Vector2(1082, 1137)
-focused_follower = NodePath("FollowableObject")
-
-[node name="FollowableObject" parent="MainCamera" unique_id=736832149 node_paths=PackedStringArray("node") instance=ExtResource("19_tsgrn")]
-icon_texture = ExtResource("20_8dxbh")
-node = NodePath("../../Dog")
+focused_follower = NodePath("FollowableObject2")
 
 [node name="FollowableObject2" parent="MainCamera" unique_id=489578734 node_paths=PackedStringArray("node") instance=ExtResource("19_tsgrn")]
 icon_texture = ExtResource("21_mq75a")

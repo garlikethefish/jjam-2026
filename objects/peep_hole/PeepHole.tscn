@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b111c6wr3vasa"]
+
+[ext_resource type="Script" uid="uid://vypiuemgd17q" path="res://objects/peep_hole/peep_hole.gd" id="1_ef6sm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhb7j"]
+
+[node name="PeepHole" type="Area2D" unique_id=1249271270]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_ef6sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1420435239]
+shape = SubResource("CircleShape2D_uhb7j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

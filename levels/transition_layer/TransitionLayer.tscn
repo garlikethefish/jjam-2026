@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bch8vl3wxo8w5"]
+
+[ext_resource type="Script" uid="uid://b20ultkqxjnok" path="res://levels/transition_layer/transition_layer.gd" id="1_xrnfb"]
+[ext_resource type="Shader" uid="uid://3sw1f764450" path="res://shaders/diamond_vertical.gdshader" id="2_86sg5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxi1f"]
+shader = ExtResource("2_86sg5")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 10.0
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = 0.63
+shader_parameter/disable_pixel = false
+
+[sub_resource type="Gradient" id="Gradient_ibfjv"]
+colors = PackedColorArray(0.10299791, 0.0064931083, 0.0045631486, 1, 0.17111391, 0.003464325, 0.10086394, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ibfjv"]
+gradient = SubResource("Gradient_ibfjv")
+fill_from = Vector2(0.51724136, 1)
+fill_to = Vector2(0.49753696, 0.093596056)
+
+[node name="TransitionLayer" type="CanvasLayer" unique_id=2201102]
+layer = 100
+script = ExtResource("1_xrnfb")
+progress_property_name = "height"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1038806771]
+material = SubResource("ShaderMaterial_sxi1f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_ibfjv")

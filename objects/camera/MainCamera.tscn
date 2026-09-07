@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://bgwlr4rs1noie"]
 
 [ext_resource type="Script" uid="uid://bo3ll603sagvt" path="res://objects/camera/camera.gd" id="1_dqpmd"]
+[ext_resource type="PackedScene" uid="uid://bch8vl3wxo8w5" path="res://levels/transition_layer/TransitionLayer.tscn" id="2_ms4jm"]
 
-[node name="MainCamera" type="Camera2D" unique_id=1920733498]
+[node name="MainCamera" type="Camera2D" unique_id=1920733498 groups=["main_camera"]]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 script = ExtResource("1_dqpmd")
+
+[node name="TransitionLayer" parent="." unique_id=2201102 instance=ExtResource("2_ms4jm")]
+layer = 0
+max_value = 1.0
+min_value = -1.0

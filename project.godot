@@ -42,6 +42,7 @@ player=""
 dog=""
 transition_screen=""
 lift=""
+main_camera=""
 
 [input]
 

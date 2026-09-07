@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvakk3sp736d6"]
 
-[ext_resource type="Script" uid="uid://brpmr6qloduxq" path="res://levels/transition_screen.gd" id="1_7wyxe"]
+[ext_resource type="Script" uid="uid://brpmr6qloduxq" path="res://ui/transition_screen.gd" id="1_7wyxe"]
 
 [sub_resource type="Shader" id="Shader_ihi63"]
 code = "shader_type canvas_item;
