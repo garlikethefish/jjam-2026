@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8rmuoi0275bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="CameraCollider" type="StaticBody2D" unique_id=1480681765]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=431331703]
+shape = SubResource("RectangleShape2D_g4v7s")

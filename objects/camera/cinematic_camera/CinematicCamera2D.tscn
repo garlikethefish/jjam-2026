@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://co18k24cg0m4u"]
+
+[ext_resource type="Script" uid="uid://cpsh1wugg374b" path="res://objects/camera/cinematic_camera/cinematic_camera_2d.gd" id="1_m8ym6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="CinematicCamera2D" type="CharacterBody2D" unique_id=246293749]
+collision_layer = 512
+collision_mask = 1024
+script = ExtResource("1_m8ym6")
+default_zoom = Vector2(3, 3)
+follow_speed_multiplier = Vector2(4, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1081645949]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=347948401]
+zoom = Vector2(3, 3)

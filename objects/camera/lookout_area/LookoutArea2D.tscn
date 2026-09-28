@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://drilsgl2m4w7v"]
+
+[ext_resource type="Script" uid="uid://gn0kj7hfb882" path="res://objects/camera/lookout_area/lookout_area_2d.gd" id="1_wj1ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="LookoutArea2D" type="Area2D" unique_id=92603070]
+collision_layer = 0
+collision_mask = 516
+script = ExtResource("1_wj1ya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609190161]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
